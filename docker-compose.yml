@@ -91,6 +91,23 @@ services:
       - backoffice_elasticsearch
     command: ["./gradlew", "bootRun", "--args", "mooc_backend server"]
 
+  inventory_backend_server_java:
+    container_name: codely-java_ddd_example-inventory_backend_server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app:delegated
+      - inventory_backend_gradle_cache:/app/.gradle
+    depends_on:
+      - shared_mysql
+      - shared_rabbitmq
+      - backoffice_elasticsearch
+    command: ["./gradlew", "bootRun", "--args", "inventory_backend server"]
+
   test_server_java:
     container_name: codely-java_ddd_example-test_server
     build:
@@ -111,3 +128,4 @@ volumes:
   backoffice_frontend_gradle_cache:
   mooc_backend_gradle_cache:
   test_gradle_cache:
+  inventory_backend_gradle_cache:
