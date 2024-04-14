@@ -13,6 +13,10 @@ public class ProductPrice {
 		this.value = new BigDecimal(value);
 	}
 
+	private ProductPrice() {
+		this.value = null;
+	}
+
 	public String value() {
 		return value.toString();
 	}

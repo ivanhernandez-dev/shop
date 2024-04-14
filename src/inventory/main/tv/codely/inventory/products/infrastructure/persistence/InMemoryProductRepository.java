@@ -1,6 +1,7 @@
-package tv.codely.inventory.products.infrastructure;
+package tv.codely.inventory.products.infrastructure.persistence;
 
 import tv.codely.inventory.products.domain.Product;
+import tv.codely.inventory.products.domain.ProductId;
 import tv.codely.inventory.products.domain.ProductRepository;
 import tv.codely.shared.domain.Service;
 
@@ -8,7 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-@Service
 public final class InMemoryProductRepository implements ProductRepository {
 	private Map<String, Product> products = new HashMap<>();
 
@@ -18,7 +18,7 @@ public final class InMemoryProductRepository implements ProductRepository {
 	}
 
 	@Override
-	public Optional<Product> search(String id) {
-		return Optional.ofNullable(this.products.get(id));
+	public Optional<Product> search(ProductId id) {
+		return Optional.ofNullable(this.products.get(id.value()));
 	}
 }

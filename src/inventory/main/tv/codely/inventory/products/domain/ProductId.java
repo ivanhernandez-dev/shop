@@ -7,6 +7,6 @@ public class ProductId extends IdentifierValueObject {
 		super(value);
 	}
 
-	public ProductId() {
+	private ProductId() {
 	}
 }
