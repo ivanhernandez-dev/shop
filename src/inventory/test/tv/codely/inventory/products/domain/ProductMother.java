@@ -4,7 +4,7 @@ import tv.codely.inventory.products.application.create.CreateProductRequest;
 
 public final class ProductMother {
 	public static Product create(ProductId id, ProductName name, ProductPrice price) {
-		return new Product(id, name, price);
+		return Product.create(id, name, price);
 	}
 
 	public static Product random() {
