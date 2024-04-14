@@ -14,8 +14,8 @@ public final class ProductCreator {
 	 	this.repository = repository;
 	}
 
-	public void create(String id, String name, BigDecimal price) {
-		Product product = Product.create(id, name, price);
+	public void create(CreateProductRequest request) {
+		Product product = Product.create(request.id(), request.name(), request.price());
 
 		repository.save(product);
 	}

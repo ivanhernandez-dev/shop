@@ -16,7 +16,7 @@ final class ProductCreatorShould {
 
 		Product product = new Product("1aab45ba-3c7a-4344-8936-78466eca77fa", "The best product", new BigDecimal(100));
 
-		creator.create(product.id(), product.name(), product.price());
+		creator.create(new CreateProductRequest(product.id(), product.name(), product.price()));
 
 		verify(repository, atLeastOnce()).save(product);
 	}

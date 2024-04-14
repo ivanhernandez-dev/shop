@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import tv.codely.inventory.products.application.create.CreateProductRequest;
 import tv.codely.inventory.products.application.create.ProductCreator;
 
 import java.math.BigDecimal;
@@ -20,7 +21,7 @@ public final class ProductsPutController {
 
 	@PutMapping("/products/{id}")
 	public ResponseEntity create(@PathVariable String id, @RequestBody Request request) {
-		// creator.create(id, request.name(), request.price());
+		this.creator.create(new CreateProductRequest(id, request.name(), request.price()));
 
 		return new ResponseEntity(HttpStatus.CREATED);
 	}
