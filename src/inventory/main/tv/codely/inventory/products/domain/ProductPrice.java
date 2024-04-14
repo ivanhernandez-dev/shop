@@ -36,15 +36,7 @@ public class ProductPrice {
 		return Objects.hash(value);
 	}
 
-	public boolean isLowerThan(ProductPrice price) {
-		return value.compareTo(price.value) < 0;
-	}
-
-	public boolean isGreaterThan(ProductPrice price) {
-		return value.compareTo(price.value) > 0;
-	}
-
-	public boolean isEquals(ProductPrice price) {
-		return value.compareTo(price.value) == 0;
+	public int compareTo(ProductPrice price) {
+		return value.compareTo(price.value);
 	}
 }
