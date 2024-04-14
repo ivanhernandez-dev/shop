@@ -1,7 +1,7 @@
 package tv.codely.inventory.products.infrastructure;
 
 import org.junit.jupiter.api.Test;
-import tv.codely.inventory.products.domain.Product;
+import tv.codely.inventory.products.domain.*;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -13,7 +13,7 @@ final class InMemoryProductRepositoryShould {
 	void save_a_product() {
 		InMemoryProductRepository repository = new InMemoryProductRepository();
 
-		Product product = new Product("1aab45ba-3c7a-4344-8936-78466eca77fa", "The best product", new BigDecimal(100));
+		Product product = ProductMother.random();
 
 		repository.save(product);
 	}
@@ -22,17 +22,18 @@ final class InMemoryProductRepositoryShould {
 	void return_an_existing_product() {
 		InMemoryProductRepository repository = new InMemoryProductRepository();
 
-		Product product = new Product("1aab45ba-3c7a-4344-8936-78466eca77fa", "The best product", new BigDecimal(100));
+		Product product = ProductMother.random();
 
 		repository.save(product);
 
-		assertEquals(Optional.of(product), repository.search("1aab45ba-3c7a-4344-8936-78466eca77fa"));
+		assertEquals(Optional.of(product), repository.search(product.id().value()));
 	}
 
 	@Test
 	void not_return_a_non_existing_product() {
 		InMemoryProductRepository repository = new InMemoryProductRepository();
+		ProductId id = ProductIdMother.random();
 
-		assertFalse(repository.search("1aab45ba-3c7a-4344-8936-78466eca77fa").isPresent());
+		assertFalse(repository.search(id.value()).isPresent());
 	}
 }

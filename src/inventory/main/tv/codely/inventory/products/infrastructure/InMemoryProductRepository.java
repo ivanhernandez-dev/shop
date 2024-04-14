@@ -14,7 +14,7 @@ public final class InMemoryProductRepository implements ProductRepository {
 
 	@Override
 	public void save(Product product) {
-		this.products.put(product.id(), product);
+		this.products.put(product.id().value(), product);
 	}
 
 	@Override

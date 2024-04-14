@@ -1,8 +1,7 @@
 package tv.codely.inventory.products.application.create;
 
 import org.junit.jupiter.api.Test;
-import tv.codely.inventory.products.domain.Product;
-import tv.codely.inventory.products.domain.ProductRepository;
+import tv.codely.inventory.products.domain.*;
 
 import java.math.BigDecimal;
 
@@ -14,9 +13,11 @@ final class ProductCreatorShould {
 		ProductRepository repository = mock(ProductRepository.class);
 		ProductCreator creator = new ProductCreator(repository);
 
-		Product product = new Product("1aab45ba-3c7a-4344-8936-78466eca77fa", "The best product", new BigDecimal(100));
+		CreateProductRequest request = CreateProductRequestMother.random();
 
-		creator.create(new CreateProductRequest(product.id(), product.name(), product.price()));
+		Product product = ProductMother.fromRequest(request);
+
+		creator.create(request);
 
 		verify(repository, atLeastOnce()).save(product);
 	}

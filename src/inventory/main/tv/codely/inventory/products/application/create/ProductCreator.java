@@ -1,7 +1,6 @@
 package tv.codely.inventory.products.application.create;
 
-import tv.codely.inventory.products.domain.Product;
-import tv.codely.inventory.products.domain.ProductRepository;
+import tv.codely.inventory.products.domain.*;
 import tv.codely.shared.domain.Service;
 
 import java.math.BigDecimal;
@@ -15,7 +14,7 @@ public final class ProductCreator {
 	}
 
 	public void create(CreateProductRequest request) {
-		Product product = Product.create(request.id(), request.name(), request.price());
+		Product product = Product.create(new ProductId(request.id()), new ProductName(request.name()), new ProductPrice(request.price()));
 
 		repository.save(product);
 	}
