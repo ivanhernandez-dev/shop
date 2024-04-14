@@ -2,7 +2,7 @@ package tv.codely.shared.infrastructure.hibernate;
 
 import jakarta.persistence.criteria.CriteriaQuery;
 import org.hibernate.SessionFactory;
-import tv.codely.shared.domain.Identifier;
+import tv.codely.shared.domain.IdentifierValueObject;
 import tv.codely.shared.domain.criteria.Criteria;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public abstract class HibernateRepository<T> {
         sessionFactory.getCurrentSession().clear();
     }
 
-    protected Optional<T> byId(Identifier id) {
+    protected Optional<T> byId(IdentifierValueObject id) {
         return Optional.ofNullable(sessionFactory.getCurrentSession().byId(aggregateClass).load(id));
     }
 

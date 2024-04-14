@@ -4,16 +4,16 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class Identifier implements Serializable {
+public abstract class IdentifierValueObject implements Serializable {
     final protected String value;
 
-    public Identifier(String value) {
+    public IdentifierValueObject(String value) {
         ensureValidUuid(value);
 
         this.value = value;
     }
 
-    protected Identifier() {
+    protected IdentifierValueObject() {
         this.value = null;
     }
 
@@ -29,7 +29,7 @@ public abstract class Identifier implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Identifier that = (Identifier) o;
+        IdentifierValueObject that = (IdentifierValueObject) o;
         return value.equals(that.value);
     }
 
