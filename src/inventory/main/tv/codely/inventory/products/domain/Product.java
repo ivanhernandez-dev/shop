@@ -1,9 +1,11 @@
 package tv.codely.inventory.products.domain;
 
+import tv.codely.shared.domain.AggregateRoot;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public final class Product {
+public final class Product extends AggregateRoot {
 	private final ProductId id;
 	private final ProductName name;
 	private final ProductPrice price;
@@ -12,6 +14,12 @@ public final class Product {
 		this.id = id;
 		this.name = name;
 		this.price = price;
+	}
+
+	private Product() {
+		id = null;
+		name = null;
+		price = null;
 	}
 
 	public static Product create(ProductId id, ProductName name, ProductPrice price) {
