@@ -14,7 +14,7 @@
         </component>
 
         <component name="price" class="tv.codely.inventory.products.domain.ProductPrice" access="field">
-            <property name="value" column="price" type="string" access="field" />
+            <property name="value" column="price" type="big_decimal" access="field" />
         </component>
     </class>
 </hibernate-mapping>

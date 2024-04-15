@@ -10,7 +10,7 @@ public class ProductPrice {
 
 	public ProductPrice(String value) {
 		ensureValidPrice(value);
-		this.value = new BigDecimal(value);
+		this.value = new BigDecimal(value).setScale(2, BigDecimal.ROUND_HALF_UP);
 	}
 
 	private ProductPrice() {
@@ -42,5 +42,10 @@ public class ProductPrice {
 
 	public int compareTo(ProductPrice price) {
 		return value.compareTo(price.value);
+	}
+
+	@Override
+	public String toString() {
+		return value.toString();
 	}
 }

@@ -50,4 +50,13 @@ public final class Product extends AggregateRoot {
 	public int hashCode() {
 		return Objects.hash(id, name, price);
 	}
+
+	@Override
+	public String toString() {
+		return "Product{" +
+			"id=" + id +
+			", name=" + name +
+			", price=" + price +
+			'}';
+	}
 }
