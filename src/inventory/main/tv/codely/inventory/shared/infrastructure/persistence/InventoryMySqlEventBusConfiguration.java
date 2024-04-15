@@ -10,12 +10,12 @@ import tv.codely.shared.infrastructure.bus.event.mysql.MySqlEventBus;
 import tv.codely.shared.infrastructure.bus.event.spring.SpringApplicationEventBus;
 
 @Configuration
-public class InventoryMySqlEventBusConsumer {
+public class InventoryMySqlEventBusConfiguration {
 	private final SessionFactory sessionFactory;
 	private final DomainEventsInformation domainEventsInformation;
 	private final SpringApplicationEventBus bus;
 
-	public InventoryMySqlEventBusConsumer(
+	public InventoryMySqlEventBusConfiguration(
 		@Qualifier("inventory-session_factory") SessionFactory sessionFactory,
 		DomainEventsInformation domainEventsInformation,
 		SpringApplicationEventBus bus
