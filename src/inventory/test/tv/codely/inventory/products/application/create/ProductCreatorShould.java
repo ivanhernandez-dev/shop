@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tv.codely.inventory.products.ProductsModuleUnitTestCase;
 import tv.codely.inventory.products.domain.*;
+import tv.codely.shared.domain.product.ProductCreatedDomainEvent;
 
 import java.math.BigDecimal;
 
@@ -16,7 +17,7 @@ final class ProductCreatorShould extends ProductsModuleUnitTestCase {
 	protected void setUp() {
 		super.setUp();
 
-		this.creator = new ProductCreator(repository);
+		this.creator = new ProductCreator(repository, eventBus);
 	}
 
 
@@ -25,9 +26,11 @@ final class ProductCreatorShould extends ProductsModuleUnitTestCase {
 		CreateProductRequest request = CreateProductRequestMother.random();
 
 		Product product = ProductMother.fromRequest(request);
+		ProductCreatedDomainEvent event = ProductCreatedDomainEventMother.fromProduct(product);
 
 		this.creator.create(request);
 
 		shouldHaveSaved(product);
+		shouldHavePublished(event);
 	}
 }

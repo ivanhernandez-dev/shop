@@ -1,5 +1,6 @@
 package tv.codely.inventory.products.infrastructure;
 
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import tv.codely.inventory.products.ProductsModuleInfrastructureTestCase;
 import tv.codely.inventory.products.domain.Product;
@@ -12,7 +13,8 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-final class MySqlProductRepositoryShould extends ProductsModuleInfrastructureTestCase {
+@Transactional
+class MySqlProductRepositoryShould extends ProductsModuleInfrastructureTestCase {
 	@Test
 	void save_a_product() {
 		Product product = ProductMother.random();
