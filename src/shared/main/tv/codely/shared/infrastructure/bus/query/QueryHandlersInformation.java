@@ -1,7 +1,7 @@
 package tv.codely.shared.infrastructure.bus.query;
 
 import org.reflections.Reflections;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.query.Query;
 import tv.codely.shared.domain.bus.query.QueryHandler;
 import tv.codely.shared.domain.bus.query.QueryNotRegisteredError;
@@ -10,7 +10,7 @@ import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;
 import java.util.Set;
 
-@Service
+@Component
 public final class QueryHandlersInformation {
     HashMap<Class<? extends Query>, Class<? extends QueryHandler>> indexedQueryHandlers;
 

@@ -1,9 +1,9 @@
 package tv.codely.shared.infrastructure.config;
 
 import io.github.cdimascio.dotenv.Dotenv;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 
-@Service
+@Component
 public final class Parameter {
     private final Dotenv dotenv;
 

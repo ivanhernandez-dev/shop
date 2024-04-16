@@ -3,7 +3,6 @@ package tv.codely.inventory.products.infrastructure.persistence;
 import tv.codely.inventory.products.domain.Product;
 import tv.codely.inventory.products.domain.ProductId;
 import tv.codely.inventory.products.domain.ProductRepository;
-import tv.codely.shared.domain.Service;
 
 import java.util.HashMap;
 import java.util.Map;

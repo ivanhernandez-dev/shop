@@ -1,13 +1,13 @@
 package tv.codely.shared.infrastructure.bus.command;
 
 import org.springframework.context.ApplicationContext;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.command.Command;
 import tv.codely.shared.domain.bus.command.CommandBus;
 import tv.codely.shared.domain.bus.command.CommandHandler;
 import tv.codely.shared.domain.bus.command.CommandHandlerExecutionError;
 
-@Service
+@Component
 public final class InMemoryCommandBus implements CommandBus {
     private final CommandHandlersInformation information;
     private final ApplicationContext         context;

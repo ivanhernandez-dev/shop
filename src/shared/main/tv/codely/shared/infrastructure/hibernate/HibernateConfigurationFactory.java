@@ -8,7 +8,7 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 
 import javax.sql.DataSource;
 import java.io.File;
@@ -17,7 +17,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Service
+@Component
 public final class HibernateConfigurationFactory {
     private final ResourcePatternResolver resourceResolver;
 

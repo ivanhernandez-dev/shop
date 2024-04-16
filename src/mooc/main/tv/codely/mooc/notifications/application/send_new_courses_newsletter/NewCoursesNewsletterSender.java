@@ -7,12 +7,12 @@ import tv.codely.mooc.notifications.domain.NewCoursesNewsletter;
 import tv.codely.mooc.students.application.StudentResponse;
 import tv.codely.mooc.students.application.StudentsResponse;
 import tv.codely.mooc.students.application.search_all.SearchAllStudentsQuery;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.UuidGenerator;
 import tv.codely.shared.domain.bus.event.EventBus;
 import tv.codely.shared.domain.bus.query.QueryBus;
 
-@Service
+@Component
 public final class NewCoursesNewsletterSender {
     private final static Integer       TOTAL_COURSES = 3;
     private final        QueryBus      queryBus;

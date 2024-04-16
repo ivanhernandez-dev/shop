@@ -1,12 +1,10 @@
 package tv.codely.inventory.products.application.create;
 
 import tv.codely.inventory.products.domain.*;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.event.EventBus;
 
-import java.math.BigDecimal;
-
-@Service
+@Component
 public final class ProductCreator {
 	private final ProductRepository repository;
 	private final EventBus eventBus;

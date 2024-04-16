@@ -1,10 +1,10 @@
 package tv.codely.shared.infrastructure.bus.query;
 
 import org.springframework.context.ApplicationContext;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.query.*;
 
-@Service
+@Component
 public final class InMemoryQueryBus implements QueryBus {
     private final QueryHandlersInformation information;
     private final ApplicationContext       context;

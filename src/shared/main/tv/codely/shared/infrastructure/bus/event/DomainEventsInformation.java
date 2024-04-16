@@ -1,7 +1,7 @@
 package tv.codely.shared.infrastructure.bus.event;
 
 import org.reflections.Reflections;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.event.DomainEvent;
 
 import java.lang.reflect.InvocationTargetException;
@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-@Service
+@Component
 public final class DomainEventsInformation {
     HashMap<String, Class<? extends DomainEvent>> indexedDomainEvents;
 

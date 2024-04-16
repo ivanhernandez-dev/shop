@@ -3,7 +3,7 @@ package tv.codely.backoffice.courses.application.search_by_criteria;
 import tv.codely.backoffice.courses.application.BackofficeCourseResponse;
 import tv.codely.backoffice.courses.application.BackofficeCoursesResponse;
 import tv.codely.backoffice.courses.domain.BackofficeCourseRepository;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.criteria.Criteria;
 import tv.codely.shared.domain.criteria.Filters;
 import tv.codely.shared.domain.criteria.Order;
@@ -11,7 +11,7 @@ import tv.codely.shared.domain.criteria.Order;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Service
+@Component
 public final class BackofficeCoursesByCriteriaSearcher {
     private final BackofficeCourseRepository repository;
 

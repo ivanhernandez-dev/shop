@@ -1,10 +1,10 @@
 package tv.codely.mooc.courses.application.search_last;
 
 import tv.codely.mooc.courses.application.CoursesResponse;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.query.QueryHandler;
 
-@Service
+@Component
 public final class SearchLastCoursesQueryHandler implements QueryHandler<SearchLastCoursesQuery, CoursesResponse> {
     private final LastCoursesSearcher searcher;
 

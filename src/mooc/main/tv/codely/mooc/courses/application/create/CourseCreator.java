@@ -1,10 +1,10 @@
 package tv.codely.mooc.courses.application.create;
 
 import tv.codely.mooc.courses.domain.*;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.event.EventBus;
 
-@Service
+@Component
 public final class CourseCreator {
     private final CourseRepository repository;
     private final EventBus         eventBus;

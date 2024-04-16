@@ -3,10 +3,10 @@ package tv.codely.mooc.courses.application.create;
 import tv.codely.mooc.courses.domain.CourseDuration;
 import tv.codely.mooc.courses.domain.CourseId;
 import tv.codely.mooc.courses.domain.CourseName;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.command.CommandHandler;
 
-@Service
+@Component
 public final class CreateCourseCommandHandler implements CommandHandler<CreateCourseCommand> {
     private final CourseCreator creator;
 

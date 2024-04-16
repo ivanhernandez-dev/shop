@@ -3,9 +3,9 @@ package tv.codely.mooc.courses_counter.application.find;
 import tv.codely.mooc.courses_counter.domain.CoursesCounter;
 import tv.codely.mooc.courses_counter.domain.CoursesCounterNotInitialized;
 import tv.codely.mooc.courses_counter.domain.CoursesCounterRepository;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 
-@Service
+@Component
 public final class CoursesCounterFinder {
     private CoursesCounterRepository repository;
 

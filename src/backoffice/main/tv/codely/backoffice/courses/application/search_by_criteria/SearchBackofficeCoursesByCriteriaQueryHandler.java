@@ -1,12 +1,12 @@
 package tv.codely.backoffice.courses.application.search_by_criteria;
 
 import tv.codely.backoffice.courses.application.BackofficeCoursesResponse;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.query.QueryHandler;
 import tv.codely.shared.domain.criteria.Filters;
 import tv.codely.shared.domain.criteria.Order;
 
-@Service
+@Component
 public final class SearchBackofficeCoursesByCriteriaQueryHandler implements QueryHandler<SearchBackofficeCoursesByCriteriaQuery, BackofficeCoursesResponse> {
     private final BackofficeCoursesByCriteriaSearcher searcher;
 

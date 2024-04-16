@@ -1,11 +1,11 @@
 package tv.codely.shared.infrastructure;
 
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.UuidGenerator;
 
 import java.util.UUID;
 
-@Service
+@Component
 public final class JavaUuidGenerator implements UuidGenerator {
     @Override
     public String generate() {

@@ -1,6 +1,6 @@
 package tv.codely.shared.infrastructure.bus.event;
 
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.Utils;
 import tv.codely.shared.domain.bus.event.DomainEvent;
 
@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 
-@Service
+@Component
 public final class DomainEventJsonDeserializer {
     private final DomainEventsInformation information;
 

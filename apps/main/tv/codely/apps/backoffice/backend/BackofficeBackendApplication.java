@@ -7,11 +7,11 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 
 @SpringBootApplication(exclude = HibernateJpaAutoConfiguration.class)
 @ComponentScan(
-	includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Service.class),
+	includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Component.class),
 	value = { "tv.codely.shared", "tv.codely.backoffice", "tv.codely.apps.backoffice.backend" }
 )
 public class BackofficeBackendApplication {

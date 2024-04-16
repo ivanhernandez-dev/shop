@@ -1,11 +1,11 @@
 package tv.codely.backoffice.auth.application.authenticate;
 
 import tv.codely.backoffice.auth.domain.*;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 
 import java.util.Optional;
 
-@Service
+@Component
 public final class UserAuthenticator {
     private final AuthRepository repository;
 

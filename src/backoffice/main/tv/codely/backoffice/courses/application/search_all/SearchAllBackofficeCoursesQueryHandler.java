@@ -1,10 +1,10 @@
 package tv.codely.backoffice.courses.application.search_all;
 
 import tv.codely.backoffice.courses.application.BackofficeCoursesResponse;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.query.QueryHandler;
 
-@Service
+@Component
 public final class SearchAllBackofficeCoursesQueryHandler implements QueryHandler<SearchAllBackofficeCoursesQuery, BackofficeCoursesResponse> {
     private final AllBackofficeCoursesSearcher searcher;
 

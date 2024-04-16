@@ -3,14 +3,14 @@ package tv.codely.backoffice.courses;
 import org.elasticsearch.client.Request;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.infrastructure.elasticsearch.ElasticsearchClient;
 
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
 
-@Service
+@Component
 public final class ElasticsearchEnvironmentArranger {
     ResourcePatternResolver resourceResolver;
     ElasticsearchClient     client;

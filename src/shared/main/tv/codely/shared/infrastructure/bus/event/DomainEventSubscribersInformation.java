@@ -1,7 +1,7 @@
 package tv.codely.shared.infrastructure.bus.event;
 
 import org.reflections.Reflections;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.event.DomainEventSubscriber;
 
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
-@Service
+@Component
 public final class DomainEventSubscribersInformation {
     HashMap<Class<?>, DomainEventSubscriberInformation> information;
 

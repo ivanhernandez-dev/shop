@@ -5,13 +5,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 import tv.codely.backoffice.courses.domain.BackofficeCourse;
 import tv.codely.backoffice.courses.domain.BackofficeCourseRepository;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.criteria.Criteria;
 import tv.codely.shared.infrastructure.hibernate.HibernateRepository;
 
 import java.util.List;
 
-@Service
+@Component
 @Transactional("backoffice-transaction_manager")
 public class MySqlBackofficeCourseRepository extends HibernateRepository<BackofficeCourse> implements BackofficeCourseRepository {
     public MySqlBackofficeCourseRepository(@Qualifier("backoffice-session_factory") SessionFactory sessionFactory) {

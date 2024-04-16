@@ -1,11 +1,11 @@
 package tv.codely.backoffice.courses.application.create;
 
 import org.springframework.context.event.EventListener;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.event.DomainEventSubscriber;
 import tv.codely.shared.domain.course.CourseCreatedDomainEvent;
 
-@Service
+@Component
 @DomainEventSubscriber({CourseCreatedDomainEvent.class})
 public final class CreateBackofficeCourseOnCourseCreated {
     private final BackofficeCourseCreator creator;

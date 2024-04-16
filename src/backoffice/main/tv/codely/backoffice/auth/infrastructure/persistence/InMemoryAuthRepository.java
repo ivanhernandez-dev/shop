@@ -4,12 +4,12 @@ import tv.codely.backoffice.auth.domain.AuthPassword;
 import tv.codely.backoffice.auth.domain.AuthRepository;
 import tv.codely.backoffice.auth.domain.AuthUser;
 import tv.codely.backoffice.auth.domain.AuthUsername;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 
 import java.util.HashMap;
 import java.util.Optional;
 
-@Service
+@Component
 public final class InMemoryAuthRepository implements AuthRepository {
     private final HashMap<AuthUsername, AuthPassword> users = new HashMap<AuthUsername, AuthPassword>() {{
         put(new AuthUsername("javi"), new AuthPassword("barbitas"));

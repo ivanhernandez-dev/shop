@@ -4,9 +4,9 @@ import tv.codely.mooc.courses.application.CourseResponse;
 import tv.codely.mooc.courses.domain.CourseId;
 import tv.codely.mooc.courses.domain.CourseNotExist;
 import tv.codely.mooc.courses.domain.CourseRepository;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 
-@Service
+@Component
 public final class CourseFinder {
     private final CourseRepository repository;
 

@@ -2,10 +2,10 @@ package tv.codely.backoffice.auth.application.authenticate;
 
 import tv.codely.backoffice.auth.domain.AuthPassword;
 import tv.codely.backoffice.auth.domain.AuthUsername;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.command.CommandHandler;
 
-@Service
+@Component
 public final class AuthenticateUserCommandHandler implements CommandHandler<AuthenticateUserCommand> {
     private final UserAuthenticator authenticator;
 

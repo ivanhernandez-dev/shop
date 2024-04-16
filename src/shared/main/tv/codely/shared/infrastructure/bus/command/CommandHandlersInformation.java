@@ -1,7 +1,7 @@
 package tv.codely.shared.infrastructure.bus.command;
 
 import org.reflections.Reflections;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.command.Command;
 import tv.codely.shared.domain.bus.command.CommandHandler;
 import tv.codely.shared.domain.bus.command.CommandNotRegisteredError;
@@ -10,7 +10,7 @@ import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;
 import java.util.Set;
 
-@Service
+@Component
 public final class CommandHandlersInformation {
     HashMap<Class<? extends Command>, Class<? extends CommandHandler>> indexedCommandHandlers;
 

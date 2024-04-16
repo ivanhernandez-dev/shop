@@ -3,11 +3,11 @@ package tv.codely.backoffice.courses.application.search_all;
 import tv.codely.backoffice.courses.application.BackofficeCourseResponse;
 import tv.codely.backoffice.courses.application.BackofficeCoursesResponse;
 import tv.codely.backoffice.courses.domain.BackofficeCourseRepository;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 
 import java.util.stream.Collectors;
 
-@Service
+@Component
 public final class AllBackofficeCoursesSearcher {
     private final BackofficeCourseRepository repository;
 

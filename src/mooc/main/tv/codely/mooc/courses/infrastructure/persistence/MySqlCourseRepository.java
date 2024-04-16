@@ -6,14 +6,14 @@ import org.springframework.transaction.annotation.Transactional;
 import tv.codely.mooc.courses.domain.Course;
 import tv.codely.mooc.courses.domain.CourseId;
 import tv.codely.mooc.courses.domain.CourseRepository;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.criteria.Criteria;
 import tv.codely.shared.infrastructure.hibernate.HibernateRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Component
 @Transactional("mooc-transaction_manager")
 public class MySqlCourseRepository extends HibernateRepository<Course> implements CourseRepository {
     public MySqlCourseRepository(@Qualifier("mooc-session_factory") SessionFactory sessionFactory) {

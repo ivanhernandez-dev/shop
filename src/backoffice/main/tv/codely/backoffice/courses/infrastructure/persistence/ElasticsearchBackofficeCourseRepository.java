@@ -3,7 +3,7 @@ package tv.codely.backoffice.courses.infrastructure.persistence;
 import org.springframework.context.annotation.Primary;
 import tv.codely.backoffice.courses.domain.BackofficeCourse;
 import tv.codely.backoffice.courses.domain.BackofficeCourseRepository;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.criteria.Criteria;
 import tv.codely.shared.infrastructure.elasticsearch.ElasticsearchClient;
 import tv.codely.shared.infrastructure.elasticsearch.ElasticsearchRepository;
@@ -11,7 +11,7 @@ import tv.codely.shared.infrastructure.elasticsearch.ElasticsearchRepository;
 import java.util.List;
 
 @Primary
-@Service
+@Component
 public final class ElasticsearchBackofficeCourseRepository extends ElasticsearchRepository<BackofficeCourse> implements BackofficeCourseRepository {
     public ElasticsearchBackofficeCourseRepository(ElasticsearchClient client) {
         super(client);

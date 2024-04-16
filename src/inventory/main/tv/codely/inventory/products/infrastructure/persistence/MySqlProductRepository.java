@@ -6,12 +6,12 @@ import org.springframework.transaction.annotation.Transactional;
 import tv.codely.inventory.products.domain.Product;
 import tv.codely.inventory.products.domain.ProductId;
 import tv.codely.inventory.products.domain.ProductRepository;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 import tv.codely.shared.infrastructure.hibernate.HibernateRepository;
 
 import java.util.Optional;
 
-@Service
+@Component
 @Transactional("inventory-transaction_manager")
 public class MySqlProductRepository extends HibernateRepository<Product> implements ProductRepository {
 	public MySqlProductRepository(@Qualifier("inventory-session_factory") SessionFactory sessionFactory) {

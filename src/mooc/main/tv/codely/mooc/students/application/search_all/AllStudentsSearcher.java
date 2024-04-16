@@ -3,11 +3,11 @@ package tv.codely.mooc.students.application.search_all;
 import tv.codely.mooc.students.application.StudentResponse;
 import tv.codely.mooc.students.application.StudentsResponse;
 import tv.codely.mooc.students.domain.StudentRepository;
-import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.Component;
 
 import java.util.stream.Collectors;
 
-@Service
+@Component
 public final class AllStudentsSearcher {
     private final StudentRepository repository;
 
