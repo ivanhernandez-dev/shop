@@ -2,6 +2,7 @@ package tv.codely.inventory.products.infrastructure.persistence;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.transaction.annotation.Transactional;
 import tv.codely.inventory.products.domain.Product;
 import tv.codely.inventory.products.domain.ProductId;
@@ -11,6 +12,7 @@ import tv.codely.shared.infrastructure.hibernate.HibernateRepository;
 
 import java.util.Optional;
 
+@Primary
 @Component
 @Transactional("inventory-transaction_manager")
 public class MySqlProductRepository extends HibernateRepository<Product> implements ProductRepository {
