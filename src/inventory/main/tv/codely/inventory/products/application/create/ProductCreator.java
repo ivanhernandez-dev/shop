@@ -15,7 +15,7 @@ public final class ProductCreator {
 	}
 
 	public void create(CreateProductRequest request) {
-		Product product = Product.create(new ProductId(request.id()), new ProductName(request.name()), new ProductPrice(request.price()));
+		Product product = Product.create(new ProductId(request.id()), new ProductName(request.name()), new ProductDescription(request.description()), new ProductPrice(request.price()), new ProductWeight(request.weight()));
 
 		repository.save(product);
 

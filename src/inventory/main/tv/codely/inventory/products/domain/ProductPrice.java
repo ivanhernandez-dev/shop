@@ -5,7 +5,7 @@ import tv.codely.shared.domain.PriceValueObject;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class ProductPrice {
+public final class ProductPrice {
 	private final BigDecimal value;
 
 	public ProductPrice(String value) {

@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="tv.codely.inventory.shelves.domain.Shelf" table="shelves">
+        <composite-id name="id" class="tv.codely.inventory.shelves.domain.ShelfId" access="field">
+            <key-property column="id" name="value" length="36" access="field" />
+        </composite-id>
+
+        <component name="length" class="tv.codely.inventory.shelves.domain.ShelfLength" access="field">
+            <property name="value" column="length" type="double" access="field" />
+        </component>
+
+        <component name="width" class="tv.codely.inventory.shelves.domain.ShelfWidth" access="field">
+            <property name="value" column="width" type="double" access="field" />
+        </component>
+
+        <component name="maxWeight" class="tv.codely.inventory.shelves.domain.ShelfMaxWeight" access="field">
+            <property name="value" column="max_weight" type="double" access="field" />
+        </component>
+    </class>
+</hibernate-mapping>

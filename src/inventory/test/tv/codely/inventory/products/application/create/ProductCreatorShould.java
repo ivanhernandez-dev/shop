@@ -17,7 +17,7 @@ final class ProductCreatorShould extends ProductsModuleUnitTestCase {
 	protected void setUp() {
 		super.setUp();
 
-		this.creator = new ProductCreator(repository, eventBus);
+		this.creator = new ProductCreator(this.repository, this.eventBus);
 	}
 
 
@@ -30,7 +30,7 @@ final class ProductCreatorShould extends ProductsModuleUnitTestCase {
 
 		this.creator.create(request);
 
-		shouldHaveSaved(product);
-		shouldHavePublished(event);
+        this.shouldHaveSaved(product);
+        this.shouldHavePublished(event);
 	}
 }
