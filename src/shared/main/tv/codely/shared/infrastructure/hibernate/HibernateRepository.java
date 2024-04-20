@@ -20,7 +20,7 @@ public abstract class HibernateRepository<T> {
     }
 
     protected void persist(T entity) {
-        sessionFactory.getCurrentSession().saveOrUpdate(entity);
+        sessionFactory.getCurrentSession().save(entity);
         sessionFactory.getCurrentSession().flush();
         sessionFactory.getCurrentSession().clear();
     }
@@ -42,4 +42,14 @@ public abstract class HibernateRepository<T> {
 
         return sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
     }
+
+	protected void delete(IdentifierValueObject id) {
+		T entity = sessionFactory.getCurrentSession().byId(aggregateClass).load(id);
+
+		sessionFactory.getCurrentSession().delete(entity);
+	}
+
+	protected void update(T entity) {
+		sessionFactory.getCurrentSession().update(entity);
+	}
 }

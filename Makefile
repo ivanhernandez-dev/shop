@@ -6,6 +6,9 @@ start:
 build:
 	@./gradlew build --warning-mode all
 
+rebuild:
+	@docker compose down -v --remove-orphans && docker compose up --build --force-recreate --no-deps -d
+
 lint:
 	@docker exec codely-java_ddd_example-test_server ./gradlew spotlessCheck
 

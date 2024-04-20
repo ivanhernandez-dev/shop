@@ -1,9 +1,11 @@
 package tv.codely.apps.inventory.backend.controller.product;
 
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import tv.codely.apps.inventory.InventoryApplicationTestCase;
 
-final public class ProductsPutControllerShould extends InventoryApplicationTestCase {
+@Transactional
+public class ProductsPutControllerShould extends InventoryApplicationTestCase {
 	@Test
 	void create_a_valid_non_existing_product() throws Exception {
 		assertRequestWithBody(

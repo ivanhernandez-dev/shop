@@ -10,14 +10,12 @@ public final class Shelf extends AggregateRoot {
 	private final ShelfLength length;
 	private final ShelfWidth width;
 	private final ShelfMaxWeight maxWeight;
-	private final Collection<Product> products;
 
-	public Shelf(ShelfId id, ShelfLength length, ShelfWidth width, ShelfMaxWeight maxWeight, Collection<Product> products) {
+	public Shelf(ShelfId id, ShelfLength length, ShelfWidth width, ShelfMaxWeight maxWeight) {
 		this.id = id;
 		this.length = length;
 		this.width = width;
 		this.maxWeight = maxWeight;
-		this.products = products;
 	}
 
 	private Shelf() {
@@ -25,6 +23,5 @@ public final class Shelf extends AggregateRoot {
 		length = null;
 		width = null;
 		maxWeight = null;
-		products = null;
 	}
 }

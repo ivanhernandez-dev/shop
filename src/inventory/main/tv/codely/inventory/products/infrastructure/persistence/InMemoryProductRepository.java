@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Component
 public final class InMemoryProductRepository implements ProductRepository {
-	private Map<String, Product> products = new HashMap<>();
+	private final Map<String, Product> products = new HashMap<>();
 
 	@Override
 	public void save(Product product) {
@@ -21,5 +21,17 @@ public final class InMemoryProductRepository implements ProductRepository {
 	@Override
 	public Optional<Product> search(ProductId id) {
 		return Optional.ofNullable(this.products.get(id.value()));
+	}
+
+	@Override
+	public void update(Product product) {
+		if (this.products.containsKey(product.id().value())) {
+			this.products.put(product.id().value(), product);
+		}
+	}
+
+	@Override
+	public void delete(ProductId id) {
+		this.products.remove(id.value());
 	}
 }

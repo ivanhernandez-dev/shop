@@ -22,11 +22,21 @@ public class MySqlProductRepository extends HibernateRepository<Product> impleme
 
 	@Override
 	public void save(Product product) {
-		persist(product);
+		super.persist(product);
 	}
 
 	@Override
 	public Optional<Product> search(ProductId id) {
-		return byId(id);
+		return super.byId(id);
+	}
+
+	@Override
+	public void update(Product product) {
+        super.update(product);
+	}
+
+	@Override
+	public void delete(ProductId id) {
+		super.delete(id);
 	}
 }

@@ -6,14 +6,19 @@ import tv.codely.inventory.products.domain.*;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 final class InMemoryProductRepositoryShould extends ProductsModuleInfrastructureTestCase {
 	@Test
 	void save_a_product() {
 		Product product = ProductMother.random();
 
+		assertEquals(Optional.empty(), this.inMemoryRepository.search(product.id()));
+
 		this.inMemoryRepository.save(product);
+
+		assertEquals(Optional.of(product), this.inMemoryRepository.search(product.id()));
 	}
 
 	@Test
@@ -30,5 +35,26 @@ final class InMemoryProductRepositoryShould extends ProductsModuleInfrastructure
 		ProductId id = ProductIdMother.random();
 
 		assertFalse(this.inMemoryRepository.search(id).isPresent());
+	}
+
+	@Test
+	void delete_an_existing_product() {
+		Product product = ProductMother.random();
+
+		this.inMemoryRepository.save(product);
+		this.inMemoryRepository.delete(product.id());
+
+		assertFalse(this.inMemoryRepository.search(product.id()).isPresent());
+	}
+
+	@Test
+	void update_a_product() {
+		Product product = ProductMother.random();
+		this.inMemoryRepository.save(product);
+
+		Product updatedProduct = new Product(product.id(), ProductNameMother.random(), ProductDescriptionMother.random(), ProductPriceMother.random(), ProductWeightMother.random());
+		this.inMemoryRepository.update(updatedProduct);
+
+		assertEquals(Optional.of(updatedProduct), this.inMemoryRepository.search(product.id()));
 	}
 }
