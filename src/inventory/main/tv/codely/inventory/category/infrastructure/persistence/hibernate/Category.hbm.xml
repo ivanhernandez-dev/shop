@@ -6,11 +6,11 @@
 <hibernate-mapping>
     <class name="tv.codely.inventory.category.domain.Category" table="categories">
         <composite-id name="id" class="tv.codely.inventory.category.domain.CategoryId" access="field">
-            <key-property column="id" name="value" length="36" access="field" />
+            <key-property column="id" name="value" length="36" access="field"/>
         </composite-id>
 
         <component name="name" class="tv.codely.inventory.category.domain.CategoryName" access="field">
-            <property name="value" column="name" type="string" access="field" />
+            <property name="value" column="name" type="string" access="field"/>
         </component>
     </class>
 </hibernate-mapping>

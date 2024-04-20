@@ -11,27 +11,27 @@ import tv.codely.shared.infrastructure.bus.event.spring.SpringApplicationEventBu
 
 @Configuration
 public class MoocMySqlEventBusConfiguration {
-    private final SessionFactory            sessionFactory;
-    private final DomainEventsInformation   domainEventsInformation;
-    private final SpringApplicationEventBus bus;
+	private final SessionFactory sessionFactory;
+	private final DomainEventsInformation domainEventsInformation;
+	private final SpringApplicationEventBus bus;
 
-    public MoocMySqlEventBusConfiguration(
-        @Qualifier("mooc-session_factory") SessionFactory sessionFactory,
-        DomainEventsInformation domainEventsInformation,
-        SpringApplicationEventBus bus
-    ) {
-        this.sessionFactory          = sessionFactory;
-        this.domainEventsInformation = domainEventsInformation;
-        this.bus                     = bus;
-    }
+	public MoocMySqlEventBusConfiguration(
+		@Qualifier("mooc-session_factory") SessionFactory sessionFactory,
+		DomainEventsInformation domainEventsInformation,
+		SpringApplicationEventBus bus
+	) {
+		this.sessionFactory = sessionFactory;
+		this.domainEventsInformation = domainEventsInformation;
+		this.bus = bus;
+	}
 
-    @Bean
-    public MySqlEventBus moocMysqlEventBus() {
-        return new MySqlEventBus(sessionFactory);
-    }
+	@Bean
+	public MySqlEventBus moocMysqlEventBus() {
+		return new MySqlEventBus(sessionFactory);
+	}
 
-    @Bean
-    public MySqlDomainEventsConsumer moocMySqlDomainEventsConsumer() {
-        return new MySqlDomainEventsConsumer(sessionFactory, domainEventsInformation, bus);
-    }
+	@Bean
+	public MySqlDomainEventsConsumer moocMySqlDomainEventsConsumer() {
+		return new MySqlDomainEventsConsumer(sessionFactory, domainEventsInformation, bus);
+	}
 }

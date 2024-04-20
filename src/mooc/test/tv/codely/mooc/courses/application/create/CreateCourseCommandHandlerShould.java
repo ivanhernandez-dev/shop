@@ -9,25 +9,25 @@ import tv.codely.mooc.courses.domain.CourseMother;
 import tv.codely.shared.domain.course.CourseCreatedDomainEvent;
 
 final class CreateCourseCommandHandlerShould extends CoursesModuleUnitTestCase {
-    private CreateCourseCommandHandler handler;
+	private CreateCourseCommandHandler handler;
 
-    @BeforeEach
-    protected void setUp() {
-        super.setUp();
+	@BeforeEach
+	protected void setUp() {
+		super.setUp();
 
-        handler = new CreateCourseCommandHandler(new CourseCreator(repository, eventBus));
-    }
+		handler = new CreateCourseCommandHandler(new CourseCreator(repository, eventBus));
+	}
 
-    @Test
-    void create_a_valid_course() {
-        CreateCourseCommand command = CreateCourseCommandMother.random();
+	@Test
+	void create_a_valid_course() {
+		CreateCourseCommand command = CreateCourseCommandMother.random();
 
-        Course                   course      = CourseMother.fromRequest(command);
-        CourseCreatedDomainEvent domainEvent = CourseCreatedDomainEventMother.fromCourse(course);
+		Course course = CourseMother.fromRequest(command);
+		CourseCreatedDomainEvent domainEvent = CourseCreatedDomainEventMother.fromCourse(course);
 
-        handler.handle(command);
+		handler.handle(command);
 
-        shouldHaveSaved(course);
-        shouldHavePublished(domainEvent);
-    }
+		shouldHaveSaved(course);
+		shouldHavePublished(domainEvent);
+	}
 }

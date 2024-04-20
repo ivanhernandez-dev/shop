@@ -11,12 +11,13 @@ import java.util.HashMap;
 @SpringBootApplication(exclude = HibernateJpaAutoConfiguration.class)
 @ComponentScan(
 	includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Component.class),
-	value = { "tv.codely.shared", "tv.codely.inventory", "tv.codely.apps.inventory.backend" }
+	value = {"tv.codely.shared", "tv.codely.inventory", "tv.codely.apps.inventory.backend"}
 )
 public class InventoryBackendApplication {
 	public static HashMap<String, Class<?>> commands() {
 		return new HashMap<String, Class<?>>() {
-			{}
+			{
+			}
 		};
 	}
 }

@@ -14,19 +14,19 @@ import java.util.Optional;
 @Component
 @Transactional("mooc-transaction_manager")
 public class MySqlCoursesCounterRepository extends HibernateRepository<CoursesCounter> implements CoursesCounterRepository {
-    public MySqlCoursesCounterRepository(@Qualifier("mooc-session_factory") SessionFactory sessionFactory) {
-        super(sessionFactory, CoursesCounter.class);
-    }
+	public MySqlCoursesCounterRepository(@Qualifier("mooc-session_factory") SessionFactory sessionFactory) {
+		super(sessionFactory, CoursesCounter.class);
+	}
 
-    @Override
-    public void save(CoursesCounter counter) {
-        persist(counter);
-    }
+	@Override
+	public void save(CoursesCounter counter) {
+		persist(counter);
+	}
 
-    @Override
-    public Optional<CoursesCounter> search() {
-        List<CoursesCounter> coursesCounter = all();
+	@Override
+	public Optional<CoursesCounter> search() {
+		List<CoursesCounter> coursesCounter = all();
 
-        return 0 == coursesCounter.size() ? Optional.empty() : Optional.ofNullable(coursesCounter.get(0));
-    }
+		return 0 == coursesCounter.size() ? Optional.empty() : Optional.ofNullable(coursesCounter.get(0));
+	}
 }

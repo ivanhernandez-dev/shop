@@ -6,8 +6,8 @@ import tv.codely.shared.domain.Component;
 
 @Component
 public final class FakeEmailSender implements EmailSender {
-    @Override
-    public void send(Email email) {
-        // In the future...
-    }
+	@Override
+	public void send(Email email) {
+		// In the future...
+	}
 }

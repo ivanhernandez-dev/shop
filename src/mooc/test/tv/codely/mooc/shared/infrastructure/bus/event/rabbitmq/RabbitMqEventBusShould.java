@@ -17,37 +17,37 @@ import java.util.HashMap;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public final class RabbitMqEventBusShould extends MoocContextInfrastructureTestCase {
-    @Autowired
-    private RabbitMqEventBus                      eventBus;
-    @Autowired
-    private RabbitMqDomainEventsConsumer          consumer;
-    @Autowired
-    private TestAllWorksOnRabbitMqEventsPublished subscriber;
+	@Autowired
+	private RabbitMqEventBus eventBus;
+	@Autowired
+	private RabbitMqDomainEventsConsumer consumer;
+	@Autowired
+	private TestAllWorksOnRabbitMqEventsPublished subscriber;
 
-    @BeforeEach
-    protected void setUp() {
-        subscriber.hasBeenExecuted = false;
+	@BeforeEach
+	protected void setUp() {
+		subscriber.hasBeenExecuted = false;
 
-        consumer.withSubscribersInformation(
-            new DomainEventSubscribersInformation(
-                new HashMap<Class<?>, DomainEventSubscriberInformation>() {{
-                    put(TestAllWorksOnRabbitMqEventsPublished.class, new DomainEventSubscriberInformation(
-                        TestAllWorksOnRabbitMqEventsPublished.class,
-                        Collections.singletonList(CourseCreatedDomainEvent.class)
-                    ));
-                }}
-            )
-        );
-    }
+		consumer.withSubscribersInformation(
+			new DomainEventSubscribersInformation(
+				new HashMap<Class<?>, DomainEventSubscriberInformation>() {{
+					put(TestAllWorksOnRabbitMqEventsPublished.class, new DomainEventSubscriberInformation(
+						TestAllWorksOnRabbitMqEventsPublished.class,
+						Collections.singletonList(CourseCreatedDomainEvent.class)
+					));
+				}}
+			)
+		);
+	}
 
-    @Test
-    void publish_and_consume_domain_events_from_rabbitmq() throws Exception {
-        CourseCreatedDomainEvent domainEvent = CourseCreatedDomainEventMother.random();
+	@Test
+	void publish_and_consume_domain_events_from_rabbitmq() throws Exception {
+		CourseCreatedDomainEvent domainEvent = CourseCreatedDomainEventMother.random();
 
-        eventBus.publish(Collections.singletonList(domainEvent));
+		eventBus.publish(Collections.singletonList(domainEvent));
 
-        consumer.consume();
+		consumer.consume();
 
-        eventually(() -> assertTrue(subscriber.hasBeenExecuted));
-    }
+		eventually(() -> assertTrue(subscriber.hasBeenExecuted));
+	}
 }

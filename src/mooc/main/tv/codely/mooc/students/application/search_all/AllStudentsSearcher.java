@@ -9,15 +9,15 @@ import java.util.stream.Collectors;
 
 @Component
 public final class AllStudentsSearcher {
-    private final StudentRepository repository;
+	private final StudentRepository repository;
 
-    public AllStudentsSearcher(StudentRepository repository) {
-        this.repository = repository;
-    }
+	public AllStudentsSearcher(StudentRepository repository) {
+		this.repository = repository;
+	}
 
-    public StudentsResponse search() {
-        return new StudentsResponse(
-            repository.searchAll().stream().map(StudentResponse::fromAggregate).collect(Collectors.toList())
-        );
-    }
+	public StudentsResponse search() {
+		return new StudentsResponse(
+			repository.searchAll().stream().map(StudentResponse::fromAggregate).collect(Collectors.toList())
+		);
+	}
 }

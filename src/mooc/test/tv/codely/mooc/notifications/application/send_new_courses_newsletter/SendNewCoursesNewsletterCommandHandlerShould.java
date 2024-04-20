@@ -23,80 +23,80 @@ import tv.codely.shared.domain.bus.query.QueryHandlerExecutionError;
 import java.util.Arrays;
 
 final class SendNewCoursesNewsletterCommandHandlerShould extends NotificationsModuleUnitTestCase {
-    SendNewCoursesNewsletterCommandHandler handler;
+	SendNewCoursesNewsletterCommandHandler handler;
 
-    @BeforeEach
-    protected void setUp() {
-        super.setUp();
+	@BeforeEach
+	protected void setUp() {
+		super.setUp();
 
-        handler = new SendNewCoursesNewsletterCommandHandler(
-            new NewCoursesNewsletterSender(queryBus, uuidGenerator, sender, eventBus)
-        );
-    }
+		handler = new SendNewCoursesNewsletterCommandHandler(
+			new NewCoursesNewsletterSender(queryBus, uuidGenerator, sender, eventBus)
+		);
+	}
 
-    @Test
-    void not_send_the_newsletter_when_there_are_no_courses() throws QueryHandlerExecutionError, CommandHandlerExecutionError {
-        SendNewCoursesNewsletterCommand command = SendNewCoursesNewsletterCommandMother.random();
+	@Test
+	void not_send_the_newsletter_when_there_are_no_courses() throws QueryHandlerExecutionError, CommandHandlerExecutionError {
+		SendNewCoursesNewsletterCommand command = SendNewCoursesNewsletterCommandMother.random();
 
-        SearchLastCoursesQuery coursesQuery    = SearchLastCoursesQueryMother.create(3);
-        CoursesResponse        coursesResponse = CoursesResponseMother.empty();
+		SearchLastCoursesQuery coursesQuery = SearchLastCoursesQueryMother.create(3);
+		CoursesResponse coursesResponse = CoursesResponseMother.empty();
 
-        shouldAsk(coursesQuery, coursesResponse);
+		shouldAsk(coursesQuery, coursesResponse);
 
-        handler.handle(command);
-    }
+		handler.handle(command);
+	}
 
-    @Test
-    void not_send_the_newsletter_when_there_are_no_students() throws QueryHandlerExecutionError, CommandHandlerExecutionError {
-        SendNewCoursesNewsletterCommand command = SendNewCoursesNewsletterCommandMother.random();
+	@Test
+	void not_send_the_newsletter_when_there_are_no_students() throws QueryHandlerExecutionError, CommandHandlerExecutionError {
+		SendNewCoursesNewsletterCommand command = SendNewCoursesNewsletterCommandMother.random();
 
-        SearchLastCoursesQuery coursesQuery    = SearchLastCoursesQueryMother.create(3);
-        CoursesResponse        coursesResponse = CoursesResponseMother.random();
+		SearchLastCoursesQuery coursesQuery = SearchLastCoursesQueryMother.create(3);
+		CoursesResponse coursesResponse = CoursesResponseMother.random();
 
-        SearchAllStudentsQuery studentsQuery    = SearchAllStudentsQueryMother.random();
-        StudentsResponse       studentsResponse = StudentsResponseMother.empty();
+		SearchAllStudentsQuery studentsQuery = SearchAllStudentsQueryMother.random();
+		StudentsResponse studentsResponse = StudentsResponseMother.empty();
 
-        shouldAsk(coursesQuery, coursesResponse);
-        shouldAsk(studentsQuery, studentsResponse);
+		shouldAsk(coursesQuery, coursesResponse);
+		shouldAsk(studentsQuery, studentsResponse);
 
-        handler.handle(command);
-    }
+		handler.handle(command);
+	}
 
-    @Test
-    void send_the_new_courses_newsletter() throws QueryHandlerExecutionError, CommandHandlerExecutionError {
-        SendNewCoursesNewsletterCommand command = SendNewCoursesNewsletterCommandMother.random();
+	@Test
+	void send_the_new_courses_newsletter() throws QueryHandlerExecutionError, CommandHandlerExecutionError {
+		SendNewCoursesNewsletterCommand command = SendNewCoursesNewsletterCommandMother.random();
 
-        SearchLastCoursesQuery coursesQuery    = SearchLastCoursesQueryMother.create(3);
-        CoursesResponse        coursesResponse = CoursesResponseMother.times(3);
+		SearchLastCoursesQuery coursesQuery = SearchLastCoursesQueryMother.create(3);
+		CoursesResponse coursesResponse = CoursesResponseMother.times(3);
 
-        SearchAllStudentsQuery studentsQuery    = SearchAllStudentsQueryMother.random();
-        StudentResponse        student          = StudentResponseMother.random();
-        StudentResponse        otherStudent     = StudentResponseMother.random();
-        StudentsResponse       studentsResponse = StudentsResponseMother.create(Arrays.asList(student, otherStudent));
+		SearchAllStudentsQuery studentsQuery = SearchAllStudentsQueryMother.random();
+		StudentResponse student = StudentResponseMother.random();
+		StudentResponse otherStudent = StudentResponseMother.random();
+		StudentsResponse studentsResponse = StudentsResponseMother.create(Arrays.asList(student, otherStudent));
 
-        NewCoursesNewsletter newsletter      = NewCoursesNewsletterMother.create(student, coursesResponse);
-        NewCoursesNewsletter otherNewsletter = NewCoursesNewsletterMother.create(otherStudent, coursesResponse);
+		NewCoursesNewsletter newsletter = NewCoursesNewsletterMother.create(student, coursesResponse);
+		NewCoursesNewsletter otherNewsletter = NewCoursesNewsletterMother.create(otherStudent, coursesResponse);
 
-        NewCoursesNewsletterEmailSent domainEvent = NewCoursesNewsletterEmailSentMother.create(
-            newsletter.id(),
-            student.id()
-        );
-        NewCoursesNewsletterEmailSent otherDomainEvent = NewCoursesNewsletterEmailSentMother.create(
-            otherNewsletter.id(),
-            otherStudent.id()
-        );
+		NewCoursesNewsletterEmailSent domainEvent = NewCoursesNewsletterEmailSentMother.create(
+			newsletter.id(),
+			student.id()
+		);
+		NewCoursesNewsletterEmailSent otherDomainEvent = NewCoursesNewsletterEmailSentMother.create(
+			otherNewsletter.id(),
+			otherStudent.id()
+		);
 
-        shouldAsk(coursesQuery, coursesResponse);
-        shouldAsk(studentsQuery, studentsResponse);
+		shouldAsk(coursesQuery, coursesResponse);
+		shouldAsk(studentsQuery, studentsResponse);
 
-        shouldGenerateUuids(newsletter.id().value(), otherNewsletter.id().value());
+		shouldGenerateUuids(newsletter.id().value(), otherNewsletter.id().value());
 
-        handler.handle(command);
+		handler.handle(command);
 
-        shouldHaveSentEmail(newsletter);
-        shouldHavePublished(domainEvent);
+		shouldHaveSentEmail(newsletter);
+		shouldHavePublished(domainEvent);
 
-        shouldHaveSentEmail(otherNewsletter);
-        shouldHavePublished(otherDomainEvent);
-    }
+		shouldHaveSentEmail(otherNewsletter);
+		shouldHavePublished(otherDomainEvent);
+	}
 }

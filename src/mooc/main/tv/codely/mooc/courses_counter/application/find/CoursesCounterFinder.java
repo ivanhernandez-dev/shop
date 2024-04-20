@@ -7,17 +7,17 @@ import tv.codely.shared.domain.Component;
 
 @Component
 public final class CoursesCounterFinder {
-    private CoursesCounterRepository repository;
+	private CoursesCounterRepository repository;
 
-    public CoursesCounterFinder(CoursesCounterRepository repository) {
-        this.repository = repository;
-    }
+	public CoursesCounterFinder(CoursesCounterRepository repository) {
+		this.repository = repository;
+	}
 
-    public CoursesCounterResponse find() {
-        CoursesCounter coursesCounter = repository.search().orElseGet(() -> {
-            throw new CoursesCounterNotInitialized();
-        });
+	public CoursesCounterResponse find() {
+		CoursesCounter coursesCounter = repository.search().orElseGet(() -> {
+			throw new CoursesCounterNotInitialized();
+		});
 
-        return new CoursesCounterResponse(coursesCounter.total().value());
-    }
+		return new CoursesCounterResponse(coursesCounter.total().value());
+	}
 }

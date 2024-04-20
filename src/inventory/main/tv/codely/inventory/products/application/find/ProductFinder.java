@@ -16,7 +16,7 @@ public final class ProductFinder {
 
 	public ProductResponse find(String id) {
 		return this.repository.search(new ProductId(id))
-		                 .map(ProductResponse::fromAggregate)
-		                 .orElseThrow(() -> new ProductNotExist(new ProductId(id)));
+			.map(ProductResponse::fromAggregate)
+			.orElseThrow(() -> new ProductNotExist(new ProductId(id)));
 	}
 }

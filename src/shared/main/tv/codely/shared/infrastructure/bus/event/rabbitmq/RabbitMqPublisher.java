@@ -10,27 +10,27 @@ import tv.codely.shared.infrastructure.bus.event.DomainEventJsonSerializer;
 
 @Component
 public final class RabbitMqPublisher {
-    private final RabbitTemplate rabbitTemplate;
+	private final RabbitTemplate rabbitTemplate;
 
-    public RabbitMqPublisher(RabbitTemplate rabbitTemplate) {
-        this.rabbitTemplate = rabbitTemplate;
-    }
+	public RabbitMqPublisher(RabbitTemplate rabbitTemplate) {
+		this.rabbitTemplate = rabbitTemplate;
+	}
 
-    public void publish(DomainEvent domainEvent, String exchangeName) throws AmqpException {
-        String serializedDomainEvent = DomainEventJsonSerializer.serialize(domainEvent);
+	public void publish(DomainEvent domainEvent, String exchangeName) throws AmqpException {
+		String serializedDomainEvent = DomainEventJsonSerializer.serialize(domainEvent);
 
-        Message message = new Message(
-            serializedDomainEvent.getBytes(),
-            MessagePropertiesBuilder.newInstance()
-                                    .setContentEncoding("utf-8")
-                                    .setContentType("application/json")
-                                    .build()
-        );
+		Message message = new Message(
+			serializedDomainEvent.getBytes(),
+			MessagePropertiesBuilder.newInstance()
+				.setContentEncoding("utf-8")
+				.setContentType("application/json")
+				.build()
+		);
 
-        rabbitTemplate.send(exchangeName, domainEvent.eventName(), message);
-    }
+		rabbitTemplate.send(exchangeName, domainEvent.eventName(), message);
+	}
 
-    public void publish(Message domainEvent, String exchangeName, String routingKey) throws AmqpException {
-        rabbitTemplate.send(exchangeName, routingKey, domainEvent);
-    }
+	public void publish(Message domainEvent, String exchangeName, String routingKey) throws AmqpException {
+		rabbitTemplate.send(exchangeName, routingKey, domainEvent);
+	}
 }

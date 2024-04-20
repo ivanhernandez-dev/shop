@@ -1,19 +1,18 @@
 package tv.codely.apps.backoffice.frontend.controller.courses;
 
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
-
 import tv.codely.mooc.courses_counter.application.find.CoursesCounterResponse;
 import tv.codely.mooc.courses_counter.application.find.FindCoursesCounterQuery;
 import tv.codely.shared.domain.bus.query.QueryBus;
 import tv.codely.shared.domain.bus.query.QueryHandlerExecutionError;
+
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.UUID;
 
 @Controller
 public final class CoursesGetWebController {

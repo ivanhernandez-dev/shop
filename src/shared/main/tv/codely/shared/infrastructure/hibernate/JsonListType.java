@@ -19,39 +19,39 @@ import java.sql.Types;
 import java.util.*;
 
 public class JsonListType implements UserType, DynamicParameterizedType {
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-    private JavaType valueType = null;
-    private Class<?> classType = null;
+	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+	private JavaType valueType = null;
+	private Class<?> classType = null;
 
-    @Override
-    public int getSqlType() {
-        return Types.LONGVARCHAR;
-    }
+	@Override
+	public int getSqlType() {
+		return Types.LONGVARCHAR;
+	}
 
-    @Override
-    public Class<?> returnedClass() {
-        return classType;
-    }
+	@Override
+	public Class<?> returnedClass() {
+		return classType;
+	}
 
-    @Override
-    public boolean equals(Object x, Object y) throws HibernateException {
-        return Objects.equals(x, y);
-    }
+	@Override
+	public boolean equals(Object x, Object y) throws HibernateException {
+		return Objects.equals(x, y);
+	}
 
-    @Override
-    public int hashCode(Object x) throws HibernateException {
-        return Objects.hashCode(x);
-    }
+	@Override
+	public int hashCode(Object x) throws HibernateException {
+		return Objects.hashCode(x);
+	}
 
-    @Override
-    public void nullSafeSet(
-        PreparedStatement st,
-        Object value,
-        int index,
-        SharedSessionContractImplementor session
-    ) throws HibernateException, SQLException {
-        nullSafeSet(st, value, index);
-    }
+	@Override
+	public void nullSafeSet(
+		PreparedStatement st,
+		Object value,
+		int index,
+		SharedSessionContractImplementor session
+	) throws HibernateException, SQLException {
+		nullSafeSet(st, value, index);
+	}
 
 	@Override
 	public Object nullSafeGet(
@@ -76,65 +76,65 @@ public class JsonListType implements UserType, DynamicParameterizedType {
 		return result;
 	}
 
-    public void nullSafeSet(PreparedStatement st, Object value, int index) throws HibernateException, SQLException {
-        StringWriter sw = new StringWriter();
-        OBJECT_MAPPER.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+	public void nullSafeSet(PreparedStatement st, Object value, int index) throws HibernateException, SQLException {
+		StringWriter sw = new StringWriter();
+		OBJECT_MAPPER.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
-        if (value == null) {
-            st.setNull(index, Types.VARCHAR);
-        } else {
-            try {
-                OBJECT_MAPPER.writeValue(sw, value);
-                st.setString(index, sw.toString());
-            } catch (IOException e) {
-                throw new HibernateException("Exception serializing value " + value, e);
-            }
-        }
-    }
+		if (value == null) {
+			st.setNull(index, Types.VARCHAR);
+		} else {
+			try {
+				OBJECT_MAPPER.writeValue(sw, value);
+				st.setString(index, sw.toString());
+			} catch (IOException e) {
+				throw new HibernateException("Exception serializing value " + value, e);
+			}
+		}
+	}
 
-    @Override
-    public Object deepCopy(Object value) throws HibernateException {
-        if (value == null) {
-            return null;
-        } else if (valueType.isCollectionLikeType()) {
-            Object newValue = new ArrayList<>();
-            Collection newValueCollection = (Collection) newValue;
-            newValueCollection.addAll((Collection) value);
-            return newValueCollection;
-        }
+	@Override
+	public Object deepCopy(Object value) throws HibernateException {
+		if (value == null) {
+			return null;
+		} else if (valueType.isCollectionLikeType()) {
+			Object newValue = new ArrayList<>();
+			Collection newValueCollection = (Collection) newValue;
+			newValueCollection.addAll((Collection) value);
+			return newValueCollection;
+		}
 
-        return null;
-    }
+		return null;
+	}
 
-    @Override
-    public boolean isMutable() {
-        return true;
-    }
+	@Override
+	public boolean isMutable() {
+		return true;
+	}
 
-    @Override
-    public Serializable disassemble(Object value) throws HibernateException {
-        return (Serializable) deepCopy(value);
-    }
+	@Override
+	public Serializable disassemble(Object value) throws HibernateException {
+		return (Serializable) deepCopy(value);
+	}
 
-    @Override
-    public Object assemble(Serializable cached, Object owner) throws HibernateException {
-        return deepCopy(cached);
-    }
+	@Override
+	public Object assemble(Serializable cached, Object owner) throws HibernateException {
+		return deepCopy(cached);
+	}
 
-    @Override
-    public Object replace(Object original, Object target, Object owner) throws HibernateException {
-        return deepCopy(original);
-    }
+	@Override
+	public Object replace(Object original, Object target, Object owner) throws HibernateException {
+		return deepCopy(original);
+	}
 
-    @Override
-    public void setParameterValues(Properties parameters) {
-        try {
-            Class<?> entityClass = Class.forName(parameters.getProperty("list_of"));
+	@Override
+	public void setParameterValues(Properties parameters) {
+		try {
+			Class<?> entityClass = Class.forName(parameters.getProperty("list_of"));
 
-            valueType = OBJECT_MAPPER.getTypeFactory().constructCollectionType(ArrayList.class, entityClass);
-            classType = List.class;
-        } catch (ClassNotFoundException e) {
-            throw new IllegalArgumentException(e);
-        }
-    }
+			valueType = OBJECT_MAPPER.getTypeFactory().constructCollectionType(ArrayList.class, entityClass);
+			classType = List.class;
+		} catch (ClassNotFoundException e) {
+			throw new IllegalArgumentException(e);
+		}
+	}
 }

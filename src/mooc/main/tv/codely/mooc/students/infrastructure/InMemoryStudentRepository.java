@@ -11,17 +11,17 @@ import java.util.List;
 
 @Component
 public final class InMemoryStudentRepository implements StudentRepository {
-    private UuidGenerator generator;
+	private UuidGenerator generator;
 
-    public InMemoryStudentRepository(UuidGenerator generator) {
-        this.generator = generator;
-    }
+	public InMemoryStudentRepository(UuidGenerator generator) {
+		this.generator = generator;
+	}
 
-    @Override
-    public List<Student> searchAll() {
-        return Arrays.asList(
-            new Student(new StudentId(generator.generate()), "name", "surname", "email@mail.com"),
-            new Student(new StudentId(generator.generate()), "Other name", "Other surname", "another@mail.com")
-        );
-    }
+	@Override
+	public List<Student> searchAll() {
+		return Arrays.asList(
+			new Student(new StudentId(generator.generate()), "name", "surname", "email@mail.com"),
+			new Student(new StudentId(generator.generate()), "Other name", "Other surname", "another@mail.com")
+		);
+	}
 }

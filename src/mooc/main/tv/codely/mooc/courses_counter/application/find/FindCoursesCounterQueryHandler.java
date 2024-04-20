@@ -5,14 +5,14 @@ import tv.codely.shared.domain.bus.query.QueryHandler;
 
 @Component
 public final class FindCoursesCounterQueryHandler implements QueryHandler<FindCoursesCounterQuery, CoursesCounterResponse> {
-    private final CoursesCounterFinder finder;
+	private final CoursesCounterFinder finder;
 
-    public FindCoursesCounterQueryHandler(CoursesCounterFinder finder) {
-        this.finder = finder;
-    }
+	public FindCoursesCounterQueryHandler(CoursesCounterFinder finder) {
+		this.finder = finder;
+	}
 
-    @Override
-    public CoursesCounterResponse handle(FindCoursesCounterQuery query) {
-        return finder.find();
-    }
+	@Override
+	public CoursesCounterResponse handle(FindCoursesCounterQuery query) {
+		return finder.find();
+	}
 }

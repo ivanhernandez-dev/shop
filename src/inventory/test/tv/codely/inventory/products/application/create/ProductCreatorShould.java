@@ -3,12 +3,10 @@ package tv.codely.inventory.products.application.create;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tv.codely.inventory.products.ProductsModuleUnitTestCase;
-import tv.codely.inventory.products.domain.*;
+import tv.codely.inventory.products.domain.Product;
+import tv.codely.inventory.products.domain.ProductCreatedDomainEventMother;
+import tv.codely.inventory.products.domain.ProductMother;
 import tv.codely.shared.domain.product.ProductCreatedDomainEvent;
-
-import java.math.BigDecimal;
-
-import static org.mockito.Mockito.*;
 
 final class ProductCreatorShould extends ProductsModuleUnitTestCase {
 	private ProductCreator creator;
@@ -30,7 +28,7 @@ final class ProductCreatorShould extends ProductsModuleUnitTestCase {
 
 		this.creator.create(request);
 
-        this.shouldHaveSaved(product);
-        this.shouldHavePublished(event);
+		this.shouldHaveSaved(product);
+		this.shouldHavePublished(event);
 	}
 }

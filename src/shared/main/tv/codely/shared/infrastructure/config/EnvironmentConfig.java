@@ -8,20 +8,20 @@ import org.springframework.core.io.ResourceLoader;
 
 @Configuration
 public class EnvironmentConfig {
-    ResourceLoader resourceLoader;
+	ResourceLoader resourceLoader;
 
-    public EnvironmentConfig(ResourceLoader resourceLoader) {
-        this.resourceLoader = resourceLoader;
-    }
+	public EnvironmentConfig(ResourceLoader resourceLoader) {
+		this.resourceLoader = resourceLoader;
+	}
 
-    @Bean
-    public Dotenv dotenv() {
-        Resource resource = resourceLoader.getResource("classpath:/.env.local");
+	@Bean
+	public Dotenv dotenv() {
+		Resource resource = resourceLoader.getResource("classpath:/.env.local");
 
-        return Dotenv
-            .configure()
-            .directory("/")
-            .filename(resource.exists() ? ".env.local" : ".env")
-            .load();
-    }
+		return Dotenv
+			.configure()
+			.directory("/")
+			.filename(resource.exists() ? ".env.local" : ".env")
+			.load();
+	}
 }

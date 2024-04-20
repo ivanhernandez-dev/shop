@@ -11,46 +11,46 @@ import tv.codely.backoffice.auth.domain.InvalidAuthUsername;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 final class AuthenticateUserCommandHandlerShould extends AuthModuleUnitTestCase {
-    private AuthenticateUserCommandHandler handler;
+	private AuthenticateUserCommandHandler handler;
 
-    @BeforeEach
-    protected void setUp() {
-        super.setUp();
+	@BeforeEach
+	protected void setUp() {
+		super.setUp();
 
-        handler = new AuthenticateUserCommandHandler(new UserAuthenticator(repository));
-    }
+		handler = new AuthenticateUserCommandHandler(new UserAuthenticator(repository));
+	}
 
-    @Test
-    void authenticate_a_valid_user() {
-        AuthenticateUserCommand command  = AuthenticateUserCommandMother.random();
-        AuthUser                authUser = AuthUserMother.fromCommand(command);
+	@Test
+	void authenticate_a_valid_user() {
+		AuthenticateUserCommand command = AuthenticateUserCommandMother.random();
+		AuthUser authUser = AuthUserMother.fromCommand(command);
 
-        shouldSearch(authUser.username(), authUser);
+		shouldSearch(authUser.username(), authUser);
 
-        handler.handle(command);
-    }
+		handler.handle(command);
+	}
 
-    @Test
-    void throw_an_exception_when_the_user_does_not_exist() {
-        assertThrows(InvalidAuthUsername.class, () -> {
-            AuthenticateUserCommand command  = AuthenticateUserCommandMother.random();
-            AuthUser                authUser = AuthUserMother.fromCommand(command);
+	@Test
+	void throw_an_exception_when_the_user_does_not_exist() {
+		assertThrows(InvalidAuthUsername.class, () -> {
+			AuthenticateUserCommand command = AuthenticateUserCommandMother.random();
+			AuthUser authUser = AuthUserMother.fromCommand(command);
 
-            shouldSearch(authUser.username());
+			shouldSearch(authUser.username());
 
-            handler.handle(command);
-        });
-    }
+			handler.handle(command);
+		});
+	}
 
-    @Test
-    void throw_an_exception_when_the_password_does_not_math() {
-        assertThrows(InvalidAuthCredentials.class, () -> {
-            AuthenticateUserCommand command  = AuthenticateUserCommandMother.random();
-            AuthUser                authUser = AuthUserMother.withUsername(command.username());
+	@Test
+	void throw_an_exception_when_the_password_does_not_math() {
+		assertThrows(InvalidAuthCredentials.class, () -> {
+			AuthenticateUserCommand command = AuthenticateUserCommandMother.random();
+			AuthUser authUser = AuthUserMother.withUsername(command.username());
 
-            shouldSearch(authUser.username(), authUser);
+			shouldSearch(authUser.username(), authUser);
 
-            handler.handle(command);
-        });
-    }
+			handler.handle(command);
+		});
+	}
 }

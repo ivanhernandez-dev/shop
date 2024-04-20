@@ -12,10 +12,10 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     entrypoint:
       sh -c "
-        echo 'CREATE DATABASE IF NOT EXISTS mooc;CREATE DATABASE IF NOT EXISTS backoffice;' > /docker-entrypoint-initdb.d/init.sql;
-        /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+      echo 'CREATE DATABASE IF NOT EXISTS mooc;CREATE DATABASE IF NOT EXISTS backoffice;' > /docker-entrypoint-initdb.d/init.sql;
+      /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
       "
-    command: ["--default-authentication-plugin=mysql_native_password"]
+    command: [ "--default-authentication-plugin=mysql_native_password" ]
 
   shared_rabbitmq:
     container_name: codely-java_ddd_example-rabbitmq

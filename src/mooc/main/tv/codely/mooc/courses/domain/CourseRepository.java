@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CourseRepository {
-    void save(Course course);
+	void save(Course course);
 
-    Optional<Course> search(CourseId id);
+	Optional<Course> search(CourseId id);
 
-    List<Course> matching(Criteria criteria);
+	List<Course> matching(Criteria criteria);
 }

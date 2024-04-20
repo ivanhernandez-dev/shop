@@ -6,11 +6,13 @@
 <hibernate-mapping>
     <class name="tv.codely.inventory.stocks.domain.Stock" table="stocks">
         <composite-id>
-            <key-many-to-one name="product" class="tv.codely.inventory.products.domain.Product" column="product_id" access="field" />
-            <key-many-to-one name="shelf" class="tv.codely.inventory.shelves.domain.Shelf" column="shelf_id" access="field" />
+            <key-many-to-one name="product" class="tv.codely.inventory.products.domain.Product" column="product_id"
+                             access="field"/>
+            <key-many-to-one name="shelf" class="tv.codely.inventory.shelves.domain.Shelf" column="shelf_id"
+                             access="field"/>
         </composite-id>
         <component name="amount" class="tv.codely.inventory.stocks.domain.StockAmount" access="field">
-            <property name="value" column="name" type="integer" access="field" />
+            <property name="value" column="name" type="integer" access="field"/>
         </component>
     </class>
 </hibernate-mapping>

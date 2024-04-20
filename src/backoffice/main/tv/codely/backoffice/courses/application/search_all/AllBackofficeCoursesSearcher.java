@@ -9,15 +9,15 @@ import java.util.stream.Collectors;
 
 @Component
 public final class AllBackofficeCoursesSearcher {
-    private final BackofficeCourseRepository repository;
+	private final BackofficeCourseRepository repository;
 
-    public AllBackofficeCoursesSearcher(BackofficeCourseRepository repository) {
-        this.repository = repository;
-    }
+	public AllBackofficeCoursesSearcher(BackofficeCourseRepository repository) {
+		this.repository = repository;
+	}
 
-    public BackofficeCoursesResponse search() {
-        return new BackofficeCoursesResponse(
-            repository.searchAll().stream().map(BackofficeCourseResponse::fromAggregate).collect(Collectors.toList())
-        );
-    }
+	public BackofficeCoursesResponse search() {
+		return new BackofficeCoursesResponse(
+			repository.searchAll().stream().map(BackofficeCourseResponse::fromAggregate).collect(Collectors.toList())
+		);
+	}
 }

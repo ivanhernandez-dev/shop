@@ -6,23 +6,23 @@
 <hibernate-mapping>
     <class name="tv.codely.inventory.products.domain.Product" table="products">
         <composite-id name="id" class="tv.codely.inventory.products.domain.ProductId" access="field">
-            <key-property column="id" name="value" length="36" access="field" />
+            <key-property column="id" name="value" length="36" access="field"/>
         </composite-id>
 
         <component name="name" class="tv.codely.inventory.products.domain.ProductName" access="field">
-            <property name="value" column="name" type="string" access="field" />
+            <property name="value" column="name" type="string" access="field"/>
         </component>
 
         <component name="description" class="tv.codely.inventory.products.domain.ProductDescription" access="field">
-            <property name="value" column="description" type="string" access="field" />
+            <property name="value" column="description" type="string" access="field"/>
         </component>
 
         <component name="price" class="tv.codely.inventory.products.domain.ProductPrice" access="field">
-            <property name="value" column="price" type="big_decimal" access="field" />
+            <property name="value" column="price" type="big_decimal" access="field"/>
         </component>
 
         <component name="weight" class="tv.codely.inventory.products.domain.ProductWeight" access="field">
-            <property name="value" column="weight" type="double" access="field" />
+            <property name="value" column="weight" type="double" access="field"/>
         </component>
     </class>
 </hibernate-mapping>

@@ -3,9 +3,10 @@ package tv.codely.inventory.category.infrastructure.persistence;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import tv.codely.inventory.category.domain.*;
+import tv.codely.inventory.category.domain.Category;
+import tv.codely.inventory.category.domain.CategoryId;
+import tv.codely.inventory.category.domain.CategoryRepository;
 import tv.codely.shared.domain.Component;
 import tv.codely.shared.infrastructure.hibernate.HibernateRepository;
 

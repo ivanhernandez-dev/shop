@@ -1,7 +1,6 @@
 package tv.codely.apps.mooc.backend.controller.courses_counter;
 
 import org.junit.jupiter.api.Test;
-
 import tv.codely.apps.mooc.MoocApplicationTestCase;
 import tv.codely.shared.domain.course.CourseCreatedDomainEvent;
 

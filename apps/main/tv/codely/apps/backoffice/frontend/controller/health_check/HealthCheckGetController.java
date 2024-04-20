@@ -1,9 +1,9 @@
 package tv.codely.apps.backoffice.frontend.controller.health_check;
 
-import java.util.HashMap;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
 
 @RestController
 public final class HealthCheckGetController {

@@ -1,14 +1,10 @@
 package tv.codely.apps.mooc.backend.controller.courses;
 
-import java.io.Serializable;
-import java.util.HashMap;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
 import tv.codely.mooc.courses.application.CourseResponse;
 import tv.codely.mooc.courses.application.find.FindCourseQuery;
 import tv.codely.mooc.courses.domain.CourseNotExist;
@@ -17,6 +13,9 @@ import tv.codely.shared.domain.bus.command.CommandBus;
 import tv.codely.shared.domain.bus.query.QueryBus;
 import tv.codely.shared.domain.bus.query.QueryHandlerExecutionError;
 import tv.codely.shared.infrastructure.spring.ApiController;
+
+import java.io.Serializable;
+import java.util.HashMap;
 
 @RestController
 public final class CourseGetController extends ApiController {

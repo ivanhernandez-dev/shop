@@ -10,24 +10,30 @@
 
 ## ℹ️ Introduction
 
-This is a repository intended to serve as a starting point if you want to bootstrap a Java project with JUnit and Gradle.
+This is a repository intended to serve as a starting point if you want to bootstrap a Java project with JUnit and
+Gradle.
 
-Here you have the [course on CodelyTV Pro where we explain step by step all this](https://pro.codely.tv/library/ddd-en-java/about/?utm_source=github&utm_medium=social&utm_campaign=readme) (Spanish)
+Here you have
+the [course on CodelyTV Pro where we explain step by step all this](https://pro.codely.tv/library/ddd-en-java/about/?utm_source=github&utm_medium=social&utm_campaign=readme) (
+Spanish)
 
 ## 🏁 How To Start
 
 1. Install Java 11: `brew cask install corretto`
-2. Set it as your default JVM: `export JAVA_HOME='/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home'`
+2. Set it as your default
+   JVM: `export JAVA_HOME='/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home'`
 3. Clone this repository: `git clone https://github.com/CodelyTV/java-ddd-example`.
 4. Bring up the Docker environment: `make up`.
-5. Execute some [Gradle lifecycle tasks](https://docs.gradle.org/current/userguide/java_plugin.html#lifecycle_tasks) in order to check everything is OK:
+5. Execute some [Gradle lifecycle tasks](https://docs.gradle.org/current/userguide/java_plugin.html#lifecycle_tasks) in
+   order to check everything is OK:
     1. Create [the project JAR](https://docs.gradle.org/current/userguide/java_plugin.html#sec:jar): `make build`
     2. Run the tests and plugins verification tasks: `make test`
 6. Start developing!
 
 ## ☝️ How to update dependencies
 
-* Gradle ([releases](https://gradle.org/releases/)): `./gradlew wrapper --gradle-version=WANTED_VERSION --distribution-type=bin`
+*
+Gradle ([releases](https://gradle.org/releases/)): `./gradlew wrapper --gradle-version=WANTED_VERSION --distribution-type=bin`
 
 ## 💡 Related repositories
 

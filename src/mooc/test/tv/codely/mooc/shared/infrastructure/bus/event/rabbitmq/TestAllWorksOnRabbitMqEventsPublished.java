@@ -7,9 +7,9 @@ import tv.codely.shared.domain.course.CourseCreatedDomainEvent;
 @Component
 @DomainEventSubscriber({CourseCreatedDomainEvent.class})
 public final class TestAllWorksOnRabbitMqEventsPublished {
-    public Boolean hasBeenExecuted = false;
+	public Boolean hasBeenExecuted = false;
 
-    public void on(CourseCreatedDomainEvent event) {
-        hasBeenExecuted = true;
-    }
+	public void on(CourseCreatedDomainEvent event) {
+		hasBeenExecuted = true;
+	}
 }

@@ -31,6 +31,13 @@ final class Request {
 	private String price;
 	private Double weight;
 
+	public Request(String name, String price, Double weight, String description) {
+		this.name = name;
+		this.price = price;
+		this.weight = weight;
+		this.description = description;
+	}
+
 	public String name() {
 		return name;
 	}
@@ -60,13 +67,6 @@ final class Request {
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Request(String name, String price, Double weight, String description) {
-		this.name = name;
-		this.price = price;
-		this.weight = weight;
 		this.description = description;
 	}
 }

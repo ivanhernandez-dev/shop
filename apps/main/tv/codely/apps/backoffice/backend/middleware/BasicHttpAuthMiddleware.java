@@ -1,17 +1,16 @@
 package tv.codely.apps.backoffice.backend.middleware;
 
-import java.io.IOException;
-import java.util.Base64;
-
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import tv.codely.backoffice.auth.application.authenticate.AuthenticateUserCommand;
 import tv.codely.backoffice.auth.domain.InvalidAuthCredentials;
 import tv.codely.backoffice.auth.domain.InvalidAuthUsername;
 import tv.codely.shared.domain.bus.command.CommandBus;
 import tv.codely.shared.domain.bus.command.CommandHandlerExecutionError;
+
+import java.io.IOException;
+import java.util.Base64;
 
 public final class BasicHttpAuthMiddleware implements Filter {
 

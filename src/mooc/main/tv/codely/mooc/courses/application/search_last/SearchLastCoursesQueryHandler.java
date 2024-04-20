@@ -6,14 +6,14 @@ import tv.codely.shared.domain.bus.query.QueryHandler;
 
 @Component
 public final class SearchLastCoursesQueryHandler implements QueryHandler<SearchLastCoursesQuery, CoursesResponse> {
-    private final LastCoursesSearcher searcher;
+	private final LastCoursesSearcher searcher;
 
-    public SearchLastCoursesQueryHandler(LastCoursesSearcher searcher) {
-        this.searcher = searcher;
-    }
+	public SearchLastCoursesQueryHandler(LastCoursesSearcher searcher) {
+		this.searcher = searcher;
+	}
 
-    @Override
-    public CoursesResponse handle(SearchLastCoursesQuery query) {
-        return searcher.search(query.total());
-    }
+	@Override
+	public CoursesResponse handle(SearchLastCoursesQuery query) {
+		return searcher.search(query.total());
+	}
 }

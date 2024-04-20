@@ -1,6 +1,8 @@
 package tv.codely.inventory.category.infrastructure.persistence;
 
-import tv.codely.inventory.category.domain.*;
+import tv.codely.inventory.category.domain.Category;
+import tv.codely.inventory.category.domain.CategoryId;
+import tv.codely.inventory.category.domain.CategoryRepository;
 import tv.codely.shared.domain.Component;
 
 import java.util.HashMap;

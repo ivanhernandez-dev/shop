@@ -7,8 +7,8 @@ import java.util.UUID;
 
 @Component
 public final class JavaUuidGenerator implements UuidGenerator {
-    @Override
-    public String generate() {
-        return UUID.randomUUID().toString();
-    }
+	@Override
+	public String generate() {
+		return UUID.randomUUID().toString();
+	}
 }

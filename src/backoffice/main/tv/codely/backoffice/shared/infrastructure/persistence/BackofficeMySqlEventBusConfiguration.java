@@ -11,27 +11,27 @@ import tv.codely.shared.infrastructure.bus.event.spring.SpringApplicationEventBu
 
 @Configuration
 public class BackofficeMySqlEventBusConfiguration {
-    private final SessionFactory            sessionFactory;
-    private final DomainEventsInformation   domainEventsInformation;
-    private final SpringApplicationEventBus bus;
+	private final SessionFactory sessionFactory;
+	private final DomainEventsInformation domainEventsInformation;
+	private final SpringApplicationEventBus bus;
 
-    public BackofficeMySqlEventBusConfiguration(
-        @Qualifier("backoffice-session_factory") SessionFactory sessionFactory,
-        DomainEventsInformation domainEventsInformation,
-        SpringApplicationEventBus bus
-    ) {
-        this.sessionFactory          = sessionFactory;
-        this.domainEventsInformation = domainEventsInformation;
-        this.bus                     = bus;
-    }
+	public BackofficeMySqlEventBusConfiguration(
+		@Qualifier("backoffice-session_factory") SessionFactory sessionFactory,
+		DomainEventsInformation domainEventsInformation,
+		SpringApplicationEventBus bus
+	) {
+		this.sessionFactory = sessionFactory;
+		this.domainEventsInformation = domainEventsInformation;
+		this.bus = bus;
+	}
 
-    @Bean
-    public MySqlEventBus backofficeMysqlEventBus() {
-        return new MySqlEventBus(sessionFactory);
-    }
+	@Bean
+	public MySqlEventBus backofficeMysqlEventBus() {
+		return new MySqlEventBus(sessionFactory);
+	}
 
-    @Bean
-    public MySqlDomainEventsConsumer backofficeMySqlDomainEventsConsumer() {
-        return new MySqlDomainEventsConsumer(sessionFactory, domainEventsInformation, bus);
-    }
+	@Bean
+	public MySqlDomainEventsConsumer backofficeMySqlDomainEventsConsumer() {
+		return new MySqlDomainEventsConsumer(sessionFactory, domainEventsInformation, bus);
+	}
 }

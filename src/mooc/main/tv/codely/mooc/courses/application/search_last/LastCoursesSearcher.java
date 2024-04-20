@@ -13,22 +13,22 @@ import java.util.stream.Collectors;
 
 @Component
 public final class LastCoursesSearcher {
-    private final CourseRepository repository;
+	private final CourseRepository repository;
 
-    public LastCoursesSearcher(CourseRepository repository) {
-        this.repository = repository;
-    }
+	public LastCoursesSearcher(CourseRepository repository) {
+		this.repository = repository;
+	}
 
-    public CoursesResponse search(int courses) {
-        Criteria criteria = new Criteria(
-            Filters.none(),
-            Order.none(),
-            Optional.of(courses),
-            Optional.empty()
-        );
+	public CoursesResponse search(int courses) {
+		Criteria criteria = new Criteria(
+			Filters.none(),
+			Order.none(),
+			Optional.of(courses),
+			Optional.empty()
+		);
 
-        return new CoursesResponse(
-            repository.matching(criteria).stream().map(CourseResponse::fromAggregate).collect(Collectors.toList())
-        );
-    }
+		return new CoursesResponse(
+			repository.matching(criteria).stream().map(CourseResponse::fromAggregate).collect(Collectors.toList())
+		);
+	}
 }

@@ -8,14 +8,14 @@ import tv.codely.shared.domain.bus.query.QueryHandler;
 
 @Component
 public final class FindCourseQueryHandler implements QueryHandler<FindCourseQuery, CourseResponse> {
-    private final CourseFinder finder;
+	private final CourseFinder finder;
 
-    public FindCourseQueryHandler(CourseFinder finder) {
-        this.finder = finder;
-    }
+	public FindCourseQueryHandler(CourseFinder finder) {
+		this.finder = finder;
+	}
 
-    @Override
-    public CourseResponse handle(FindCourseQuery query) throws CourseNotExist {
-        return finder.find(new CourseId(query.id()));
-    }
+	@Override
+	public CourseResponse handle(FindCourseQuery query) throws CourseNotExist {
+		return finder.find(new CourseId(query.id()));
+	}
 }

@@ -1,7 +1,6 @@
 package tv.codely.apps.mooc.backend.controller.notifications;
 
 import org.junit.jupiter.api.Test;
-
 import tv.codely.apps.mooc.MoocApplicationTestCase;
 
 final class NewsletterNotificationPutControllerShould extends MoocApplicationTestCase {

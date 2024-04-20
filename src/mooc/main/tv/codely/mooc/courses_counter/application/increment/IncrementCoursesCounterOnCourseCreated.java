@@ -9,16 +9,16 @@ import tv.codely.shared.domain.course.CourseCreatedDomainEvent;
 @Component
 @DomainEventSubscriber({CourseCreatedDomainEvent.class})
 public final class IncrementCoursesCounterOnCourseCreated {
-    private final CoursesCounterIncrementer incrementer;
+	private final CoursesCounterIncrementer incrementer;
 
-    public IncrementCoursesCounterOnCourseCreated(CoursesCounterIncrementer incrementer) {
-        this.incrementer = incrementer;
-    }
+	public IncrementCoursesCounterOnCourseCreated(CoursesCounterIncrementer incrementer) {
+		this.incrementer = incrementer;
+	}
 
-    @EventListener
-    public void on(CourseCreatedDomainEvent event) {
-        CourseId courseId = new CourseId(event.aggregateId());
+	@EventListener
+	public void on(CourseCreatedDomainEvent event) {
+		CourseId courseId = new CourseId(event.aggregateId());
 
-        incrementer.increment(courseId);
-    }
+		incrementer.increment(courseId);
+	}
 }

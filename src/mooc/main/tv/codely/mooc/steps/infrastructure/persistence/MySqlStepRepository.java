@@ -14,17 +14,17 @@ import java.util.Optional;
 @Component
 @Transactional("mooc-transaction_manager")
 public class MySqlStepRepository extends HibernateRepository<Step> implements StepRepository {
-    public MySqlStepRepository(@Qualifier("mooc-session_factory") SessionFactory sessionFactory) {
-        super(sessionFactory, Step.class);
-    }
+	public MySqlStepRepository(@Qualifier("mooc-session_factory") SessionFactory sessionFactory) {
+		super(sessionFactory, Step.class);
+	}
 
-    @Override
-    public void save(Step step) {
-        persist(step);
-    }
+	@Override
+	public void save(Step step) {
+		persist(step);
+	}
 
-    @Override
-    public Optional<? extends Step> search(StepId id) {
-        return byId(id);
-    }
+	@Override
+	public Optional<? extends Step> search(StepId id) {
+		return byId(id);
+	}
 }

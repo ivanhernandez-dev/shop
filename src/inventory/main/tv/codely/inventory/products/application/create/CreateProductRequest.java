@@ -1,6 +1,5 @@
 package tv.codely.inventory.products.application.create;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 public class CreateProductRequest {

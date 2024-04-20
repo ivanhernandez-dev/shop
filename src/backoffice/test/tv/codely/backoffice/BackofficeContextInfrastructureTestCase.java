@@ -12,10 +12,10 @@ import java.io.IOException;
 @ContextConfiguration(classes = BackofficeFrontendApplication.class)
 @SpringBootTest
 public abstract class BackofficeContextInfrastructureTestCase extends InfrastructureTestCase {
-    @Autowired
-    private ElasticsearchEnvironmentArranger elasticsearchArranger;
+	@Autowired
+	private ElasticsearchEnvironmentArranger elasticsearchArranger;
 
-    protected void clearElasticsearch() throws IOException {
-        elasticsearchArranger.arrange("backoffice", "backoffice_courses");
-    }
+	protected void clearElasticsearch() throws IOException {
+		elasticsearchArranger.arrange("backoffice", "backoffice_courses");
+	}
 }

@@ -3,7 +3,6 @@ package tv.codely.shared.domain.product;
 import tv.codely.shared.domain.bus.event.DomainEvent;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Objects;
 

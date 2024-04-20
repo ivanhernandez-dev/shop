@@ -5,10 +5,10 @@
 
 <hibernate-mapping>
     <class name="tv.codely.backoffice.courses.domain.BackofficeCourse" table="courses">
-        <id name="id" column="id" access="field" length="36" />
+        <id name="id" column="id" access="field" length="36"/>
 
-        <property name="name" column="name" type="string" access="field" />
+        <property name="name" column="name" type="string" access="field"/>
 
-        <property name="duration" column="duration" type="string" access="field" />
+        <property name="duration" column="duration" type="string" access="field"/>
     </class>
 </hibernate-mapping>

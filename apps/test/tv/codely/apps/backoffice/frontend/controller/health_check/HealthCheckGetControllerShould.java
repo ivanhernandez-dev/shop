@@ -1,7 +1,6 @@
 package tv.codely.apps.backoffice.frontend.controller.health_check;
 
 import org.junit.jupiter.api.Test;
-
 import tv.codely.apps.ApplicationTestCase;
 
 final class HealthCheckGetControllerShould extends ApplicationTestCase {

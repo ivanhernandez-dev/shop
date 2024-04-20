@@ -18,7 +18,7 @@ final class ProductFinderShould extends ProductsModuleUnitTestCase {
 	protected void setUp() {
 		super.setUp();
 
-        this.finder = new ProductFinder(this.repository);
+		this.finder = new ProductFinder(this.repository);
 	}
 
 	@Test

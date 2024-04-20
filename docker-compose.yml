@@ -12,10 +12,10 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     entrypoint:
       sh -c "
-        echo 'CREATE DATABASE IF NOT EXISTS mooc;CREATE DATABASE IF NOT EXISTS backoffice;CREATE DATABASE IF NOT EXISTS inventory;' > /docker-entrypoint-initdb.d/init.sql;
-        /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+      echo 'CREATE DATABASE IF NOT EXISTS mooc;CREATE DATABASE IF NOT EXISTS backoffice;CREATE DATABASE IF NOT EXISTS inventory;' > /docker-entrypoint-initdb.d/init.sql;
+      /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
       "
-    command: ["--default-authentication-plugin=mysql_native_password"]
+    command: [ "--default-authentication-plugin=mysql_native_password" ]
 
   shared_rabbitmq:
     container_name: codely-java_ddd_example-rabbitmq
@@ -55,7 +55,7 @@ services:
       - shared_mysql
       - shared_rabbitmq
       - backoffice_elasticsearch
-    command: ["./gradlew", "bootRun", "--args", "backoffice_backend server"]
+    command: [ "./gradlew", "bootRun", "--args", "backoffice_backend server" ]
 
   backoffice_frontend_server_java:
     container_name: codely-java_ddd_example-backoffice_frontend_server
@@ -72,7 +72,7 @@ services:
       - shared_mysql
       - shared_rabbitmq
       - backoffice_elasticsearch
-    command: ["./gradlew", "bootRun", "--args", "backoffice_frontend server"]
+    command: [ "./gradlew", "bootRun", "--args", "backoffice_frontend server" ]
 
   mooc_backend_server_java:
     container_name: codely-java_ddd_example-mooc_backend_server
@@ -89,7 +89,7 @@ services:
       - shared_mysql
       - shared_rabbitmq
       - backoffice_elasticsearch
-    command: ["./gradlew", "bootRun", "--args", "mooc_backend server"]
+    command: [ "./gradlew", "bootRun", "--args", "mooc_backend server" ]
 
   inventory_backend_server_java:
     container_name: codely-java_ddd_example-inventory_backend_server
@@ -106,7 +106,7 @@ services:
       - shared_mysql
       - shared_rabbitmq
       - backoffice_elasticsearch
-    command: ["./gradlew", "bootRun", "--args", "inventory_backend server"]
+    command: [ "./gradlew", "bootRun", "--args", "inventory_backend server" ]
 
   test_server_java:
     container_name: codely-java_ddd_example-test_server

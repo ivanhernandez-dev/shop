@@ -15,33 +15,33 @@ import java.io.IOException;
 @Configuration
 @EnableTransactionManagement
 public class BackofficeHibernateConfiguration {
-    private final HibernateConfigurationFactory factory;
-    private final Parameter                     config;
-    private final String                        CONTEXT_NAME = "backoffice";
+	private final HibernateConfigurationFactory factory;
+	private final Parameter config;
+	private final String CONTEXT_NAME = "backoffice";
 
-    public BackofficeHibernateConfiguration(HibernateConfigurationFactory factory, Parameter config) {
-        this.factory = factory;
-        this.config  = config;
-    }
+	public BackofficeHibernateConfiguration(HibernateConfigurationFactory factory, Parameter config) {
+		this.factory = factory;
+		this.config = config;
+	}
 
-    @Bean("backoffice-transaction_manager")
-    public PlatformTransactionManager hibernateTransactionManager() throws IOException, ParameterNotExist {
-        return factory.hibernateTransactionManager(sessionFactory());
-    }
+	@Bean("backoffice-transaction_manager")
+	public PlatformTransactionManager hibernateTransactionManager() throws IOException, ParameterNotExist {
+		return factory.hibernateTransactionManager(sessionFactory());
+	}
 
-    @Bean("backoffice-session_factory")
-    public LocalSessionFactoryBean sessionFactory() throws IOException, ParameterNotExist {
-        return factory.sessionFactory(CONTEXT_NAME, dataSource());
-    }
+	@Bean("backoffice-session_factory")
+	public LocalSessionFactoryBean sessionFactory() throws IOException, ParameterNotExist {
+		return factory.sessionFactory(CONTEXT_NAME, dataSource());
+	}
 
-    @Bean("backoffice-data_source")
-    public DataSource dataSource() throws IOException, ParameterNotExist {
-        return factory.dataSource(
-            config.get("BACKOFFICE_DATABASE_HOST"),
-            config.getInt("BACKOFFICE_DATABASE_PORT"),
-            config.get("BACKOFFICE_DATABASE_NAME"),
-            config.get("BACKOFFICE_DATABASE_USER"),
-            config.get("BACKOFFICE_DATABASE_PASSWORD")
-        );
-    }
+	@Bean("backoffice-data_source")
+	public DataSource dataSource() throws IOException, ParameterNotExist {
+		return factory.dataSource(
+			config.get("BACKOFFICE_DATABASE_HOST"),
+			config.getInt("BACKOFFICE_DATABASE_PORT"),
+			config.get("BACKOFFICE_DATABASE_NAME"),
+			config.get("BACKOFFICE_DATABASE_USER"),
+			config.get("BACKOFFICE_DATABASE_PASSWORD")
+		);
+	}
 }

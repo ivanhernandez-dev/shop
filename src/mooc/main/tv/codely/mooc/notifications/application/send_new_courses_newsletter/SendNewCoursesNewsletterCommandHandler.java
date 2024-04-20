@@ -5,14 +5,14 @@ import tv.codely.shared.domain.bus.command.CommandHandler;
 
 @Component
 public final class SendNewCoursesNewsletterCommandHandler implements CommandHandler<SendNewCoursesNewsletterCommand> {
-    private final NewCoursesNewsletterSender sender;
+	private final NewCoursesNewsletterSender sender;
 
-    public SendNewCoursesNewsletterCommandHandler(NewCoursesNewsletterSender sender) {
-        this.sender = sender;
-    }
+	public SendNewCoursesNewsletterCommandHandler(NewCoursesNewsletterSender sender) {
+		this.sender = sender;
+	}
 
-    @Override
-    public void handle(SendNewCoursesNewsletterCommand command) {
-        sender.send();
-    }
+	@Override
+	public void handle(SendNewCoursesNewsletterCommand command) {
+		sender.send();
+	}
 }

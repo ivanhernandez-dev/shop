@@ -3,7 +3,6 @@ package tv.codely.inventory.products;
 import org.junit.jupiter.api.BeforeEach;
 import tv.codely.inventory.products.domain.Product;
 import tv.codely.inventory.products.domain.ProductRepository;
-import tv.codely.shared.domain.bus.event.EventBus;
 import tv.codely.shared.infrastructure.UnitTestCase;
 
 import static org.mockito.Mockito.*;

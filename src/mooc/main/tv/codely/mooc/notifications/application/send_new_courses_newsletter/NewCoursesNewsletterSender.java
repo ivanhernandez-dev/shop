@@ -14,39 +14,39 @@ import tv.codely.shared.domain.bus.query.QueryBus;
 
 @Component
 public final class NewCoursesNewsletterSender {
-    private final static Integer       TOTAL_COURSES = 3;
-    private final        QueryBus      queryBus;
-    private final        EmailSender   sender;
-    private final        UuidGenerator uuidGenerator;
-    private final        EventBus      eventBus;
+	private final static Integer TOTAL_COURSES = 3;
+	private final QueryBus queryBus;
+	private final EmailSender sender;
+	private final UuidGenerator uuidGenerator;
+	private final EventBus eventBus;
 
-    public NewCoursesNewsletterSender(
-        QueryBus queryBus,
-        UuidGenerator uuidGenerator,
-        EmailSender sender,
-        EventBus eventBus
-    ) {
-        this.queryBus      = queryBus;
-        this.uuidGenerator = uuidGenerator;
-        this.sender        = sender;
-        this.eventBus      = eventBus;
-    }
+	public NewCoursesNewsletterSender(
+		QueryBus queryBus,
+		UuidGenerator uuidGenerator,
+		EmailSender sender,
+		EventBus eventBus
+	) {
+		this.queryBus = queryBus;
+		this.uuidGenerator = uuidGenerator;
+		this.sender = sender;
+		this.eventBus = eventBus;
+	}
 
-    public void send() {
-        CoursesResponse courses = queryBus.ask(new SearchLastCoursesQuery(TOTAL_COURSES));
+	public void send() {
+		CoursesResponse courses = queryBus.ask(new SearchLastCoursesQuery(TOTAL_COURSES));
 
-        if (courses.courses().size() > 0) {
-            StudentsResponse students = queryBus.ask(new SearchAllStudentsQuery());
+		if (courses.courses().size() > 0) {
+			StudentsResponse students = queryBus.ask(new SearchAllStudentsQuery());
 
-            students.students().forEach(student -> send(student, courses));
-        }
-    }
+			students.students().forEach(student -> send(student, courses));
+		}
+	}
 
-    public void send(StudentResponse student, CoursesResponse courses) {
-        NewCoursesNewsletter newsletter = NewCoursesNewsletter.send(uuidGenerator.generate(), student, courses);
+	public void send(StudentResponse student, CoursesResponse courses) {
+		NewCoursesNewsletter newsletter = NewCoursesNewsletter.send(uuidGenerator.generate(), student, courses);
 
-        sender.send(newsletter);
+		sender.send(newsletter);
 
-        eventBus.publish(newsletter.pullDomainEvents());
-    }
+		eventBus.publish(newsletter.pullDomainEvents());
+	}
 }

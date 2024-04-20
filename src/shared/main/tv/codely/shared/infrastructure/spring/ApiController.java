@@ -12,21 +12,21 @@ import tv.codely.shared.domain.bus.query.QueryHandlerExecutionError;
 import java.util.HashMap;
 
 public abstract class ApiController {
-    private final QueryBus   queryBus;
-    private final CommandBus commandBus;
+	private final QueryBus queryBus;
+	private final CommandBus commandBus;
 
-    public ApiController(QueryBus queryBus, CommandBus commandBus) {
-        this.queryBus   = queryBus;
-        this.commandBus = commandBus;
-    }
+	public ApiController(QueryBus queryBus, CommandBus commandBus) {
+		this.queryBus = queryBus;
+		this.commandBus = commandBus;
+	}
 
-    protected void dispatch(Command command) throws CommandHandlerExecutionError {
-        commandBus.dispatch(command);
-    }
+	protected void dispatch(Command command) throws CommandHandlerExecutionError {
+		commandBus.dispatch(command);
+	}
 
-    protected <R> R ask(Query query) throws QueryHandlerExecutionError {
-        return queryBus.ask(query);
-    }
+	protected <R> R ask(Query query) throws QueryHandlerExecutionError {
+		return queryBus.ask(query);
+	}
 
-    abstract public HashMap<Class<? extends DomainError>, HttpStatus> errorMapping();
+	abstract public HashMap<Class<? extends DomainError>, HttpStatus> errorMapping();
 }

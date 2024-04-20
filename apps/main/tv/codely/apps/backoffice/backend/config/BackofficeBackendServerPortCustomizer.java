@@ -3,7 +3,6 @@ package tv.codely.apps.backoffice.backend.config;
 import org.springframework.boot.web.server.ConfigurableWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.stereotype.Component;
-
 import tv.codely.shared.infrastructure.config.Parameter;
 import tv.codely.shared.infrastructure.config.ParameterNotExist;
 

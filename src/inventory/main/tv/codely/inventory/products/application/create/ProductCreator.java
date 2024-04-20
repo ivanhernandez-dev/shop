@@ -10,7 +10,7 @@ public final class ProductCreator {
 	private final EventBus eventBus;
 
 	public ProductCreator(ProductRepository repository, EventBus eventBus) {
-	 	this.repository = repository;
+		this.repository = repository;
 		this.eventBus = eventBus;
 	}
 

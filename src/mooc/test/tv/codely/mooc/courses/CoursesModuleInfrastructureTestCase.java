@@ -6,7 +6,7 @@ import tv.codely.mooc.courses.domain.CourseRepository;
 import tv.codely.mooc.courses.infrastructure.persistence.InMemoryCourseRepository;
 
 public abstract class CoursesModuleInfrastructureTestCase extends MoocContextInfrastructureTestCase {
-    protected InMemoryCourseRepository inMemoryCourseRepository = new InMemoryCourseRepository();
-    @Autowired
-    protected CourseRepository         mySqlCourseRepository;
+	protected InMemoryCourseRepository inMemoryCourseRepository = new InMemoryCourseRepository();
+	@Autowired
+	protected CourseRepository mySqlCourseRepository;
 }

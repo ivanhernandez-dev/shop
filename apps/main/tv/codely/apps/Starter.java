@@ -1,17 +1,16 @@
 package tv.codely.apps;
 
-import java.util.Arrays;
-import java.util.HashMap;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.context.ConfigurableApplicationContext;
-
 import tv.codely.apps.backoffice.backend.BackofficeBackendApplication;
 import tv.codely.apps.backoffice.frontend.BackofficeFrontendApplication;
 import tv.codely.apps.inventory.backend.InventoryBackendApplication;
 import tv.codely.apps.mooc.backend.MoocBackendApplication;
 import tv.codely.shared.infrastructure.cli.ConsoleCommand;
+
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class Starter {
 

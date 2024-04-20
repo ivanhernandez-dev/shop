@@ -16,22 +16,22 @@ import java.util.Optional;
 @Component
 @Transactional("mooc-transaction_manager")
 public class MySqlCourseRepository extends HibernateRepository<Course> implements CourseRepository {
-    public MySqlCourseRepository(@Qualifier("mooc-session_factory") SessionFactory sessionFactory) {
-        super(sessionFactory, Course.class);
-    }
+	public MySqlCourseRepository(@Qualifier("mooc-session_factory") SessionFactory sessionFactory) {
+		super(sessionFactory, Course.class);
+	}
 
-    @Override
-    public void save(Course course) {
-        persist(course);
-    }
+	@Override
+	public void save(Course course) {
+		persist(course);
+	}
 
-    @Override
-    public Optional<Course> search(CourseId id) {
-        return byId(id);
-    }
+	@Override
+	public Optional<Course> search(CourseId id) {
+		return byId(id);
+	}
 
-    @Override
-    public List<Course> matching(Criteria criteria) {
-        return byCriteria(criteria);
-    }
+	@Override
+	public List<Course> matching(Criteria criteria) {
+		return byCriteria(criteria);
+	}
 }

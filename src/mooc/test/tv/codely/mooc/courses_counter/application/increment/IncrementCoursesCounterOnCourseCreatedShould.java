@@ -11,56 +11,56 @@ import tv.codely.mooc.courses_counter.domain.CoursesCounterMother;
 import tv.codely.shared.domain.course.CourseCreatedDomainEvent;
 
 final class IncrementCoursesCounterOnCourseCreatedShould extends CoursesCounterModuleUnitTestCase {
-    IncrementCoursesCounterOnCourseCreated subscriber;
+	IncrementCoursesCounterOnCourseCreated subscriber;
 
-    @BeforeEach
-    protected void setUp() {
-        super.setUp();
+	@BeforeEach
+	protected void setUp() {
+		super.setUp();
 
-        subscriber = new IncrementCoursesCounterOnCourseCreated(
-            new CoursesCounterIncrementer(repository, uuidGenerator)
-        );
-    }
+		subscriber = new IncrementCoursesCounterOnCourseCreated(
+			new CoursesCounterIncrementer(repository, uuidGenerator)
+		);
+	}
 
-    @Test
-    void it_should_initialize_a_new_counter() {
-        CourseCreatedDomainEvent event = CourseCreatedDomainEventMother.random();
+	@Test
+	void it_should_initialize_a_new_counter() {
+		CourseCreatedDomainEvent event = CourseCreatedDomainEventMother.random();
 
-        CourseId       courseId   = CourseIdMother.create(event.aggregateId());
-        CoursesCounter newCounter = CoursesCounterMother.withOne(courseId);
+		CourseId courseId = CourseIdMother.create(event.aggregateId());
+		CoursesCounter newCounter = CoursesCounterMother.withOne(courseId);
 
-        shouldSearch();
-        shouldGenerateUuid(newCounter.id().value());
+		shouldSearch();
+		shouldGenerateUuid(newCounter.id().value());
 
-        subscriber.on(event);
+		subscriber.on(event);
 
-        shouldHaveSaved(newCounter);
-    }
+		shouldHaveSaved(newCounter);
+	}
 
-    @Test
-    void it_should_increment_an_existing_counter() {
-        CourseCreatedDomainEvent event = CourseCreatedDomainEventMother.random();
+	@Test
+	void it_should_increment_an_existing_counter() {
+		CourseCreatedDomainEvent event = CourseCreatedDomainEventMother.random();
 
-        CourseId       courseId           = CourseIdMother.create(event.aggregateId());
-        CoursesCounter existingCounter    = CoursesCounterMother.random();
-        CoursesCounter incrementedCounter = CoursesCounterMother.incrementing(existingCounter, courseId);
+		CourseId courseId = CourseIdMother.create(event.aggregateId());
+		CoursesCounter existingCounter = CoursesCounterMother.random();
+		CoursesCounter incrementedCounter = CoursesCounterMother.incrementing(existingCounter, courseId);
 
-        shouldSearch(existingCounter);
+		shouldSearch(existingCounter);
 
-        subscriber.on(event);
+		subscriber.on(event);
 
-        shouldHaveSaved(incrementedCounter);
-    }
+		shouldHaveSaved(incrementedCounter);
+	}
 
-    @Test
-    void it_should_not_increment_an_already_incremented_course() {
-        CourseCreatedDomainEvent event = CourseCreatedDomainEventMother.random();
+	@Test
+	void it_should_not_increment_an_already_incremented_course() {
+		CourseCreatedDomainEvent event = CourseCreatedDomainEventMother.random();
 
-        CourseId       courseId        = CourseIdMother.create(event.aggregateId());
-        CoursesCounter existingCounter = CoursesCounterMother.withOne(courseId);
+		CourseId courseId = CourseIdMother.create(event.aggregateId());
+		CoursesCounter existingCounter = CoursesCounterMother.withOne(courseId);
 
-        shouldSearch(existingCounter);
+		shouldSearch(existingCounter);
 
-        subscriber.on(event);
-    }
+		subscriber.on(event);
+	}
 }

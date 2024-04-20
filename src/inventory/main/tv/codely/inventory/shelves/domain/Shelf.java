@@ -1,9 +1,6 @@
 package tv.codely.inventory.shelves.domain;
 
-import tv.codely.inventory.products.domain.Product;
 import tv.codely.shared.domain.AggregateRoot;
-
-import java.util.Collection;
 
 public final class Shelf extends AggregateRoot {
 	private final ShelfId id;

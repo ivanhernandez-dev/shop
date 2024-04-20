@@ -1,7 +1,5 @@
 package tv.codely.inventory.products.domain;
 
-import tv.codely.shared.domain.PriceValueObject;
-
 import java.math.BigDecimal;
 import java.util.Objects;
 

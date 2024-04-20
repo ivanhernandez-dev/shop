@@ -3,7 +3,6 @@ package tv.codely.inventory.products.domain;
 import tv.codely.shared.domain.AggregateRoot;
 import tv.codely.shared.domain.product.ProductCreatedDomainEvent;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 public final class Product extends AggregateRoot {
@@ -30,7 +29,7 @@ public final class Product extends AggregateRoot {
 	}
 
 	public static Product create(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductWeight weight) {
-        Product product = new Product(id, name, description, price, weight);
+		Product product = new Product(id, name, description, price, weight);
 
 		product.record(new ProductCreatedDomainEvent(id.value(), name.value(), price.value()));
 
@@ -73,11 +72,11 @@ public final class Product extends AggregateRoot {
 	@Override
 	public String toString() {
 		return "Product{" +
-				"id=" + this.id +
-				", name=" + this.name +
-				", description=" + this.description +
-				", price=" + this.price +
-				", weight=" + this.weight +
-				'}';
+			"id=" + this.id +
+			", name=" + this.name +
+			", description=" + this.description +
+			", price=" + this.price +
+			", weight=" + this.weight +
+			'}';
 	}
 }

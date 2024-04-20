@@ -6,20 +6,20 @@ import tv.codely.mooc.steps.domain.StepTitle;
 import tv.codely.shared.domain.VideoUrl;
 
 public final class VideoStep extends Step {
-    private final VideoUrl      videoUrl;
-    private final VideoStepText text;
+	private final VideoUrl videoUrl;
+	private final VideoStepText text;
 
-    public VideoStep(StepId id, StepTitle title, VideoUrl videoUrl, VideoStepText text) {
-        super(id, title);
+	public VideoStep(StepId id, StepTitle title, VideoUrl videoUrl, VideoStepText text) {
+		super(id, title);
 
-        this.videoUrl = videoUrl;
-        this.text     = text;
-    }
+		this.videoUrl = videoUrl;
+		this.text = text;
+	}
 
-    private VideoStep() {
-        super(null, null);
+	private VideoStep() {
+		super(null, null);
 
-        this.videoUrl = null;
-        this.text     = null;
-    }
+		this.videoUrl = null;
+		this.text = null;
+	}
 }

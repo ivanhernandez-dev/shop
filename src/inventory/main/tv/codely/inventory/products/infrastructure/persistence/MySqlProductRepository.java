@@ -32,7 +32,7 @@ public class MySqlProductRepository extends HibernateRepository<Product> impleme
 
 	@Override
 	public void update(Product product) {
-        super.update(product);
+		super.update(product);
 	}
 
 	@Override

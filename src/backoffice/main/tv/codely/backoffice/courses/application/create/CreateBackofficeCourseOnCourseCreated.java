@@ -8,14 +8,14 @@ import tv.codely.shared.domain.course.CourseCreatedDomainEvent;
 @Component
 @DomainEventSubscriber({CourseCreatedDomainEvent.class})
 public final class CreateBackofficeCourseOnCourseCreated {
-    private final BackofficeCourseCreator creator;
+	private final BackofficeCourseCreator creator;
 
-    public CreateBackofficeCourseOnCourseCreated(BackofficeCourseCreator creator) {
-        this.creator = creator;
-    }
+	public CreateBackofficeCourseOnCourseCreated(BackofficeCourseCreator creator) {
+		this.creator = creator;
+	}
 
-    @EventListener
-    public void on(CourseCreatedDomainEvent event) {
-        creator.create(event.aggregateId(), event.name(), event.duration());
-    }
+	@EventListener
+	public void on(CourseCreatedDomainEvent event) {
+		creator.create(event.aggregateId(), event.name(), event.duration());
+	}
 }

@@ -12,22 +12,22 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 public abstract class NotificationsModuleUnitTestCase extends UnitTestCase {
-    protected EmailSender sender;
+	protected EmailSender sender;
 
-    @BeforeEach
-    protected void setUp() {
-        super.setUp();
+	@BeforeEach
+	protected void setUp() {
+		super.setUp();
 
-        sender = mock(EmailSender.class);
-    }
+		sender = mock(EmailSender.class);
+	}
 
-    public void shouldHaveSentEmail(Email email) {
-        ArgumentCaptor<Email> argument = ArgumentCaptor.forClass(Email.class);
+	public void shouldHaveSentEmail(Email email) {
+		ArgumentCaptor<Email> argument = ArgumentCaptor.forClass(Email.class);
 
-        verify(sender, atLeastOnce()).send(argument.capture());
+		verify(sender, atLeastOnce()).send(argument.capture());
 
-        List<Email> emails = argument.getAllValues();
+		List<Email> emails = argument.getAllValues();
 
-        assertTrue(emails.contains(email));
-    }
+		assertTrue(emails.contains(email));
+	}
 }

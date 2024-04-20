@@ -9,19 +9,19 @@ import tv.codely.shared.infrastructure.bus.event.rabbitmq.RabbitMqPublisher;
 
 @Configuration
 public class MoocRabbitMqEventBusConfiguration {
-    private final RabbitMqPublisher publisher;
-    private final MySqlEventBus     failoverPublisher;
+	private final RabbitMqPublisher publisher;
+	private final MySqlEventBus failoverPublisher;
 
-    public MoocRabbitMqEventBusConfiguration(
-        RabbitMqPublisher publisher,
-        @Qualifier("moocMysqlEventBus") MySqlEventBus failoverPublisher
-    ) {
-        this.publisher         = publisher;
-        this.failoverPublisher = failoverPublisher;
-    }
+	public MoocRabbitMqEventBusConfiguration(
+		RabbitMqPublisher publisher,
+		@Qualifier("moocMysqlEventBus") MySqlEventBus failoverPublisher
+	) {
+		this.publisher = publisher;
+		this.failoverPublisher = failoverPublisher;
+	}
 
-    @Bean
-    public RabbitMqEventBus moocRabbitMqEventBus() {
-        return new RabbitMqEventBus(publisher, failoverPublisher);
-    }
+	@Bean
+	public RabbitMqEventBus moocRabbitMqEventBus() {
+		return new RabbitMqEventBus(publisher, failoverPublisher);
+	}
 }

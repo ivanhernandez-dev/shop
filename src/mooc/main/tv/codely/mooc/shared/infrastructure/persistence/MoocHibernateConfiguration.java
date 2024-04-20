@@ -15,33 +15,33 @@ import java.io.IOException;
 @Configuration
 @EnableTransactionManagement
 public class MoocHibernateConfiguration {
-    private final HibernateConfigurationFactory factory;
-    private final Parameter                     config;
-    private final String                        CONTEXT_NAME = "mooc";
+	private final HibernateConfigurationFactory factory;
+	private final Parameter config;
+	private final String CONTEXT_NAME = "mooc";
 
-    public MoocHibernateConfiguration(HibernateConfigurationFactory factory, Parameter config) {
-        this.factory = factory;
-        this.config  = config;
-    }
+	public MoocHibernateConfiguration(HibernateConfigurationFactory factory, Parameter config) {
+		this.factory = factory;
+		this.config = config;
+	}
 
-    @Bean("mooc-transaction_manager")
-    public PlatformTransactionManager hibernateTransactionManager() throws IOException, ParameterNotExist {
-        return factory.hibernateTransactionManager(sessionFactory());
-    }
+	@Bean("mooc-transaction_manager")
+	public PlatformTransactionManager hibernateTransactionManager() throws IOException, ParameterNotExist {
+		return factory.hibernateTransactionManager(sessionFactory());
+	}
 
-    @Bean("mooc-session_factory")
-    public LocalSessionFactoryBean sessionFactory() throws IOException, ParameterNotExist {
-        return factory.sessionFactory(CONTEXT_NAME, dataSource());
-    }
+	@Bean("mooc-session_factory")
+	public LocalSessionFactoryBean sessionFactory() throws IOException, ParameterNotExist {
+		return factory.sessionFactory(CONTEXT_NAME, dataSource());
+	}
 
-    @Bean("mooc-data_source")
-    public DataSource dataSource() throws IOException, ParameterNotExist {
-        return factory.dataSource(
-            config.get("MOOC_DATABASE_HOST"),
-            config.getInt("MOOC_DATABASE_PORT"),
-            config.get("MOOC_DATABASE_NAME"),
-            config.get("MOOC_DATABASE_USER"),
-            config.get("MOOC_DATABASE_PASSWORD")
-        );
-    }
+	@Bean("mooc-data_source")
+	public DataSource dataSource() throws IOException, ParameterNotExist {
+		return factory.dataSource(
+			config.get("MOOC_DATABASE_HOST"),
+			config.getInt("MOOC_DATABASE_PORT"),
+			config.get("MOOC_DATABASE_NAME"),
+			config.get("MOOC_DATABASE_USER"),
+			config.get("MOOC_DATABASE_PASSWORD")
+		);
+	}
 }

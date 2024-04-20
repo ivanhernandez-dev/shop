@@ -17,6 +17,10 @@ public final class ProductResponse {
 		this.weight = weight;
 	}
 
+	public static ProductResponse fromAggregate(Product product) {
+		return new ProductResponse(product.id().value(), product.name().value(), product.description().value(), product.price().value(), product.weight().value());
+	}
+
 	public String id() {
 		return id;
 	}
@@ -35,9 +39,5 @@ public final class ProductResponse {
 
 	public Double weight() {
 		return weight;
-	}
-
-	public static ProductResponse fromAggregate(Product product) {
-		return new ProductResponse(product.id().value(), product.name().value(), product.description().value(), product.price().value(), product.weight().value());
 	}
 }

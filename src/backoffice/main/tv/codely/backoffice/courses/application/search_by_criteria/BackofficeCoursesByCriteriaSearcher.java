@@ -13,25 +13,25 @@ import java.util.stream.Collectors;
 
 @Component
 public final class BackofficeCoursesByCriteriaSearcher {
-    private final BackofficeCourseRepository repository;
+	private final BackofficeCourseRepository repository;
 
-    public BackofficeCoursesByCriteriaSearcher(BackofficeCourseRepository repository) {
-        this.repository = repository;
-    }
+	public BackofficeCoursesByCriteriaSearcher(BackofficeCourseRepository repository) {
+		this.repository = repository;
+	}
 
-    public BackofficeCoursesResponse search(
-        Filters filters,
-        Order order,
-        Optional<Integer> limit,
-        Optional<Integer> offset
-    ) {
-        Criteria criteria = new Criteria(filters, order, limit, offset);
+	public BackofficeCoursesResponse search(
+		Filters filters,
+		Order order,
+		Optional<Integer> limit,
+		Optional<Integer> offset
+	) {
+		Criteria criteria = new Criteria(filters, order, limit, offset);
 
-        return new BackofficeCoursesResponse(
-            repository.matching(criteria)
-                      .stream()
-                      .map(BackofficeCourseResponse::fromAggregate)
-                      .collect(Collectors.toList())
-        );
-    }
+		return new BackofficeCoursesResponse(
+			repository.matching(criteria)
+				.stream()
+				.map(BackofficeCourseResponse::fromAggregate)
+				.collect(Collectors.toList())
+		);
+	}
 }
