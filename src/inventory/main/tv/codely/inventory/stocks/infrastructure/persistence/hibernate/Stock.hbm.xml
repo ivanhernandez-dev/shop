@@ -12,7 +12,7 @@
                              access="field"/>
         </composite-id>
         <component name="amount" class="tv.codely.inventory.stocks.domain.StockAmount" access="field">
-            <property name="value" column="name" type="integer" access="field"/>
+            <property name="value" column="amount" type="integer" access="field"/>
         </component>
     </class>
 </hibernate-mapping>

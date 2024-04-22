@@ -1,4 +1,4 @@
-package tv.codely.inventory.shelves.infrastructure.persistence.hibernate;
+package tv.codely.inventory.shelves.infrastructure.persistence;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;

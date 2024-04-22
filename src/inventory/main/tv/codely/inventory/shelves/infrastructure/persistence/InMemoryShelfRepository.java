@@ -1,4 +1,4 @@
-package tv.codely.inventory.shelves.infrastructure.persistence.hibernate;
+package tv.codely.inventory.shelves.infrastructure.persistence;
 
 import tv.codely.inventory.shelves.domain.Shelf;
 import tv.codely.inventory.shelves.domain.ShelfId;

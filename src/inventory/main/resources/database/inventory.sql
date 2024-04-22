@@ -41,3 +41,19 @@ CREATE TABLE IF NOT EXISTS shelves
 
 INSERT IGNORE INTO shelves (id, length, width, max_weight)
 VALUES ('f7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 10.0, 10.0, 100.0);
+
+CREATE TABLE IF NOT EXISTS stocks
+(
+    product_id CHAR(36) NOT NULL,
+    shelf_id   CHAR(36) NOT NULL,
+    amount   INT      NOT NULL,
+    PRIMARY KEY (product_id, shelf_id),
+    FOREIGN KEY (product_id) REFERENCES products (id),
+    FOREIGN KEY (shelf_id) REFERENCES shelves (id)
+)
+    ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+INSERT IGNORE INTO stocks (product_id, shelf_id, amount)
+VALUES ('a7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 'f7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 10);
