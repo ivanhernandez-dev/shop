@@ -1,24 +1,22 @@
 package tv.codely.inventory.stocks.infrastructure.persistence;
 
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.transaction.annotation.Transactional;
-import tv.codely.inventory.products.domain.Product;
 import tv.codely.inventory.products.domain.ProductId;
 import tv.codely.inventory.shelves.domain.ShelfId;
 import tv.codely.inventory.stocks.domain.Stock;
 import tv.codely.inventory.stocks.domain.StockRepository;
 import tv.codely.shared.domain.Component;
-import tv.codely.shared.domain.criteria.Criteria;
-import tv.codely.shared.domain.criteria.Filters;
-import tv.codely.shared.domain.criteria.Order;
 import tv.codely.shared.infrastructure.hibernate.HibernateRepository;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Primary
@@ -36,30 +34,24 @@ public class MySqlStockRepository extends HibernateRepository<Stock> implements 
 
 	@Override
 	public Optional<Stock> search(ProductId productId, ShelfId shelfId) {
-		HashMap<String, String> productIdFilter = new HashMap<>();
-		productIdFilter.put("field", "productId");
-		productIdFilter.put("value", productId.value());
-		productIdFilter.put("operator", "=");
+		try {
+			CriteriaBuilder criteriaBuilder = this.sessionFactory.getCriteriaBuilder();
+			CriteriaQuery<Stock> query = criteriaBuilder.createQuery(Stock.class);
+			Root<Stock> root = query.from(Stock.class);
 
-		HashMap<String, String> shelfIdFilter = new HashMap<>();
-		shelfIdFilter.put("field", "shelfId");
-		shelfIdFilter.put("value", shelfId.value());
-		shelfIdFilter.put("operator", "=");
+			Predicate predicate = criteriaBuilder.conjunction();
+			predicate = criteriaBuilder.and(
+				predicate,
+				criteriaBuilder.equal(root.get("shelf").get("id"), shelfId),
+				criteriaBuilder.equal(root.get("product").get("id"), productId)
+			);
 
-		Criteria criteria = new Criteria(
-			Filters.fromValues(
-				List.of(
-					productIdFilter,
-					shelfIdFilter
-				)),
-			Order.none(),
-			Optional.empty(),
-			Optional.empty()
-		);
+			query.select(root).where(predicate);
 
-		List<Stock> stocks = super.byCriteria(criteria);
-
-		return stocks.isEmpty() ? Optional.empty() : Optional.of(stocks.get(0));
+			return Optional.ofNullable(this.sessionFactory.getCurrentSession().createQuery(query).getSingleResult());
+		} catch (NoResultException e) {
+			return Optional.empty();
+		}
 	}
 
 	@Override
@@ -69,7 +61,7 @@ public class MySqlStockRepository extends HibernateRepository<Stock> implements 
 
 	@Override
 	public void delete(ProductId productId, ShelfId shelfId) {
-		Session session = sessionFactory.getCurrentSession();
+		Session session = this.sessionFactory.getCurrentSession();
 
 		Stock recordToBeDeleted = this.search(productId, shelfId).orElseThrow();
 
