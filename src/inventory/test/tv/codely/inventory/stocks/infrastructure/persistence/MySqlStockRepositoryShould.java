@@ -23,6 +23,11 @@ class MySqlStockRepositoryShould extends StockModuleInfrastructureTestCase {
 	@Test
 	void save_a_stock() {
 		Stock stock = StockMother.random();
+		Product stockProduct = stock.product();
+		Shelf stockShelf = stock.shelf();
+
+		mySqlProductRepository.save(stockProduct);
+		mySqlShelfRepository.save(stockShelf);
 
 		mySqlStockRepository.save(stock);
 	}
