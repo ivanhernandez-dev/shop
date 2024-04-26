@@ -11,7 +11,7 @@ public class ProductsPutControllerShould extends InventoryApplicationTestCase {
 		assertRequestWithBody(
 			"PUT",
 			"/products/1aab45ba-3c7a-4344-8936-78466eca77fa",
-			"{\"name\": \"The best product\", \"description\": \"The best product description\", \"price\": \"100\", \"weight\": 200}",
+			"{\"name\": \"The best product\", \"description\": \"The best product description\", \"price\": \"100\", \"weight\": 200, \"color\": \"red\", \"material\": \"wood\"}",
 			201
 		);
 	}

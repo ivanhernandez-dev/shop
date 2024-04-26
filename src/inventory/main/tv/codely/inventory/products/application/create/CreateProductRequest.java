@@ -8,13 +8,17 @@ public class CreateProductRequest {
 	private String description;
 	private String price;
 	private Double weight;
+	private String color;
+	private String material;
 
-	public CreateProductRequest(String id, String name, String description, String price, Double weight) {
+	public CreateProductRequest(String id, String name, String description, String price, Double weight, String color, String material) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.price = price;
 		this.weight = weight;
+		this.color = color;
+		this.material = material;
 	}
 
 	public String id() {
@@ -37,16 +41,24 @@ public class CreateProductRequest {
 		return description;
 	}
 
+	public String color() {
+		return color;
+	}
+
+	public String material() {
+		return material;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if (o == null || this.getClass() != o.getClass()) return false;
 		CreateProductRequest that = (CreateProductRequest) o;
-		return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(price, that.price) && Objects.equals(weight, that.weight);
+		return Objects.equals(this.id, that.id) && Objects.equals(this.name, that.name) && Objects.equals(this.description, that.description) && Objects.equals(this.price, that.price) && Objects.equals(this.weight, that.weight) && Objects.equals(this.color, that.color) && Objects.equals(this.material, that.material);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, name, description, price, weight);
+		return Objects.hash(this.id, this.name, this.description, this.price, this.weight, this.color, this.material);
 	}
 }

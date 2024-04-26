@@ -1,5 +1,7 @@
 package tv.codely.inventory.products.domain;
 
+import java.util.Objects;
+
 public final class ProductMaterial {
 	private final String value;
 
@@ -53,5 +55,18 @@ public final class ProductMaterial {
 		}
 
 		throw new IllegalArgumentException("The material must be one of: " + String.join(", ", VALID_MATERIALS));
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || this.getClass() != o.getClass()) return false;
+		ProductMaterial that = (ProductMaterial) o;
+		return Objects.equals(this.value, that.value);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(this.value);
 	}
 }

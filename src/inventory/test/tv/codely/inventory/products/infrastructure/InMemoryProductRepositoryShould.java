@@ -52,7 +52,7 @@ final class InMemoryProductRepositoryShould extends ProductsModuleInfrastructure
 		Product product = ProductMother.random();
 		this.inMemoryRepository.save(product);
 
-		Product updatedProduct = new Product(product.id(), ProductNameMother.random(), ProductDescriptionMother.random(), ProductPriceMother.random(), ProductWeightMother.random());
+		Product updatedProduct = new Product(product.id(), ProductNameMother.random(), ProductDescriptionMother.random(), ProductPriceMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random());
 		this.inMemoryRepository.update(updatedProduct);
 
 		assertEquals(Optional.of(updatedProduct), this.inMemoryRepository.search(product.id()));

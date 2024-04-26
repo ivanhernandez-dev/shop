@@ -37,7 +37,7 @@ public final class Product extends AggregateRoot {
 	public static Product create(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductWeight weight, ProductColor color, ProductMaterial material) {
 		Product product = new Product(id, name, description, price, weight, color, material);
 
-		product.record(new ProductCreatedDomainEvent(id.value(), name.value(), price.value()));
+		product.record(new ProductCreatedDomainEvent(id.value(), name.value(), price.value(), description.value(), weight.value(), color.value(), material.value()));
 
 		return product;
 	}
@@ -62,27 +62,37 @@ public final class Product extends AggregateRoot {
 		return this.weight;
 	}
 
+	public ProductColor color() {
+		return this.color;
+	}
+
+	public ProductMaterial material() {
+		return this.material;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || this.getClass() != o.getClass()) return false;
 		Product product = (Product) o;
-		return Objects.equals(this.id, product.id) && Objects.equals(this.name, product.name) && Objects.equals(this.description, product.description) && Objects.equals(this.price, product.price) && Objects.equals(this.weight, product.weight);
+		return Objects.equals(this.id, product.id) && Objects.equals(this.name, product.name) && Objects.equals(this.description, product.description) && Objects.equals(this.price, product.price) && Objects.equals(this.weight, product.weight) && Objects.equals(this.color, product.color) && Objects.equals(this.material, product.material);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(this.id, this.name, this.description, this.price, this.weight);
+		return Objects.hash(this.id, this.name, this.description, this.price, this.weight, this.color, this.material);
 	}
 
 	@Override
 	public String toString() {
 		return "Product{" +
-			"id=" + this.id +
-			", name=" + this.name +
-			", description=" + this.description +
-			", price=" + this.price +
-			", weight=" + this.weight +
+			"id=" + id +
+			", name=" + name +
+			", description=" + description +
+			", price=" + price +
+			", weight=" + weight +
+			", color=" + color +
+			", material=" + material +
 			'}';
 	}
 }

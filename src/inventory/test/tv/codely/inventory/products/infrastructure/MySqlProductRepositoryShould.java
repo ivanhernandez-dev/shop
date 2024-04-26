@@ -54,7 +54,7 @@ class MySqlProductRepositoryShould extends ProductsModuleInfrastructureTestCase 
 		Product product = ProductMother.random();
 		this.mySqlRepository.save(product);
 
-		Product updatedProduct = new Product(product.id(), ProductNameMother.random(), ProductDescriptionMother.random(), ProductPriceMother.random(), ProductWeightMother.random());
+		Product updatedProduct = new Product(product.id(), ProductNameMother.random(), ProductDescriptionMother.random(), ProductPriceMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random());
 		this.mySqlRepository.update(updatedProduct);
 
 		assertEquals(Optional.of(updatedProduct), this.mySqlRepository.search(product.id()));

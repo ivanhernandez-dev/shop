@@ -24,5 +24,13 @@
         <component name="weight" class="tv.codely.inventory.products.domain.ProductWeight" access="field">
             <property name="value" column="weight" type="double" access="field"/>
         </component>
+
+        <component name="color" class="tv.codely.inventory.products.domain.ProductColor" access="field">
+            <property name="value" column="color" type="string" access="field"/>
+        </component>
+
+        <component name="material" class="tv.codely.inventory.products.domain.ProductMaterial" access="field">
+            <property name="value" column="material" type="string" access="field"/>
+        </component>
     </class>
 </hibernate-mapping>
