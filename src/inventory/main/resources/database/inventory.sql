@@ -1,21 +1,3 @@
-CREATE TABLE IF NOT EXISTS products
-(
-    id          CHAR(36)       NOT NULL,
-    name        VARCHAR(255)   NOT NULL,
-    description VARCHAR(255)   NULL,
-    price       DECIMAL(10, 2) NOT NULL,
-    weight      double         NOT NULL,
-    color       VARCHAR(255)   NULL,
-    material    VARCHAR(255)   NULL,
-    PRIMARY KEY (id)
-)
-    ENGINE = InnoDB
-    DEFAULT CHARSET = utf8mb4
-    COLLATE = utf8mb4_unicode_ci;
-
-INSERT IGNORE INTO products (id, name, description, price, weight, color, material)
-VALUES ('a7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 'Product 1', 'Description 1', 100.00, 1.0, 'red', 'plastic');
-
 CREATE TABLE IF NOT EXISTS categories
 (
     id   CHAR(36)     NOT NULL,
@@ -28,6 +10,28 @@ CREATE TABLE IF NOT EXISTS categories
 
 INSERT IGNORE INTO categories (id, name)
 VALUES ('8b3342ed-6544-4abe-8a94-76b530f37a42', 'Category 1');
+
+CREATE TABLE IF NOT EXISTS products
+(
+    id          CHAR(36)       NOT NULL,
+    name        VARCHAR(255)   NOT NULL,
+    description VARCHAR(255)   NULL,
+    price       DECIMAL(10, 2) NOT NULL,
+    weight      double         NOT NULL,
+    color       VARCHAR(255)   NULL,
+    material    VARCHAR(255)   NULL,
+    category_id CHAR(36)       NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (category_id) REFERENCES categories (id)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+)
+    ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+INSERT IGNORE INTO products (id, name, description, price, weight, color, material, category_id)
+VALUES ('a7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 'Product 1', 'Description 1', 100.00, 1.0, 'red', 'plastic', '8b3342ed-6544-4abe-8a94-76b530f37a42');
 
 CREATE TABLE IF NOT EXISTS shelves
 (

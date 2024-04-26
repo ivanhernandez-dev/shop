@@ -32,5 +32,9 @@
         <component name="material" class="tv.codely.inventory.products.domain.ProductMaterial" access="field">
             <property name="value" column="material" type="string" access="field"/>
         </component>
+
+        <component name="categoryId" class="tv.codely.inventory.shared.domain.CategoryId" access="field">
+            <property name="value" column="category_id" type="string" access="field"/>
+        </component>
     </class>
 </hibernate-mapping>

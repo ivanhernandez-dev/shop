@@ -19,7 +19,7 @@ public final class ProductsPutController {
 
 	@PutMapping("/products/{id}")
 	public ResponseEntity create(@PathVariable String id, @RequestBody Request request) {
-		this.creator.create(new CreateProductRequest(id, request.name(), request.description(), request.price(), request.weight(), request.color(), request.material()));
+		this.creator.create(new CreateProductRequest(id, request.name(), request.description(), request.price(), request.weight(), request.color(), request.material(), request.categoryId()));
 
 		return new ResponseEntity(HttpStatus.CREATED);
 	}
@@ -32,14 +32,16 @@ final class Request {
 	private Double weight;
 	private String color;
 	private String material;
+	private String categoryId;
 
-	public Request(String name, String price, Double weight, String description, String color, String material) {
+	public Request(String name, String price, Double weight, String description, String color, String material, String categoryId) {
 		this.name = name;
 		this.price = price;
 		this.weight = weight;
 		this.description = description;
 		this.color = color;
 		this.material = material;
+		this.categoryId = categoryId;
 	}
 
 	public String name() {
@@ -66,6 +68,10 @@ final class Request {
 		return material;
 	}
 
+	public String categoryId() {
+		return categoryId;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -88,5 +94,9 @@ final class Request {
 
 	public void setMaterial(String material) {
 		this.material = material;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
 	}
 }

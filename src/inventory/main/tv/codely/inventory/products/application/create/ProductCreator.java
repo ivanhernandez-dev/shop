@@ -1,6 +1,7 @@
 package tv.codely.inventory.products.application.create;
 
 import tv.codely.inventory.products.domain.*;
+import tv.codely.inventory.shared.domain.CategoryId;
 import tv.codely.shared.domain.Component;
 import tv.codely.shared.domain.bus.event.EventBus;
 
@@ -15,7 +16,7 @@ public final class ProductCreator {
 	}
 
 	public void create(CreateProductRequest request) {
-		Product product = Product.create(new ProductId(request.id()), new ProductName(request.name()), new ProductDescription(request.description()), new ProductPrice(request.price()), new ProductWeight(request.weight()), new ProductColor(request.color()), new ProductMaterial(request.material()));
+		Product product = Product.create(new ProductId(request.id()), new ProductName(request.name()), new ProductDescription(request.description()), new ProductPrice(request.price()), new ProductWeight(request.weight()), new ProductColor(request.color()), new ProductMaterial(request.material()), new CategoryId(request.categoryId()));
 
 		repository.save(product);
 

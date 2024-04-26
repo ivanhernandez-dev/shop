@@ -2,8 +2,12 @@ package tv.codely.inventory.products.infrastructure;
 
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
+import tv.codely.inventory.category.domain.Category;
+import tv.codely.inventory.category.domain.CategoryMother;
+import tv.codely.inventory.category.domain.CategoryNameMother;
 import tv.codely.inventory.products.ProductsModuleInfrastructureTestCase;
 import tv.codely.inventory.products.domain.*;
+import tv.codely.inventory.shared.domain.CategoryIdMother;
 
 import java.util.Optional;
 
@@ -14,7 +18,10 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class MySqlProductRepositoryShould extends ProductsModuleInfrastructureTestCase {
 	@Test
 	void save_a_product() {
-		Product product = ProductMother.random();
+		Category category = CategoryMother.random();
+		this.categoryRepository.save(category);
+
+		Product product = ProductMother.create(ProductIdMother.random(), ProductNameMother.random(), ProductPriceMother.random(), ProductDescriptionMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random(), category.id());
 
 		assertEquals(Optional.empty(), this.mySqlRepository.search(product.id()));
 
@@ -25,8 +32,10 @@ class MySqlProductRepositoryShould extends ProductsModuleInfrastructureTestCase 
 
 	@Test
 	void return_an_existing_product() {
-		Product product = ProductMother.random();
+		Category category = CategoryMother.random();
+		this.categoryRepository.save(category);
 
+		Product product = ProductMother.create(ProductIdMother.random(), ProductNameMother.random(), ProductPriceMother.random(), ProductDescriptionMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random(), category.id());
 		this.mySqlRepository.save(product);
 
 		assertEquals(Optional.of(product), this.mySqlRepository.search(product.id()));
@@ -41,9 +50,12 @@ class MySqlProductRepositoryShould extends ProductsModuleInfrastructureTestCase 
 
 	@Test
 	void delete_an_existing_product() {
-		Product product = ProductMother.random();
+		Category category = CategoryMother.random();
+		this.categoryRepository.save(category);
 
+		Product product = ProductMother.create(ProductIdMother.random(), ProductNameMother.random(), ProductPriceMother.random(), ProductDescriptionMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random(), category.id());
 		this.mySqlRepository.save(product);
+
 		this.mySqlRepository.delete(product.id());
 
 		assertFalse(this.mySqlRepository.search(product.id()).isPresent());
@@ -51,10 +63,16 @@ class MySqlProductRepositoryShould extends ProductsModuleInfrastructureTestCase 
 
 	@Test
 	void update_a_product() {
-		Product product = ProductMother.random();
+		Category category = CategoryMother.random();
+		this.categoryRepository.save(category);
+
+		Product product = ProductMother.create(ProductIdMother.random(), ProductNameMother.random(), ProductPriceMother.random(), ProductDescriptionMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random(), category.id());
 		this.mySqlRepository.save(product);
 
-		Product updatedProduct = new Product(product.id(), ProductNameMother.random(), ProductDescriptionMother.random(), ProductPriceMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random());
+		Category newCategory = CategoryMother.create(CategoryIdMother.random(), CategoryNameMother.random());
+		this.categoryRepository.save(newCategory);
+
+		Product updatedProduct = ProductMother.create(product.id(), ProductNameMother.random(), ProductPriceMother.random(), ProductDescriptionMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random(), newCategory.id());
 		this.mySqlRepository.update(updatedProduct);
 
 		assertEquals(Optional.of(updatedProduct), this.mySqlRepository.search(product.id()));

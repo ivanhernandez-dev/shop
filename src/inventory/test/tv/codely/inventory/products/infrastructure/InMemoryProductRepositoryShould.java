@@ -3,6 +3,7 @@ package tv.codely.inventory.products.infrastructure;
 import org.junit.jupiter.api.Test;
 import tv.codely.inventory.products.ProductsModuleInfrastructureTestCase;
 import tv.codely.inventory.products.domain.*;
+import tv.codely.inventory.shared.domain.CategoryIdMother;
 
 import java.util.Optional;
 
@@ -52,7 +53,7 @@ final class InMemoryProductRepositoryShould extends ProductsModuleInfrastructure
 		Product product = ProductMother.random();
 		this.inMemoryRepository.save(product);
 
-		Product updatedProduct = new Product(product.id(), ProductNameMother.random(), ProductDescriptionMother.random(), ProductPriceMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random());
+		Product updatedProduct = new Product(product.id(), ProductNameMother.random(), ProductDescriptionMother.random(), ProductPriceMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random(), CategoryIdMother.random());
 		this.inMemoryRepository.update(updatedProduct);
 
 		assertEquals(Optional.of(updatedProduct), this.inMemoryRepository.search(product.id()));
