@@ -5,7 +5,7 @@
 
 <hibernate-mapping>
     <class name="tv.codely.inventory.category.domain.Category" table="categories">
-        <composite-id name="id" class="tv.codely.inventory.category.domain.CategoryId" access="field">
+        <composite-id name="id" class="tv.codely.inventory.shared.domain.CategoryId" access="field">
             <key-property column="id" name="value" length="36" access="field"/>
         </composite-id>
 

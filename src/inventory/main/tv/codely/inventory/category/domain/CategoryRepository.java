@@ -1,5 +1,7 @@
 package tv.codely.inventory.category.domain;
 
+import tv.codely.inventory.shared.domain.CategoryId;
+
 import java.util.Optional;
 
 public interface CategoryRepository {

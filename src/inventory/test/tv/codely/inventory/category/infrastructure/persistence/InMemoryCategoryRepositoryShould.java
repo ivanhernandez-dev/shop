@@ -3,6 +3,8 @@ package tv.codely.inventory.category.infrastructure.persistence;
 import org.junit.jupiter.api.Test;
 import tv.codely.inventory.category.CategoriesModuleInfrastructureTestCase;
 import tv.codely.inventory.category.domain.*;
+import tv.codely.inventory.shared.domain.CategoryId;
+import tv.codely.inventory.shared.domain.CategoryIdMother;
 
 import java.util.Optional;
 

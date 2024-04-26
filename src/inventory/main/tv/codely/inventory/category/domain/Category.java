@@ -1,5 +1,6 @@
 package tv.codely.inventory.category.domain;
 
+import tv.codely.inventory.shared.domain.CategoryId;
 import tv.codely.shared.domain.AggregateRoot;
 
 import java.util.Objects;
