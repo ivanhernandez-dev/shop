@@ -5,14 +5,16 @@ CREATE TABLE IF NOT EXISTS products
     description VARCHAR(255)   NULL,
     price       DECIMAL(10, 2) NOT NULL,
     weight      double         NOT NULL,
+    color       VARCHAR(255)   NULL,
+    material    VARCHAR(255)   NULL,
     PRIMARY KEY (id)
 )
     ENGINE = InnoDB
     DEFAULT CHARSET = utf8mb4
     COLLATE = utf8mb4_unicode_ci;
 
-INSERT IGNORE INTO products (id, name, description, price, weight)
-VALUES ('a7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 'Product 1', 'Description 1', 100.00, 1.0);
+INSERT IGNORE INTO products (id, name, description, price, weight, color, material)
+VALUES ('a7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 'Product 1', 'Description 1', 100.00, 1.0, 'red', 'plastic');
 
 CREATE TABLE IF NOT EXISTS categories
 (

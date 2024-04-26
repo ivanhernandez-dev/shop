@@ -9,24 +9,40 @@ import java.util.Objects;
 public final class ProductCreatedDomainEvent extends DomainEvent {
 	private final String name;
 	private final String price;
+	private final String description;
+	private final double weight;
+	private final String color;
+	private final String material;
 
 	public ProductCreatedDomainEvent() {
 		super(null);
 
 		this.name = null;
 		this.price = null;
+		this.description = null;
+		this.weight = 0;
+		this.color = null;
+		this.material = null;
 	}
 
-	public ProductCreatedDomainEvent(String aggregateId, String eventId, String occurredOn, String name, String price) {
+	public ProductCreatedDomainEvent(String aggregateId, String eventId, String occurredOn, String name, String price, String description, double weight, String color, String material) {
 		super(aggregateId, eventId, occurredOn);
 		this.name = name;
 		this.price = price;
+		this.description = description;
+		this.weight = weight;
+		this.color = color;
+		this.material = material;
 	}
 
-	public ProductCreatedDomainEvent(String aggregateId, String name, String price) {
+	public ProductCreatedDomainEvent(String aggregateId, String name, String price, String description, double weight, String color, String material) {
 		super(aggregateId);
 		this.name = name;
 		this.price = price;
+		this.description = description;
+		this.weight = weight;
+		this.color = color;
+		this.material = material;
 	}
 
 	@Override
@@ -39,6 +55,10 @@ public final class ProductCreatedDomainEvent extends DomainEvent {
 		return new HashMap<String, Serializable>() {{
 			put("name", name);
 			put("price", price);
+			put("description", description);
+			put("weight", weight);
+			put("color", color);
+			put("material", material);
 		}};
 	}
 
@@ -49,20 +69,24 @@ public final class ProductCreatedDomainEvent extends DomainEvent {
 			eventId,
 			occurredOn,
 			(String) body.get("name"),
-			(String) body.get("price")
+			(String) body.get("price"),
+			(String) body.get("description"),
+			(double) body.get("weight"),
+			(String) body.get("color"),
+			(String) body.get("material")
 		);
 	}
 
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if (o == null || this.getClass() != o.getClass()) return false;
 		ProductCreatedDomainEvent that = (ProductCreatedDomainEvent) o;
-		return Objects.equals(name, that.name) && Objects.equals(price, that.price);
+		return Double.compare(this.weight, that.weight) == 0 && Objects.equals(this.name, that.name) && Objects.equals(this.price, that.price) && Objects.equals(this.description, that.description) && Objects.equals(this.color, that.color) && Objects.equals(this.material, that.material);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(name, price);
+		return Objects.hash(this.name, this.price, this.description, this.weight, this.color, this.material);
 	}
 }

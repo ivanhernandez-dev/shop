@@ -11,6 +11,8 @@ public final class Product extends AggregateRoot {
 	private final ProductDescription description;
 	private final ProductPrice price;
 	private final ProductWeight weight;
+	private final ProductColor color;
+	private final ProductMaterial material;
 
 	private Product() {
 		this.id = null;
@@ -18,18 +20,22 @@ public final class Product extends AggregateRoot {
 		this.description = null;
 		this.price = null;
 		this.weight = null;
+		this.color = null;
+		this.material = null;
 	}
 
-	public Product(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductWeight weight) {
+	public Product(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductWeight weight, ProductColor color, ProductMaterial material) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.price = price;
 		this.weight = weight;
+		this.color = color;
+		this.material = material;
 	}
 
-	public static Product create(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductWeight weight) {
-		Product product = new Product(id, name, description, price, weight);
+	public static Product create(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductWeight weight, ProductColor color, ProductMaterial material) {
+		Product product = new Product(id, name, description, price, weight, color, material);
 
 		product.record(new ProductCreatedDomainEvent(id.value(), name.value(), price.value()));
 
