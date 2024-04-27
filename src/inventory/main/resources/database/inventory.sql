@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS stocks
 (
     product_id CHAR(36) NOT NULL,
     shelf_id   CHAR(36) NOT NULL,
-    amount   INT      NOT NULL,
+    quantity   INT      NOT NULL,
     PRIMARY KEY (product_id, shelf_id),
     FOREIGN KEY (product_id) REFERENCES products (id),
     FOREIGN KEY (shelf_id) REFERENCES shelves (id)
@@ -79,5 +79,5 @@ CREATE TABLE IF NOT EXISTS stocks
     DEFAULT CHARSET = utf8mb4
     COLLATE = utf8mb4_unicode_ci;
 
-INSERT IGNORE INTO stocks (product_id, shelf_id, amount)
+INSERT IGNORE INTO stocks (product_id, shelf_id, quantity)
 VALUES ('a7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 'f7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 10);

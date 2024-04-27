@@ -1,4 +1,4 @@
-package tv.codely.inventory.stocks.infrastructure.persistence.hibernate;
+package tv.codely.inventory.stocks.infrastructure.persistence;
 
 import tv.codely.inventory.shared.domain.ProductId;
 import tv.codely.inventory.shared.domain.ShelfId;

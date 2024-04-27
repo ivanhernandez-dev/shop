@@ -1,4 +1,4 @@
-package tv.codely.inventory.stocks.infrastructure.persistence.hibernate;
+package tv.codely.inventory.stocks.infrastructure.persistence;
 
 import org.junit.jupiter.api.Test;
 import tv.codely.inventory.products.domain.ProductIdMother;
@@ -9,8 +9,6 @@ import tv.codely.inventory.stocks.StocksModuleInfrastructureTestCase;
 import tv.codely.inventory.stocks.domain.Stock;
 import tv.codely.inventory.stocks.domain.StockMother;
 import tv.codely.inventory.stocks.domain.StockQuantityMother;
-
-import javax.swing.text.html.Option;
 
 import java.util.Optional;
 
@@ -63,6 +61,6 @@ final class InMemoryStockRepositoryShould extends StocksModuleInfrastructureTest
 		Stock updatedStock = StockMother.create(stock.shelfId(), StockQuantityMother.random(), stock.productId());
 		inMemoryStockRepository.update(updatedStock);
 
-		assertEquals(Optional.of(stock), inMemoryStockRepository.search(stock.productId(), stock.shelfId()));
+		assertEquals(Optional.of(updatedStock), inMemoryStockRepository.search(stock.productId(), stock.shelfId()));
 	}
 }
