@@ -41,4 +41,9 @@ public abstract class IdentifierValueObject implements Serializable {
 	private void ensureValidUuid(String value) throws IllegalArgumentException {
 		UUID.fromString(value);
 	}
+
+	@Override
+	public String toString() {
+		return value;
+	}
 }

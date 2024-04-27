@@ -33,6 +33,20 @@ CREATE TABLE IF NOT EXISTS products
 INSERT IGNORE INTO products (id, name, description, price, weight, color, material, category_id)
 VALUES ('a7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 'Product 1', 'Description 1', 100.00, 1.0, 'red', 'plastic', '8b3342ed-6544-4abe-8a94-76b530f37a42');
 
+CREATE TABLE IF NOT EXISTS warehouses
+(
+    id   CHAR(36)     NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+)
+    ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+INSERT IGNORE INTO warehouses (id, name, address)
+VALUES ('831426ef-6a04-40d8-b996-2e10ef76a43e', 'Warehouse 1', 'Street, City, Country, Zip');
+
 CREATE TABLE IF NOT EXISTS shelves
 (
     id         CHAR(36) NOT NULL,

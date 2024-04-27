@@ -9,9 +9,4 @@ public final class ShelfId extends IdentifierValueObject {
 
 	private ShelfId() {
 	}
-
-	@Override
-	public String toString() {
-		return value;
-	}
 }
