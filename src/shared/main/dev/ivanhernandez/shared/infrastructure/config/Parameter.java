@@ -1,7 +1,7 @@
 package dev.ivanhernandez.shared.infrastructure.config;
 
-import io.github.cdimascio.dotenv.Dotenv;
 import dev.ivanhernandez.shared.domain.Component;
+import io.github.cdimascio.dotenv.Dotenv;
 
 @Component
 public final class Parameter {

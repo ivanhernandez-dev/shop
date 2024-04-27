@@ -1,13 +1,13 @@
 package dev.ivanhernandez.apps.backoffice.frontend.controller.courses;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.servlet.ModelAndView;
 import dev.ivanhernandez.mooc.courses_counter.application.find.CoursesCounterResponse;
 import dev.ivanhernandez.mooc.courses_counter.application.find.FindCoursesCounterQuery;
 import dev.ivanhernandez.shared.domain.bus.query.QueryBus;
 import dev.ivanhernandez.shared.domain.bus.query.QueryHandlerExecutionError;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.Serializable;
 import java.util.HashMap;

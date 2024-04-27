@@ -1,10 +1,10 @@
 package dev.ivanhernandez.apps.backoffice.backend.config;
 
+import dev.ivanhernandez.apps.backoffice.backend.middleware.BasicHttpAuthMiddleware;
+import dev.ivanhernandez.shared.domain.bus.command.CommandBus;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import dev.ivanhernandez.apps.backoffice.backend.middleware.BasicHttpAuthMiddleware;
-import dev.ivanhernandez.shared.domain.bus.command.CommandBus;
 
 @Configuration
 public class BackofficeBackendServerConfiguration {

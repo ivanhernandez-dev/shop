@@ -1,8 +1,8 @@
 package dev.ivanhernandez.shared.infrastructure.bus.event;
 
-import org.reflections.Reflections;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.domain.bus.event.DomainEvent;
+import org.reflections.Reflections;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;

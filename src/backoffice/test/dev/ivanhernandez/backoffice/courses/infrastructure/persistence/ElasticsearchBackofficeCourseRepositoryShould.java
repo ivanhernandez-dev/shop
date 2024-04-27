@@ -1,13 +1,13 @@
 package dev.ivanhernandez.backoffice.courses.infrastructure.persistence;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import dev.ivanhernandez.backoffice.BackofficeContextInfrastructureTestCase;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourse;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourseCriteriaMother;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourseMother;
 import dev.ivanhernandez.shared.domain.criteria.Criteria;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.util.Arrays;

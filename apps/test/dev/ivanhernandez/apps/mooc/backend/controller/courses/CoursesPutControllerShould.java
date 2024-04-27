@@ -1,7 +1,7 @@
 package dev.ivanhernandez.apps.mooc.backend.controller.courses;
 
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.apps.mooc.MoocApplicationTestCase;
+import org.junit.jupiter.api.Test;
 
 public final class CoursesPutControllerShould extends MoocApplicationTestCase {
 

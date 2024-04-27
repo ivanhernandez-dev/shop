@@ -1,9 +1,9 @@
 package dev.ivanhernandez.inventory.products;
 
-import org.junit.jupiter.api.BeforeEach;
 import dev.ivanhernandez.inventory.products.domain.Product;
 import dev.ivanhernandez.inventory.products.domain.ProductRepository;
 import dev.ivanhernandez.shared.infrastructure.UnitTestCase;
+import org.junit.jupiter.api.BeforeEach;
 
 import static org.mockito.Mockito.*;
 

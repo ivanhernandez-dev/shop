@@ -1,8 +1,8 @@
 package dev.ivanhernandez.apps.backoffice.backend.controller.health_check;
 
+import dev.ivanhernandez.apps.ApplicationTestCase;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpHeaders;
-import dev.ivanhernandez.apps.ApplicationTestCase;
 
 final class HealthCheckGetControllerShould extends ApplicationTestCase {
 

@@ -1,7 +1,5 @@
 package dev.ivanhernandez.apps.backoffice.backend.controller.courses;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
 import dev.ivanhernandez.backoffice.courses.application.BackofficeCoursesResponse;
 import dev.ivanhernandez.backoffice.courses.application.search_by_criteria.SearchBackofficeCoursesByCriteriaQuery;
 import dev.ivanhernandez.shared.domain.DomainError;
@@ -9,6 +7,8 @@ import dev.ivanhernandez.shared.domain.bus.command.CommandBus;
 import dev.ivanhernandez.shared.domain.bus.query.QueryBus;
 import dev.ivanhernandez.shared.domain.bus.query.QueryHandlerExecutionError;
 import dev.ivanhernandez.shared.infrastructure.spring.ApiController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;

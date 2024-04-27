@@ -1,12 +1,12 @@
 package dev.ivanhernandez.shared.infrastructure.bus.event.rabbitmq;
 
+import dev.ivanhernandez.shared.domain.Component;
+import dev.ivanhernandez.shared.domain.bus.event.DomainEvent;
+import dev.ivanhernandez.shared.infrastructure.bus.event.DomainEventJsonSerializer;
 import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessagePropertiesBuilder;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import dev.ivanhernandez.shared.domain.Component;
-import dev.ivanhernandez.shared.domain.bus.event.DomainEvent;
-import dev.ivanhernandez.shared.infrastructure.bus.event.DomainEventJsonSerializer;
 
 @Component
 public final class RabbitMqPublisher {

@@ -1,9 +1,9 @@
 package dev.ivanhernandez.shared.infrastructure.hibernate;
 
-import jakarta.persistence.criteria.*;
 import dev.ivanhernandez.shared.domain.criteria.Criteria;
 import dev.ivanhernandez.shared.domain.criteria.Filter;
 import dev.ivanhernandez.shared.domain.criteria.FilterOperator;
+import jakarta.persistence.criteria.*;
 
 import java.util.HashMap;
 import java.util.List;

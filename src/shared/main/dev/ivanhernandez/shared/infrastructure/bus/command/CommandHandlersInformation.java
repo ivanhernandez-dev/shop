@@ -1,10 +1,10 @@
 package dev.ivanhernandez.shared.infrastructure.bus.command;
 
-import org.reflections.Reflections;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.domain.bus.command.Command;
 import dev.ivanhernandez.shared.domain.bus.command.CommandHandler;
 import dev.ivanhernandez.shared.domain.bus.command.CommandNotRegisteredError;
+import org.reflections.Reflections;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;

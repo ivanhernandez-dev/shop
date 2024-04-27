@@ -1,10 +1,10 @@
 package dev.ivanhernandez.shared.infrastructure.elasticsearch;
 
+import dev.ivanhernandez.shared.domain.criteria.Criteria;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
-import dev.ivanhernandez.shared.domain.criteria.Criteria;
 
 import java.io.IOException;
 import java.io.Serializable;

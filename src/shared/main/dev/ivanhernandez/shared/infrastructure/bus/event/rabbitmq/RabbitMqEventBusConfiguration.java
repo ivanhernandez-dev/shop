@@ -1,13 +1,13 @@
 package dev.ivanhernandez.shared.infrastructure.bus.event.rabbitmq;
 
-import org.springframework.amqp.core.*;
-import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import dev.ivanhernandez.shared.infrastructure.bus.event.DomainEventSubscribersInformation;
 import dev.ivanhernandez.shared.infrastructure.bus.event.DomainEventsInformation;
 import dev.ivanhernandez.shared.infrastructure.config.Parameter;
 import dev.ivanhernandez.shared.infrastructure.config.ParameterNotExist;
+import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
 import java.util.Collection;

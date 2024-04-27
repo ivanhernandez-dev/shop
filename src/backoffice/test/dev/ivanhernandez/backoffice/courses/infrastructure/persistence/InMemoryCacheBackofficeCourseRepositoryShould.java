@@ -1,14 +1,14 @@
 package dev.ivanhernandez.backoffice.courses.infrastructure.persistence;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import dev.ivanhernandez.backoffice.BackofficeContextInfrastructureTestCase;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourse;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourseCriteriaMother;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourseMother;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourseRepository;
 import dev.ivanhernandez.shared.domain.criteria.Criteria;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.util.Arrays;
 import java.util.List;

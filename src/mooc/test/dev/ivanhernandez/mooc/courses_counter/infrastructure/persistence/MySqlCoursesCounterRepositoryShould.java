@@ -1,10 +1,10 @@
 package dev.ivanhernandez.mooc.courses_counter.infrastructure.persistence;
 
-import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.mooc.courses_counter.CoursesCounterModuleInfrastructureTestCase;
 import dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounter;
 import dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounterMother;
+import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 

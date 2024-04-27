@@ -1,10 +1,10 @@
 package dev.ivanhernandez.shared.infrastructure.bus.query;
 
-import org.reflections.Reflections;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.domain.bus.query.Query;
 import dev.ivanhernandez.shared.domain.bus.query.QueryHandler;
 import dev.ivanhernandez.shared.domain.bus.query.QueryNotRegisteredError;
+import org.reflections.Reflections;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;

@@ -1,13 +1,14 @@
 package dev.ivanhernandez.inventory.shelves.infrastructure.persistence.hibernate;
 
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.inventory.shared.domain.ShelfId;
 import dev.ivanhernandez.inventory.shelves.ShelvesModuleInfrastructureTestCase;
 import dev.ivanhernandez.inventory.shelves.domain.*;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class InMemoryShelfRepositoryShould extends ShelvesModuleInfrastructureTestCase {
 	@Test

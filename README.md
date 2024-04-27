@@ -33,6 +33,7 @@ Spanish)
 ## ☝️ How to update dependencies
 
 *
+
 Gradle ([releases](https://gradle.org/releases/)): `./gradlew wrapper --gradle-version=WANTED_VERSION --distribution-type=bin`
 
 ## 💡 Related repositories

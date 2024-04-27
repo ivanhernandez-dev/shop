@@ -1,14 +1,14 @@
 package dev.ivanhernandez.inventory.warehouse.infrastructure.persistence;
 
-import jakarta.transaction.Transactional;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import dev.ivanhernandez.inventory.shared.domain.WarehouseId;
 import dev.ivanhernandez.inventory.warehouse.domain.Warehouse;
 import dev.ivanhernandez.inventory.warehouse.domain.WarehouseRepository;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.infrastructure.hibernate.HibernateRepository;
+import jakarta.transaction.Transactional;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 
 import java.util.Optional;
 

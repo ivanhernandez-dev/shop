@@ -1,11 +1,11 @@
 package dev.ivanhernandez.mooc.courses_counter.application.find;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.mooc.courses_counter.CoursesCounterModuleUnitTestCase;
 import dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounter;
 import dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounterMother;
 import dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounterNotInitialized;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

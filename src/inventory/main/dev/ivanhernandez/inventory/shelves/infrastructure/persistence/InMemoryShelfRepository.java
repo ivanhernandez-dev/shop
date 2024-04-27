@@ -1,7 +1,7 @@
 package dev.ivanhernandez.inventory.shelves.infrastructure.persistence;
 
-import dev.ivanhernandez.inventory.shelves.domain.Shelf;
 import dev.ivanhernandez.inventory.shared.domain.ShelfId;
+import dev.ivanhernandez.inventory.shelves.domain.Shelf;
 import dev.ivanhernandez.inventory.shelves.domain.ShelfRepository;
 import dev.ivanhernandez.shared.domain.Component;
 

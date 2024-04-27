@@ -1,13 +1,13 @@
 package dev.ivanhernandez.inventory.shared.infrastructure.persistence;
 
+import dev.ivanhernandez.shared.infrastructure.config.Parameter;
+import dev.ivanhernandez.shared.infrastructure.config.ParameterNotExist;
+import dev.ivanhernandez.shared.infrastructure.hibernate.HibernateConfigurationFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import dev.ivanhernandez.shared.infrastructure.config.Parameter;
-import dev.ivanhernandez.shared.infrastructure.config.ParameterNotExist;
-import dev.ivanhernandez.shared.infrastructure.hibernate.HibernateConfigurationFactory;
 
 import javax.sql.DataSource;
 import java.io.IOException;

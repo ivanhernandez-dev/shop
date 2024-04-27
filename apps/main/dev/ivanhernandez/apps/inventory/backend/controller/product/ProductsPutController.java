@@ -1,13 +1,13 @@
 package dev.ivanhernandez.apps.inventory.backend.controller.product;
 
+import dev.ivanhernandez.inventory.products.application.create.CreateProductRequest;
+import dev.ivanhernandez.inventory.products.application.create.ProductCreator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import dev.ivanhernandez.inventory.products.application.create.CreateProductRequest;
-import dev.ivanhernandez.inventory.products.application.create.ProductCreator;
 
 @RestController
 public final class ProductsPutController {

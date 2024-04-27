@@ -1,15 +1,15 @@
 package dev.ivanhernandez.shared.infrastructure.spring;
 
+import dev.ivanhernandez.shared.domain.DomainError;
+import dev.ivanhernandez.shared.domain.Utils;
+import dev.ivanhernandez.shared.domain.bus.command.CommandHandlerExecutionError;
+import dev.ivanhernandez.shared.domain.bus.query.QueryHandlerExecutionError;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-import dev.ivanhernandez.shared.domain.DomainError;
-import dev.ivanhernandez.shared.domain.Utils;
-import dev.ivanhernandez.shared.domain.bus.command.CommandHandlerExecutionError;
-import dev.ivanhernandez.shared.domain.bus.query.QueryHandlerExecutionError;
 
 import java.io.IOException;
 import java.io.PrintWriter;

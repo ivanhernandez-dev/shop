@@ -1,13 +1,13 @@
 package dev.ivanhernandez.shared.infrastructure.bus.event.mysql;
 
-import jakarta.transaction.Transactional;
-import org.hibernate.SessionFactory;
-import org.hibernate.query.NativeQuery;
-import org.springframework.beans.factory.annotation.Qualifier;
 import dev.ivanhernandez.shared.domain.Utils;
 import dev.ivanhernandez.shared.domain.bus.event.DomainEvent;
 import dev.ivanhernandez.shared.domain.bus.event.EventBus;
 import dev.ivanhernandez.shared.infrastructure.bus.event.DomainEventsInformation;
+import jakarta.transaction.Transactional;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.NativeQuery;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

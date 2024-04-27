@@ -1,12 +1,12 @@
 package dev.ivanhernandez.inventory.products.application.create;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.inventory.products.ProductsModuleUnitTestCase;
 import dev.ivanhernandez.inventory.products.domain.Product;
 import dev.ivanhernandez.inventory.products.domain.ProductCreatedDomainEventMother;
 import dev.ivanhernandez.inventory.products.domain.ProductMother;
 import dev.ivanhernandez.shared.domain.product.ProductCreatedDomainEvent;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 final class ProductCreatorShould extends ProductsModuleUnitTestCase {
 	private ProductCreator creator;

@@ -1,10 +1,10 @@
 package dev.ivanhernandez.shared.infrastructure.bus.event.mysql;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.query.NativeQuery;
 import dev.ivanhernandez.shared.domain.Utils;
 import dev.ivanhernandez.shared.domain.bus.event.DomainEvent;
 import dev.ivanhernandez.shared.domain.bus.event.EventBus;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.NativeQuery;
 
 import java.io.Serializable;
 import java.util.HashMap;

@@ -1,14 +1,14 @@
 package dev.ivanhernandez.inventory.category.infrastructure.persistence;
 
+import dev.ivanhernandez.inventory.category.domain.Category;
+import dev.ivanhernandez.inventory.category.domain.CategoryRepository;
+import dev.ivanhernandez.inventory.shared.domain.CategoryId;
+import dev.ivanhernandez.shared.domain.Component;
+import dev.ivanhernandez.shared.infrastructure.hibernate.HibernateRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.transaction.annotation.Transactional;
-import dev.ivanhernandez.inventory.category.domain.Category;
-import dev.ivanhernandez.inventory.shared.domain.CategoryId;
-import dev.ivanhernandez.inventory.category.domain.CategoryRepository;
-import dev.ivanhernandez.shared.domain.Component;
-import dev.ivanhernandez.shared.infrastructure.hibernate.HibernateRepository;
 
 import java.util.Optional;
 

@@ -1,9 +1,9 @@
 package dev.ivanhernandez.backoffice.courses.application.create;
 
-import org.springframework.context.event.EventListener;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.domain.bus.event.DomainEventSubscriber;
 import dev.ivanhernandez.shared.domain.course.CourseCreatedDomainEvent;
+import org.springframework.context.event.EventListener;
 
 @Component
 @DomainEventSubscriber({CourseCreatedDomainEvent.class})

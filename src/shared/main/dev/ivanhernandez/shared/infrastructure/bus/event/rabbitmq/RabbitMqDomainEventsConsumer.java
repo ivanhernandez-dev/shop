@@ -1,5 +1,10 @@
 package dev.ivanhernandez.shared.infrastructure.bus.event.rabbitmq;
 
+import dev.ivanhernandez.shared.domain.Component;
+import dev.ivanhernandez.shared.domain.Utils;
+import dev.ivanhernandez.shared.domain.bus.event.DomainEvent;
+import dev.ivanhernandez.shared.infrastructure.bus.event.DomainEventJsonDeserializer;
+import dev.ivanhernandez.shared.infrastructure.bus.event.DomainEventSubscribersInformation;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageBuilder;
 import org.springframework.amqp.core.MessagePropertiesBuilder;
@@ -7,11 +12,6 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistry;
 import org.springframework.context.ApplicationContext;
-import dev.ivanhernandez.shared.domain.Component;
-import dev.ivanhernandez.shared.domain.Utils;
-import dev.ivanhernandez.shared.domain.bus.event.DomainEvent;
-import dev.ivanhernandez.shared.infrastructure.bus.event.DomainEventJsonDeserializer;
-import dev.ivanhernandez.shared.infrastructure.bus.event.DomainEventSubscribersInformation;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

@@ -11,7 +11,8 @@
             <key-property column="id" name="value" length="36" access="field"/>
         </composite-id>
 
-        <component name="total" class="dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounterTotal" access="field">
+        <component name="total" class="dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounterTotal"
+                   access="field">
             <property name="value" column="total" type="integer" access="field"/>
         </component>
 

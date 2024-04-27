@@ -1,6 +1,5 @@
 package dev.ivanhernandez.inventory.stocks.infrastructure.persistence;
 
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.inventory.products.domain.ProductIdMother;
 import dev.ivanhernandez.inventory.shared.domain.ProductId;
 import dev.ivanhernandez.inventory.shared.domain.ShelfId;
@@ -9,10 +8,12 @@ import dev.ivanhernandez.inventory.stocks.StocksModuleInfrastructureTestCase;
 import dev.ivanhernandez.inventory.stocks.domain.Stock;
 import dev.ivanhernandez.inventory.stocks.domain.StockMother;
 import dev.ivanhernandez.inventory.stocks.domain.StockQuantityMother;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 final class InMemoryStockRepositoryShould extends StocksModuleInfrastructureTestCase {
 	@Test

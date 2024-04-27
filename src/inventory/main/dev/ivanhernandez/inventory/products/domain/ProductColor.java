@@ -1,10 +1,6 @@
 package dev.ivanhernandez.inventory.products.domain;
 
-import dev.ivanhernandez.shared.domain.StringValueObject;
-
 public final class ProductColor {
-	private final String value;
-
 	public static final String COLOR_RED = "red";
 	public static final String COLOR_BLUE = "blue";
 	public static final String COLOR_YELLOW = "yellow";
@@ -18,7 +14,6 @@ public final class ProductColor {
 	public static final String COLOR_BROWN = "brown";
 	public static final String COLOR_GOLD = "gold";
 	public static final String COLOR_SILVER = "silver";
-
 	private static final String[] VALID_COLORS = {
 		COLOR_RED,
 		COLOR_BLUE,
@@ -34,6 +29,7 @@ public final class ProductColor {
 		COLOR_GOLD,
 		COLOR_SILVER
 	};
+	private final String value;
 
 	public ProductColor(String value) {
 		String color = value.toLowerCase().trim();

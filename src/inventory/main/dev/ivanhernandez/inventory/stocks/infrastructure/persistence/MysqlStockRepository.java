@@ -1,5 +1,11 @@
 package dev.ivanhernandez.inventory.stocks.infrastructure.persistence;
 
+import dev.ivanhernandez.inventory.shared.domain.ProductId;
+import dev.ivanhernandez.inventory.shared.domain.ShelfId;
+import dev.ivanhernandez.inventory.stocks.domain.Stock;
+import dev.ivanhernandez.inventory.stocks.domain.StockRepository;
+import dev.ivanhernandez.shared.domain.Component;
+import dev.ivanhernandez.shared.infrastructure.hibernate.HibernateRepository;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
@@ -10,12 +16,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
-import dev.ivanhernandez.inventory.shared.domain.ProductId;
-import dev.ivanhernandez.inventory.shared.domain.ShelfId;
-import dev.ivanhernandez.inventory.stocks.domain.Stock;
-import dev.ivanhernandez.inventory.stocks.domain.StockRepository;
-import dev.ivanhernandez.shared.domain.Component;
-import dev.ivanhernandez.shared.infrastructure.hibernate.HibernateRepository;
 
 import java.util.Optional;
 

@@ -1,5 +1,7 @@
 package dev.ivanhernandez.apps;
 
+import dev.ivanhernandez.shared.domain.bus.event.DomainEvent;
+import dev.ivanhernandez.shared.domain.bus.event.EventBus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,8 +9,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
-import dev.ivanhernandez.shared.domain.bus.event.DomainEvent;
-import dev.ivanhernandez.shared.domain.bus.event.EventBus;
 
 import java.util.Arrays;
 

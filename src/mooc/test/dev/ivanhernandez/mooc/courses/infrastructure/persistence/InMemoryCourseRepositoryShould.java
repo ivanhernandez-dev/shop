@@ -1,10 +1,10 @@
 package dev.ivanhernandez.mooc.courses.infrastructure.persistence;
 
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.mooc.courses.CoursesModuleInfrastructureTestCase;
 import dev.ivanhernandez.mooc.courses.domain.Course;
 import dev.ivanhernandez.mooc.courses.domain.CourseIdMother;
 import dev.ivanhernandez.mooc.courses.domain.CourseMother;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 

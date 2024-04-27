@@ -1,14 +1,14 @@
 package dev.ivanhernandez.shared.infrastructure.elasticsearch;
 
+import dev.ivanhernandez.shared.domain.criteria.Criteria;
+import dev.ivanhernandez.shared.domain.criteria.Filter;
+import dev.ivanhernandez.shared.domain.criteria.FilterOperator;
+import dev.ivanhernandez.shared.domain.criteria.Filters;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.sort.SortOrder;
-import dev.ivanhernandez.shared.domain.criteria.Criteria;
-import dev.ivanhernandez.shared.domain.criteria.Filter;
-import dev.ivanhernandez.shared.domain.criteria.FilterOperator;
-import dev.ivanhernandez.shared.domain.criteria.Filters;
 
 import java.util.HashMap;
 import java.util.function.Function;

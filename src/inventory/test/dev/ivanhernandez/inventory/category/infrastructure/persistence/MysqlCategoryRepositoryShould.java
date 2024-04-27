@@ -1,11 +1,13 @@
 package dev.ivanhernandez.inventory.category.infrastructure.persistence;
 
-import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.inventory.category.CategoriesModuleInfrastructureTestCase;
-import dev.ivanhernandez.inventory.category.domain.*;
+import dev.ivanhernandez.inventory.category.domain.Category;
+import dev.ivanhernandez.inventory.category.domain.CategoryMother;
+import dev.ivanhernandez.inventory.category.domain.CategoryNameMother;
 import dev.ivanhernandez.inventory.shared.domain.CategoryId;
 import dev.ivanhernandez.inventory.shared.domain.CategoryIdMother;
+import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 

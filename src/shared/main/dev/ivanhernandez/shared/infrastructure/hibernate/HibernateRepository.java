@@ -1,9 +1,9 @@
 package dev.ivanhernandez.shared.infrastructure.hibernate;
 
-import jakarta.persistence.criteria.CriteriaQuery;
-import org.hibernate.SessionFactory;
 import dev.ivanhernandez.shared.domain.IdentifierValueObject;
 import dev.ivanhernandez.shared.domain.criteria.Criteria;
+import jakarta.persistence.criteria.CriteriaQuery;
+import org.hibernate.SessionFactory;
 
 import java.util.List;
 import java.util.Optional;

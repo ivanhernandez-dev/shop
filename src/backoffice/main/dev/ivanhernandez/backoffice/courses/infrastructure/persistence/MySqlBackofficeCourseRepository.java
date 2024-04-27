@@ -1,13 +1,13 @@
 package dev.ivanhernandez.backoffice.courses.infrastructure.persistence;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.transaction.annotation.Transactional;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourse;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourseRepository;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.domain.criteria.Criteria;
 import dev.ivanhernandez.shared.infrastructure.hibernate.HibernateRepository;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

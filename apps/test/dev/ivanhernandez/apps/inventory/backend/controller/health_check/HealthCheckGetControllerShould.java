@@ -1,7 +1,7 @@
 package dev.ivanhernandez.apps.inventory.backend.controller.health_check;
 
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.apps.inventory.InventoryApplicationTestCase;
+import org.junit.jupiter.api.Test;
 
 final class HealthCheckGetControllerShould extends InventoryApplicationTestCase {
 	@Test

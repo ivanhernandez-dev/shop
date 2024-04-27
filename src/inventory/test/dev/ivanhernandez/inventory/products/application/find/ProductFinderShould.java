@@ -1,11 +1,14 @@
 package dev.ivanhernandez.inventory.products.application.find;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.inventory.products.ProductsModuleUnitTestCase;
 import dev.ivanhernandez.inventory.products.application.ProductResponse;
-import dev.ivanhernandez.inventory.products.domain.*;
+import dev.ivanhernandez.inventory.products.domain.Product;
+import dev.ivanhernandez.inventory.products.domain.ProductIdMother;
+import dev.ivanhernandez.inventory.products.domain.ProductMother;
+import dev.ivanhernandez.inventory.products.domain.ProductNotExist;
 import dev.ivanhernandez.inventory.shared.domain.ProductId;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 

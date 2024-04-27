@@ -1,7 +1,5 @@
 package dev.ivanhernandez.mooc.courses_counter.application.increment;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.mooc.courses.domain.CourseCreatedDomainEventMother;
 import dev.ivanhernandez.mooc.courses.domain.CourseId;
 import dev.ivanhernandez.mooc.courses.domain.CourseIdMother;
@@ -9,6 +7,8 @@ import dev.ivanhernandez.mooc.courses_counter.CoursesCounterModuleUnitTestCase;
 import dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounter;
 import dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounterMother;
 import dev.ivanhernandez.shared.domain.course.CourseCreatedDomainEvent;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 final class IncrementCoursesCounterOnCourseCreatedShould extends CoursesCounterModuleUnitTestCase {
 	IncrementCoursesCounterOnCourseCreated subscriber;

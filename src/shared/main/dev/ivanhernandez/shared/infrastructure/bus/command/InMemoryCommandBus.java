@@ -1,11 +1,11 @@
 package dev.ivanhernandez.shared.infrastructure.bus.command;
 
-import org.springframework.context.ApplicationContext;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.domain.bus.command.Command;
 import dev.ivanhernandez.shared.domain.bus.command.CommandBus;
 import dev.ivanhernandez.shared.domain.bus.command.CommandHandler;
 import dev.ivanhernandez.shared.domain.bus.command.CommandHandlerExecutionError;
+import org.springframework.context.ApplicationContext;
 
 @Component
 public final class InMemoryCommandBus implements CommandBus {

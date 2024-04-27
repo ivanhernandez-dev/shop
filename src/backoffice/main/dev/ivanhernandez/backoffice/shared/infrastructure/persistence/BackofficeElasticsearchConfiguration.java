@@ -1,5 +1,9 @@
 package dev.ivanhernandez.backoffice.shared.infrastructure.persistence;
 
+import dev.ivanhernandez.shared.domain.Utils;
+import dev.ivanhernandez.shared.infrastructure.config.Parameter;
+import dev.ivanhernandez.shared.infrastructure.config.ParameterNotExist;
+import dev.ivanhernandez.shared.infrastructure.elasticsearch.ElasticsearchClient;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.Request;
 import org.elasticsearch.client.RequestOptions;
@@ -10,10 +14,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
-import dev.ivanhernandez.shared.domain.Utils;
-import dev.ivanhernandez.shared.infrastructure.config.Parameter;
-import dev.ivanhernandez.shared.infrastructure.config.ParameterNotExist;
-import dev.ivanhernandez.shared.infrastructure.elasticsearch.ElasticsearchClient;
 
 import java.io.IOException;
 import java.util.Objects;

@@ -1,8 +1,8 @@
 package dev.ivanhernandez.inventory.category.infrastructure.persistence;
 
 import dev.ivanhernandez.inventory.category.domain.Category;
-import dev.ivanhernandez.inventory.shared.domain.CategoryId;
 import dev.ivanhernandez.inventory.category.domain.CategoryRepository;
+import dev.ivanhernandez.inventory.shared.domain.CategoryId;
 import dev.ivanhernandez.shared.domain.Component;
 
 import java.util.HashMap;

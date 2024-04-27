@@ -1,10 +1,5 @@
 package dev.ivanhernandez.apps.mooc.backend.controller.courses;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
 import dev.ivanhernandez.mooc.courses.application.CourseResponse;
 import dev.ivanhernandez.mooc.courses.application.find.FindCourseQuery;
 import dev.ivanhernandez.mooc.courses.domain.CourseNotExist;
@@ -13,6 +8,11 @@ import dev.ivanhernandez.shared.domain.bus.command.CommandBus;
 import dev.ivanhernandez.shared.domain.bus.query.QueryBus;
 import dev.ivanhernandez.shared.domain.bus.query.QueryHandlerExecutionError;
 import dev.ivanhernandez.shared.infrastructure.spring.ApiController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.Serializable;
 import java.util.HashMap;

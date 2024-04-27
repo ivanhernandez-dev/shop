@@ -1,13 +1,13 @@
 package dev.ivanhernandez.apps;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.WebApplicationType;
-import org.springframework.context.ConfigurableApplicationContext;
 import dev.ivanhernandez.apps.backoffice.backend.BackofficeBackendApplication;
 import dev.ivanhernandez.apps.backoffice.frontend.BackofficeFrontendApplication;
 import dev.ivanhernandez.apps.inventory.backend.InventoryBackendApplication;
 import dev.ivanhernandez.apps.mooc.backend.MoocBackendApplication;
 import dev.ivanhernandez.shared.infrastructure.cli.ConsoleCommand;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import java.util.Arrays;
 import java.util.HashMap;

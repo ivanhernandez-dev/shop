@@ -1,12 +1,12 @@
 package dev.ivanhernandez.backoffice.courses.infrastructure.persistence;
 
-import org.springframework.context.annotation.Primary;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourse;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourseRepository;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.domain.criteria.Criteria;
 import dev.ivanhernandez.shared.infrastructure.elasticsearch.ElasticsearchClient;
 import dev.ivanhernandez.shared.infrastructure.elasticsearch.ElasticsearchRepository;
+import org.springframework.context.annotation.Primary;
 
 import java.util.List;
 

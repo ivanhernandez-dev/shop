@@ -1,10 +1,10 @@
 package dev.ivanhernandez.apps.backoffice.frontend;
 
+import dev.ivanhernandez.shared.domain.Component;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
-import dev.ivanhernandez.shared.domain.Component;
 
 import java.util.HashMap;
 

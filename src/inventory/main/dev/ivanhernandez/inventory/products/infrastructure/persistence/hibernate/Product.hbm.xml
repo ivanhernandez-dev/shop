@@ -13,7 +13,8 @@
             <property name="value" column="name" type="string" access="field"/>
         </component>
 
-        <component name="description" class="dev.ivanhernandez.inventory.products.domain.ProductDescription" access="field">
+        <component name="description" class="dev.ivanhernandez.inventory.products.domain.ProductDescription"
+                   access="field">
             <property name="value" column="description" type="string" access="field"/>
         </component>
 

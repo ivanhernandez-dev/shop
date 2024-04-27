@@ -1,10 +1,10 @@
 package dev.ivanhernandez.mooc.courses_counter.application.increment;
 
-import org.springframework.context.event.EventListener;
 import dev.ivanhernandez.mooc.courses.domain.CourseId;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.domain.bus.event.DomainEventSubscriber;
 import dev.ivanhernandez.shared.domain.course.CourseCreatedDomainEvent;
+import org.springframework.context.event.EventListener;
 
 @Component
 @DomainEventSubscriber({CourseCreatedDomainEvent.class})

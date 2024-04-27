@@ -1,8 +1,8 @@
 package dev.ivanhernandez.inventory.products.infrastructure.persistence;
 
 import dev.ivanhernandez.inventory.products.domain.Product;
-import dev.ivanhernandez.inventory.shared.domain.ProductId;
 import dev.ivanhernandez.inventory.products.domain.ProductRepository;
+import dev.ivanhernandez.inventory.shared.domain.ProductId;
 import dev.ivanhernandez.shared.domain.Component;
 
 import java.util.HashMap;

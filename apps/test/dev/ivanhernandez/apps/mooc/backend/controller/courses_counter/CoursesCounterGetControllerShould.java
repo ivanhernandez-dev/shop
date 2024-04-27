@@ -1,8 +1,8 @@
 package dev.ivanhernandez.apps.mooc.backend.controller.courses_counter;
 
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.apps.mooc.MoocApplicationTestCase;
 import dev.ivanhernandez.shared.domain.course.CourseCreatedDomainEvent;
+import org.junit.jupiter.api.Test;
 
 public final class CoursesCounterGetControllerShould extends MoocApplicationTestCase {
 

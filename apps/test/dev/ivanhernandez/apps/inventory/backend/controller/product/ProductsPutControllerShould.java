@@ -1,8 +1,8 @@
 package dev.ivanhernandez.apps.inventory.backend.controller.product;
 
+import dev.ivanhernandez.apps.inventory.InventoryApplicationTestCase;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
-import dev.ivanhernandez.apps.inventory.InventoryApplicationTestCase;
 
 @Transactional
 public class ProductsPutControllerShould extends InventoryApplicationTestCase {

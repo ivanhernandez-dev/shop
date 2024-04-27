@@ -1,14 +1,14 @@
 package dev.ivanhernandez.inventory.shelves.infrastructure.persistence;
 
+import dev.ivanhernandez.inventory.shared.domain.ShelfId;
+import dev.ivanhernandez.inventory.shelves.domain.Shelf;
+import dev.ivanhernandez.inventory.shelves.domain.ShelfRepository;
+import dev.ivanhernandez.shared.domain.Component;
+import dev.ivanhernandez.shared.infrastructure.hibernate.HibernateRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.transaction.annotation.Transactional;
-import dev.ivanhernandez.inventory.shelves.domain.Shelf;
-import dev.ivanhernandez.inventory.shared.domain.ShelfId;
-import dev.ivanhernandez.inventory.shelves.domain.ShelfRepository;
-import dev.ivanhernandez.shared.domain.Component;
-import dev.ivanhernandez.shared.infrastructure.hibernate.HibernateRepository;
 
 import java.util.Optional;
 

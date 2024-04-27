@@ -1,7 +1,5 @@
 package dev.ivanhernandez.inventory.products.infrastructure;
 
-import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.inventory.category.domain.Category;
 import dev.ivanhernandez.inventory.category.domain.CategoryMother;
 import dev.ivanhernandez.inventory.category.domain.CategoryNameMother;
@@ -9,6 +7,8 @@ import dev.ivanhernandez.inventory.products.ProductsModuleInfrastructureTestCase
 import dev.ivanhernandez.inventory.products.domain.*;
 import dev.ivanhernandez.inventory.shared.domain.CategoryIdMother;
 import dev.ivanhernandez.inventory.shared.domain.ProductId;
+import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 

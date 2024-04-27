@@ -1,7 +1,7 @@
 package dev.ivanhernandez.apps.backoffice.frontend.controller.health_check;
 
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.apps.ApplicationTestCase;
+import org.junit.jupiter.api.Test;
 
 final class HealthCheckGetControllerShould extends ApplicationTestCase {
 

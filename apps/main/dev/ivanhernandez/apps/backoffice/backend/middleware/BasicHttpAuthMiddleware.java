@@ -1,13 +1,13 @@
 package dev.ivanhernandez.apps.backoffice.backend.middleware;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import dev.ivanhernandez.backoffice.auth.application.authenticate.AuthenticateUserCommand;
 import dev.ivanhernandez.backoffice.auth.domain.InvalidAuthCredentials;
 import dev.ivanhernandez.backoffice.auth.domain.InvalidAuthUsername;
 import dev.ivanhernandez.shared.domain.bus.command.CommandBus;
 import dev.ivanhernandez.shared.domain.bus.command.CommandHandlerExecutionError;
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.Base64;

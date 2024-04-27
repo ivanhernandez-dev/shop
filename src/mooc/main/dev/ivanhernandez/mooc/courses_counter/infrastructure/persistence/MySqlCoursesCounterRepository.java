@@ -1,12 +1,12 @@
 package dev.ivanhernandez.mooc.courses_counter.infrastructure.persistence;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.transaction.annotation.Transactional;
 import dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounter;
 import dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounterRepository;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.infrastructure.hibernate.HibernateRepository;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;

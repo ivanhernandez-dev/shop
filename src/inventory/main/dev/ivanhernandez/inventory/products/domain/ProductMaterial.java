@@ -3,8 +3,6 @@ package dev.ivanhernandez.inventory.products.domain;
 import java.util.Objects;
 
 public final class ProductMaterial {
-	private final String value;
-
 	public static final String MATERIAL_WOOD = "wood";
 	public static final String MATERIAL_METAL = "metal";
 	public static final String MATERIAL_PLASTIC = "plastic";
@@ -17,7 +15,6 @@ public final class ProductMaterial {
 	public static final String MATERIAL_RUBBER = "rubber";
 	public static final String MATERIAL_LATEX = "latex";
 	public static final String MATERIAL_SILICONE = "silicone";
-
 	private static final String[] VALID_MATERIALS = {
 		MATERIAL_WOOD,
 		MATERIAL_METAL,
@@ -32,6 +29,7 @@ public final class ProductMaterial {
 		MATERIAL_LATEX,
 		MATERIAL_SILICONE
 	};
+	private final String value;
 
 	public ProductMaterial(String value) {
 		String material = value.toLowerCase().trim();

@@ -1,7 +1,5 @@
 package dev.ivanhernandez.mooc.notifications.application.send_new_courses_newsletter;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.mooc.courses.application.CoursesResponse;
 import dev.ivanhernandez.mooc.courses.application.CoursesResponseMother;
 import dev.ivanhernandez.mooc.courses.application.search_last.SearchLastCoursesQuery;
@@ -19,6 +17,8 @@ import dev.ivanhernandez.mooc.students.application.search_all.SearchAllStudentsQ
 import dev.ivanhernandez.mooc.students.application.search_all.SearchAllStudentsQueryMother;
 import dev.ivanhernandez.shared.domain.bus.command.CommandHandlerExecutionError;
 import dev.ivanhernandez.shared.domain.bus.query.QueryHandlerExecutionError;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 

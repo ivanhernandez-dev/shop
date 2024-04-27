@@ -1,6 +1,5 @@
 package dev.ivanhernandez.shared.infrastructure.spring;
 
-import org.springframework.http.HttpStatus;
 import dev.ivanhernandez.shared.domain.DomainError;
 import dev.ivanhernandez.shared.domain.bus.command.Command;
 import dev.ivanhernandez.shared.domain.bus.command.CommandBus;
@@ -8,6 +7,7 @@ import dev.ivanhernandez.shared.domain.bus.command.CommandHandlerExecutionError;
 import dev.ivanhernandez.shared.domain.bus.query.Query;
 import dev.ivanhernandez.shared.domain.bus.query.QueryBus;
 import dev.ivanhernandez.shared.domain.bus.query.QueryHandlerExecutionError;
+import org.springframework.http.HttpStatus;
 
 import java.util.HashMap;
 

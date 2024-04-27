@@ -1,5 +1,6 @@
 package dev.ivanhernandez.shared.infrastructure.hibernate;
 
+import dev.ivanhernandez.shared.domain.Component;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.hibernate.cfg.AvailableSettings;
 import org.springframework.core.io.FileSystemResource;
@@ -8,7 +9,6 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
-import dev.ivanhernandez.shared.domain.Component;
 
 import javax.sql.DataSource;
 import java.io.File;

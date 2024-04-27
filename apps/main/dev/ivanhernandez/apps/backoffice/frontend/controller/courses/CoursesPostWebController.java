@@ -1,16 +1,16 @@
 package dev.ivanhernandez.apps.backoffice.frontend.controller.courses;
 
+import dev.ivanhernandez.mooc.courses.application.create.CreateCourseCommand;
+import dev.ivanhernandez.shared.domain.bus.command.CommandBus;
+import dev.ivanhernandez.shared.domain.bus.command.CommandHandlerExecutionError;
+import dev.ivanhernandez.shared.infrastructure.validation.ValidationResponse;
+import dev.ivanhernandez.shared.infrastructure.validation.Validator;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
-import dev.ivanhernandez.mooc.courses.application.create.CreateCourseCommand;
-import dev.ivanhernandez.shared.domain.bus.command.CommandBus;
-import dev.ivanhernandez.shared.domain.bus.command.CommandHandlerExecutionError;
-import dev.ivanhernandez.shared.infrastructure.validation.ValidationResponse;
-import dev.ivanhernandez.shared.infrastructure.validation.Validator;
 
 import java.io.Serializable;
 import java.util.HashMap;

@@ -1,11 +1,11 @@
 package dev.ivanhernandez.backoffice.auth;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.mockito.Mockito;
 import dev.ivanhernandez.backoffice.auth.domain.AuthRepository;
 import dev.ivanhernandez.backoffice.auth.domain.AuthUser;
 import dev.ivanhernandez.backoffice.auth.domain.AuthUsername;
 import dev.ivanhernandez.shared.infrastructure.UnitTestCase;
+import org.junit.jupiter.api.BeforeEach;
+import org.mockito.Mockito;
 
 import java.util.Optional;
 

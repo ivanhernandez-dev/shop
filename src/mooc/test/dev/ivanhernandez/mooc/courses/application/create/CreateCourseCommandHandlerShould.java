@@ -1,12 +1,12 @@
 package dev.ivanhernandez.mooc.courses.application.create;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.mooc.courses.CoursesModuleUnitTestCase;
 import dev.ivanhernandez.mooc.courses.domain.Course;
 import dev.ivanhernandez.mooc.courses.domain.CourseCreatedDomainEventMother;
 import dev.ivanhernandez.mooc.courses.domain.CourseMother;
 import dev.ivanhernandez.shared.domain.course.CourseCreatedDomainEvent;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 final class CreateCourseCommandHandlerShould extends CoursesModuleUnitTestCase {
 	private CreateCourseCommandHandler handler;

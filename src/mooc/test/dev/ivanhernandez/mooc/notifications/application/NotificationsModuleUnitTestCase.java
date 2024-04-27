@@ -1,10 +1,10 @@
 package dev.ivanhernandez.mooc.notifications.application;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.mockito.ArgumentCaptor;
 import dev.ivanhernandez.mooc.notifications.domain.Email;
 import dev.ivanhernandez.mooc.notifications.domain.EmailSender;
 import dev.ivanhernandez.shared.infrastructure.UnitTestCase;
+import org.junit.jupiter.api.BeforeEach;
+import org.mockito.ArgumentCaptor;
 
 import java.util.List;
 

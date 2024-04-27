@@ -1,13 +1,13 @@
 package dev.ivanhernandez.mooc.steps.infrastructure.persistence;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.transaction.annotation.Transactional;
 import dev.ivanhernandez.mooc.steps.domain.Step;
 import dev.ivanhernandez.mooc.steps.domain.StepId;
 import dev.ivanhernandez.mooc.steps.domain.StepRepository;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.infrastructure.hibernate.HibernateRepository;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 

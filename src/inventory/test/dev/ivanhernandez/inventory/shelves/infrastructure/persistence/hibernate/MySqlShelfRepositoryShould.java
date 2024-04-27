@@ -1,12 +1,12 @@
 package dev.ivanhernandez.inventory.shelves.infrastructure.persistence.hibernate;
 
-import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.inventory.shared.domain.ShelfId;
 import dev.ivanhernandez.inventory.shelves.ShelvesModuleInfrastructureTestCase;
 import dev.ivanhernandez.inventory.shelves.domain.*;
 import dev.ivanhernandez.inventory.warehouse.domain.Warehouse;
 import dev.ivanhernandez.inventory.warehouse.domain.WarehouseMother;
+import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 

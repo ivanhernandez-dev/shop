@@ -1,9 +1,9 @@
 package dev.ivanhernandez.shared.infrastructure.bus.event.rabbitmq;
 
-import org.springframework.amqp.AmqpException;
 import dev.ivanhernandez.shared.domain.bus.event.DomainEvent;
 import dev.ivanhernandez.shared.domain.bus.event.EventBus;
 import dev.ivanhernandez.shared.infrastructure.bus.event.mysql.MySqlEventBus;
+import org.springframework.amqp.AmqpException;
 
 import java.util.Collections;
 import java.util.List;

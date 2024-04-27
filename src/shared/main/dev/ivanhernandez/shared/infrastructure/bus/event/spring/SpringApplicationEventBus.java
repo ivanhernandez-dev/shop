@@ -1,10 +1,10 @@
 package dev.ivanhernandez.shared.infrastructure.bus.event.spring;
 
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.context.annotation.Primary;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.domain.bus.event.DomainEvent;
 import dev.ivanhernandez.shared.domain.bus.event.EventBus;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.annotation.Primary;
 
 import java.util.List;
 

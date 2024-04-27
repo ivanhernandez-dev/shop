@@ -1,10 +1,5 @@
 package dev.ivanhernandez.inventory.stocks.infrastructure.persistence;
 
-import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import dev.ivanhernandez.inventory.category.domain.Category;
 import dev.ivanhernandez.inventory.category.domain.CategoryMother;
 import dev.ivanhernandez.inventory.products.domain.*;
@@ -17,6 +12,10 @@ import dev.ivanhernandez.inventory.stocks.domain.StockMother;
 import dev.ivanhernandez.inventory.stocks.domain.StockQuantityMother;
 import dev.ivanhernandez.inventory.warehouse.domain.Warehouse;
 import dev.ivanhernandez.inventory.warehouse.domain.WarehouseMother;
+import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import java.util.Optional;
 

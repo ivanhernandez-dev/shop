@@ -1,11 +1,11 @@
 package dev.ivanhernandez.inventory.warehouse.infrastructure.persistence;
 
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.inventory.shared.domain.WarehouseId;
 import dev.ivanhernandez.inventory.warehouse.WarehousesModuleInfrastructureTestCase;
 import dev.ivanhernandez.inventory.warehouse.domain.Warehouse;
 import dev.ivanhernandez.inventory.warehouse.domain.WarehouseIdMother;
 import dev.ivanhernandez.inventory.warehouse.domain.WarehouseMother;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 

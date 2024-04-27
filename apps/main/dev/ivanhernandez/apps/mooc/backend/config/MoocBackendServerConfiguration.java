@@ -1,10 +1,10 @@
 package dev.ivanhernandez.apps.mooc.backend.config;
 
+import dev.ivanhernandez.shared.infrastructure.spring.ApiExceptionMiddleware;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-import dev.ivanhernandez.shared.infrastructure.spring.ApiExceptionMiddleware;
 
 @Configuration
 public class MoocBackendServerConfiguration {

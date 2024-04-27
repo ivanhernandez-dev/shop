@@ -1,9 +1,9 @@
 package dev.ivanhernandez.mooc.courses;
 
-import org.junit.jupiter.api.BeforeEach;
 import dev.ivanhernandez.mooc.courses.domain.Course;
 import dev.ivanhernandez.mooc.courses.domain.CourseRepository;
 import dev.ivanhernandez.shared.infrastructure.UnitTestCase;
+import org.junit.jupiter.api.BeforeEach;
 
 import static org.mockito.Mockito.*;
 

@@ -1,7 +1,7 @@
 package dev.ivanhernandez.apps.mooc.backend.controller.health_check;
 
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.apps.mooc.MoocApplicationTestCase;
+import org.junit.jupiter.api.Test;
 
 final class HealthCheckGetControllerShould extends MoocApplicationTestCase {
 

@@ -1,15 +1,15 @@
 package dev.ivanhernandez.backoffice.courses.infrastructure.persistence;
 
-import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import dev.ivanhernandez.backoffice.BackofficeContextInfrastructureTestCase;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourse;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourseCriteriaMother;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourseMother;
 import dev.ivanhernandez.backoffice.courses.domain.BackofficeCourseRepository;
 import dev.ivanhernandez.shared.domain.criteria.Criteria;
+import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.Arrays;
 

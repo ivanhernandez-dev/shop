@@ -1,10 +1,10 @@
 package dev.ivanhernandez.backoffice.courses;
 
+import dev.ivanhernandez.shared.domain.Component;
+import dev.ivanhernandez.shared.infrastructure.elasticsearch.ElasticsearchClient;
 import org.elasticsearch.client.Request;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
-import dev.ivanhernandez.shared.domain.Component;
-import dev.ivanhernandez.shared.infrastructure.elasticsearch.ElasticsearchClient;
 
 import java.io.IOException;
 import java.util.Objects;

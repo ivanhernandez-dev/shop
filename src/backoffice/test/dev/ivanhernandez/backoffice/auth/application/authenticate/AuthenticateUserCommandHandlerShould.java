@@ -1,12 +1,12 @@
 package dev.ivanhernandez.backoffice.auth.application.authenticate;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.backoffice.auth.AuthModuleUnitTestCase;
 import dev.ivanhernandez.backoffice.auth.domain.AuthUser;
 import dev.ivanhernandez.backoffice.auth.domain.AuthUserMother;
 import dev.ivanhernandez.backoffice.auth.domain.InvalidAuthCredentials;
 import dev.ivanhernandez.backoffice.auth.domain.InvalidAuthUsername;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

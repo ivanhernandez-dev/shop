@@ -1,13 +1,13 @@
 package dev.ivanhernandez.mooc.shared.infrastructure.bus.event.mysql;
 
-import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import dev.ivanhernandez.mooc.MoocContextInfrastructureTestCase;
 import dev.ivanhernandez.mooc.courses.domain.CourseCreatedDomainEventMother;
 import dev.ivanhernandez.shared.domain.course.CourseCreatedDomainEvent;
 import dev.ivanhernandez.shared.infrastructure.bus.event.mysql.MySqlDomainEventsConsumer;
 import dev.ivanhernandez.shared.infrastructure.bus.event.mysql.MySqlEventBus;
+import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collections;
 

@@ -1,12 +1,12 @@
 package dev.ivanhernandez.mooc.steps.infrastructure.persistence;
 
-import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.Test;
 import dev.ivanhernandez.mooc.steps.StepsModuleInfrastructureTestCase;
 import dev.ivanhernandez.mooc.steps.domain.Step;
 import dev.ivanhernandez.mooc.steps.domain.StepIdMother;
 import dev.ivanhernandez.mooc.steps.domain.challenge.ChallengeStepMother;
 import dev.ivanhernandez.mooc.steps.domain.video.VideoStepMother;
+import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,10 +1,10 @@
 package dev.ivanhernandez.mooc.courses_counter;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.mockito.Mockito;
 import dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounter;
 import dev.ivanhernandez.mooc.courses_counter.domain.CoursesCounterRepository;
 import dev.ivanhernandez.shared.infrastructure.UnitTestCase;
+import org.junit.jupiter.api.BeforeEach;
+import org.mockito.Mockito;
 
 import java.util.Optional;
 

@@ -1,8 +1,8 @@
 package dev.ivanhernandez.shared.infrastructure.bus.query;
 
-import org.springframework.context.ApplicationContext;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.domain.bus.query.*;
+import org.springframework.context.ApplicationContext;
 
 @Component
 public final class InMemoryQueryBus implements QueryBus {
