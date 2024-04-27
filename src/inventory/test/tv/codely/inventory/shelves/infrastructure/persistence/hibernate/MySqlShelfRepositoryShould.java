@@ -2,6 +2,7 @@ package tv.codely.inventory.shelves.infrastructure.persistence.hibernate;
 
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
+import tv.codely.inventory.shared.domain.ShelfId;
 import tv.codely.inventory.shelves.ShelvesModuleInfrastructureTestCase;
 import tv.codely.inventory.shelves.domain.*;
 import tv.codely.inventory.warehouse.domain.Warehouse;

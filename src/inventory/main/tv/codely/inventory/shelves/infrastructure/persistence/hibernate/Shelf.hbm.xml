@@ -5,7 +5,7 @@
 
 <hibernate-mapping>
     <class name="tv.codely.inventory.shelves.domain.Shelf" table="shelves">
-        <composite-id name="id" class="tv.codely.inventory.shelves.domain.ShelfId" access="field">
+        <composite-id name="id" class="tv.codely.inventory.shared.domain.ShelfId" access="field">
             <key-property column="id" name="value" length="36" access="field"/>
         </composite-id>
 

@@ -1,7 +1,7 @@
 package tv.codely.inventory.shelves.infrastructure.persistence;
 
 import tv.codely.inventory.shelves.domain.Shelf;
-import tv.codely.inventory.shelves.domain.ShelfId;
+import tv.codely.inventory.shared.domain.ShelfId;
 import tv.codely.inventory.shelves.domain.ShelfRepository;
 import tv.codely.shared.domain.Component;
 

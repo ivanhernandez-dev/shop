@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.transaction.annotation.Transactional;
 import tv.codely.inventory.products.domain.Product;
-import tv.codely.inventory.products.domain.ProductId;
+import tv.codely.inventory.shared.domain.ProductId;
 import tv.codely.inventory.products.domain.ProductRepository;
 import tv.codely.shared.domain.Component;
 import tv.codely.shared.infrastructure.hibernate.HibernateRepository;

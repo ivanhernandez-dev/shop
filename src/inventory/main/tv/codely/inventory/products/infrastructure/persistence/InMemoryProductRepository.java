@@ -1,7 +1,7 @@
 package tv.codely.inventory.products.infrastructure.persistence;
 
 import tv.codely.inventory.products.domain.Product;
-import tv.codely.inventory.products.domain.ProductId;
+import tv.codely.inventory.shared.domain.ProductId;
 import tv.codely.inventory.products.domain.ProductRepository;
 import tv.codely.shared.domain.Component;
 

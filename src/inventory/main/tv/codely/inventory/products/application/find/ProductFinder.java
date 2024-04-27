@@ -1,7 +1,7 @@
 package tv.codely.inventory.products.application.find;
 
 import tv.codely.inventory.products.application.ProductResponse;
-import tv.codely.inventory.products.domain.ProductId;
+import tv.codely.inventory.shared.domain.ProductId;
 import tv.codely.inventory.products.domain.ProductNotExist;
 import tv.codely.inventory.products.domain.ProductRepository;
 import tv.codely.shared.domain.Component;

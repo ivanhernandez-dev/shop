@@ -1,6 +1,7 @@
 package tv.codely.inventory.products.domain;
 
 import tv.codely.inventory.shared.domain.CategoryId;
+import tv.codely.inventory.shared.domain.ProductId;
 import tv.codely.shared.domain.AggregateRoot;
 import tv.codely.shared.domain.product.ProductCreatedDomainEvent;
 

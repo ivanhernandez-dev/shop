@@ -1,5 +1,7 @@
 package tv.codely.inventory.products.domain;
 
+import tv.codely.inventory.shared.domain.ProductId;
+
 import java.util.Optional;
 
 public interface ProductRepository {

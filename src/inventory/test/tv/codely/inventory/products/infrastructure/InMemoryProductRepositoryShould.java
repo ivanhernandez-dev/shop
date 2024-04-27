@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import tv.codely.inventory.products.ProductsModuleInfrastructureTestCase;
 import tv.codely.inventory.products.domain.*;
 import tv.codely.inventory.shared.domain.CategoryIdMother;
+import tv.codely.inventory.shared.domain.ProductId;
 
 import java.util.Optional;
 

@@ -1,6 +1,7 @@
 package tv.codely.inventory.shelves.infrastructure.persistence.hibernate;
 
 import org.junit.jupiter.api.Test;
+import tv.codely.inventory.shared.domain.ShelfId;
 import tv.codely.inventory.shelves.ShelvesModuleInfrastructureTestCase;
 import tv.codely.inventory.shelves.domain.*;
 

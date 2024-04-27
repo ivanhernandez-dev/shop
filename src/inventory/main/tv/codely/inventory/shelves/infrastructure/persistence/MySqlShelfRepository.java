@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.transaction.annotation.Transactional;
 import tv.codely.inventory.shelves.domain.Shelf;
-import tv.codely.inventory.shelves.domain.ShelfId;
+import tv.codely.inventory.shared.domain.ShelfId;
 import tv.codely.inventory.shelves.domain.ShelfRepository;
 import tv.codely.shared.domain.Component;
 import tv.codely.shared.infrastructure.hibernate.HibernateRepository;

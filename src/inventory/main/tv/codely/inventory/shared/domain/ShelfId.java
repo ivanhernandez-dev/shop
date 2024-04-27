@@ -1,4 +1,4 @@
-package tv.codely.inventory.shelves.domain;
+package tv.codely.inventory.shared.domain;
 
 import tv.codely.shared.domain.IdentifierValueObject;
 

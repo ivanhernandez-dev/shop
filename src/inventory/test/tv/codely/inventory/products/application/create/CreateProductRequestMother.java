@@ -3,6 +3,7 @@ package tv.codely.inventory.products.application.create;
 import tv.codely.inventory.products.domain.*;
 import tv.codely.inventory.shared.domain.CategoryId;
 import tv.codely.inventory.shared.domain.CategoryIdMother;
+import tv.codely.inventory.shared.domain.ProductId;
 
 public final class CreateProductRequestMother {
 	public static CreateProductRequest create(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductWeight weight, ProductColor color, ProductMaterial material, CategoryId categoryId) {

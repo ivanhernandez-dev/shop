@@ -1,5 +1,7 @@
 package tv.codely.inventory.shelves.domain;
 
+import tv.codely.inventory.shared.domain.ShelfId;
+
 import java.util.Optional;
 
 public interface ShelfRepository {

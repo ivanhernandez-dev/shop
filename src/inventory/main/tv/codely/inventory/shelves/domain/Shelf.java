@@ -1,5 +1,6 @@
 package tv.codely.inventory.shelves.domain;
 
+import tv.codely.inventory.shared.domain.ShelfId;
 import tv.codely.inventory.shared.domain.WarehouseId;
 import tv.codely.shared.domain.AggregateRoot;
 

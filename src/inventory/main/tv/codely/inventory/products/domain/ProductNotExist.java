@@ -1,5 +1,6 @@
 package tv.codely.inventory.products.domain;
 
+import tv.codely.inventory.shared.domain.ProductId;
 import tv.codely.shared.domain.DomainError;
 
 public final class ProductNotExist extends DomainError {
