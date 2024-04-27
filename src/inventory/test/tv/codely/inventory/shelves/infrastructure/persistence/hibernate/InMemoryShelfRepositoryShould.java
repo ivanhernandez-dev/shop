@@ -51,7 +51,7 @@ class InMemoryShelfRepositoryShould extends ShelvesModuleInfrastructureTestCase 
 		Shelf shelf = ShelfMother.random();
 		this.inMemoryRepository.save(shelf);
 
-		Shelf updatedShelf = new Shelf(shelf.id(), ShelfLengthMother.random(), ShelfWidthMother.random(), ShelfMaxWeightMother.random());
+		Shelf updatedShelf = ShelfMother.create(shelf.id(), ShelfLengthMother.random(), ShelfWidthMother.random(), ShelfMaxWeightMother.random(), shelf.warehouseId());
 		this.inMemoryRepository.update(updatedShelf);
 
 		assertEquals(Optional.of(updatedShelf), this.inMemoryRepository.search(shelf.id()));

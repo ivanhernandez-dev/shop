@@ -53,14 +53,18 @@ CREATE TABLE IF NOT EXISTS shelves
     length     double   NOT NULL,
     width      double   NOT NULL,
     max_weight double   NOT NULL,
-    PRIMARY KEY (id)
+    warehouse_id CHAR(36) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (warehouse_id) REFERENCES warehouses (id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 )
     ENGINE = InnoDB
     DEFAULT CHARSET = utf8mb4
     COLLATE = utf8mb4_unicode_ci;
 
-INSERT IGNORE INTO shelves (id, length, width, max_weight)
-VALUES ('f7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 10.0, 10.0, 100.0);
+INSERT IGNORE INTO shelves (id, length, width, max_weight, warehouse_id)
+VALUES ('f7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 10.0, 10.0, 100.0, '831426ef-6a04-40d8-b996-2e10ef76a43e');
 
 CREATE TABLE IF NOT EXISTS stocks
 (

@@ -20,5 +20,9 @@
         <component name="maxWeight" class="tv.codely.inventory.shelves.domain.ShelfMaxWeight" access="field">
             <property name="value" column="max_weight" type="double" access="field"/>
         </component>
+
+        <component name="warehouseId" class="tv.codely.inventory.shared.domain.WarehouseId" access="field">
+            <property name="value" column="warehouse_id" type="string" length="36" access="field"/>
+        </component>
     </class>
 </hibernate-mapping>
