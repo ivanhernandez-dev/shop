@@ -17,7 +17,7 @@ spotless {
         prettier(['prettier': '2.8.8', 'prettier-plugin-java': '2.2.0'])
                 .config(['parser': 'java', 'useTabs': true, 'printWidth': 120])
 
-        importOrder('\\#', 'java', '', 'tv.codely')
+        importOrder('\\#', 'java', '', 'dev.ivanhernandez')
         removeUnusedImports()
 
         endWithNewline()
@@ -104,7 +104,7 @@ allprojects {
 
 // All subprojects (located in src/*)
 subprojects {
-    group = "tv.codely.${rootProject.name}"
+    group = "dev.ivanhernandez.${rootProject.name}"
 
     sourceSets {
         main {

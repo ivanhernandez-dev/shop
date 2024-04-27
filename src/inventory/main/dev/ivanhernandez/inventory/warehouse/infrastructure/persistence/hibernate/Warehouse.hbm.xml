@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="dev.ivanhernandez.inventory.warehouse.domain.Warehouse" table="warehouses">
+        <composite-id name="id" class="dev.ivanhernandez.inventory.shared.domain.WarehouseId" access="field">
+            <key-property column="id" name="value" length="36" access="field"/>
+        </composite-id>
+
+        <component name="name" class="dev.ivanhernandez.inventory.warehouse.domain.WarehouseName" access="field">
+            <property name="value" column="name" type="string" access="field"/>
+        </component>
+
+        <component name="address" class="dev.ivanhernandez.inventory.warehouse.domain.WarehouseAddress" access="field">
+            <property name="value" column="address" type="string" access="field"/>
+        </component>
+    </class>
+</hibernate-mapping>

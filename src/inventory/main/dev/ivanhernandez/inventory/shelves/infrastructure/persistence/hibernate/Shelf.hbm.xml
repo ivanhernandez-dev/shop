@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="dev.ivanhernandez.inventory.shelves.domain.Shelf" table="shelves">
+        <composite-id name="id" class="dev.ivanhernandez.inventory.shared.domain.ShelfId" access="field">
+            <key-property column="id" name="value" length="36" access="field"/>
+        </composite-id>
+
+        <component name="length" class="dev.ivanhernandez.inventory.shelves.domain.ShelfLength" access="field">
+            <property name="value" column="length" type="double" access="field"/>
+        </component>
+
+        <component name="width" class="dev.ivanhernandez.inventory.shelves.domain.ShelfWidth" access="field">
+            <property name="value" column="width" type="double" access="field"/>
+        </component>
+
+        <component name="maxWeight" class="dev.ivanhernandez.inventory.shelves.domain.ShelfMaxWeight" access="field">
+            <property name="value" column="max_weight" type="double" access="field"/>
+        </component>
+
+        <component name="warehouseId" class="dev.ivanhernandez.inventory.shared.domain.WarehouseId" access="field">
+            <property name="value" column="warehouse_id" type="string" length="36" access="field"/>
+        </component>
+    </class>
+</hibernate-mapping>

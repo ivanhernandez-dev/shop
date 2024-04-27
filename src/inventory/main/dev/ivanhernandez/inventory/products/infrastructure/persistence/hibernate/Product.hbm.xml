@@ -1,0 +1,40 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="dev.ivanhernandez.inventory.products.domain.Product" table="products">
+        <composite-id name="id" class="dev.ivanhernandez.inventory.shared.domain.ProductId" access="field">
+            <key-property column="id" name="value" length="36" access="field"/>
+        </composite-id>
+
+        <component name="name" class="dev.ivanhernandez.inventory.products.domain.ProductName" access="field">
+            <property name="value" column="name" type="string" access="field"/>
+        </component>
+
+        <component name="description" class="dev.ivanhernandez.inventory.products.domain.ProductDescription" access="field">
+            <property name="value" column="description" type="string" access="field"/>
+        </component>
+
+        <component name="price" class="dev.ivanhernandez.inventory.products.domain.ProductPrice" access="field">
+            <property name="value" column="price" type="big_decimal" access="field"/>
+        </component>
+
+        <component name="weight" class="dev.ivanhernandez.inventory.products.domain.ProductWeight" access="field">
+            <property name="value" column="weight" type="double" access="field"/>
+        </component>
+
+        <component name="color" class="dev.ivanhernandez.inventory.products.domain.ProductColor" access="field">
+            <property name="value" column="color" type="string" access="field"/>
+        </component>
+
+        <component name="material" class="dev.ivanhernandez.inventory.products.domain.ProductMaterial" access="field">
+            <property name="value" column="material" type="string" access="field"/>
+        </component>
+
+        <component name="categoryId" class="dev.ivanhernandez.inventory.shared.domain.CategoryId" access="field">
+            <property name="value" column="category_id" type="string" access="field"/>
+        </component>
+    </class>
+</hibernate-mapping>
