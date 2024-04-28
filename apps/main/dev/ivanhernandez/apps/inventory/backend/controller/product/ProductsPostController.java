@@ -48,7 +48,7 @@ final class Request {
 	private Double weight;
 	private String color;
 	private String material;
-	private String categoryId;
+	private String category_id;
 
 	public Request(String name, String price, Double weight, String description, String color, String material, String categoryId) {
 		this.name = name;
@@ -57,7 +57,7 @@ final class Request {
 		this.description = description;
 		this.color = color;
 		this.material = material;
-		this.categoryId = categoryId;
+		this.category_id = categoryId;
 	}
 
 	public String name() {
@@ -85,7 +85,7 @@ final class Request {
 	}
 
 	public String categoryId() {
-		return categoryId;
+		return category_id;
 	}
 
 	public void setName(String name) {
@@ -112,7 +112,7 @@ final class Request {
 		this.material = material;
 	}
 
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
+	public void setCategory_id(String category_id) {
+		this.category_id = category_id;
 	}
 }
