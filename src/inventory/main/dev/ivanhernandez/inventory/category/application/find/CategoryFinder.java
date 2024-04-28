@@ -7,7 +7,7 @@ import dev.ivanhernandez.inventory.shared.domain.CategoryId;
 import dev.ivanhernandez.shared.domain.Component;
 
 @Component
-public final class CategoryFinder {
+public class CategoryFinder {
 	private final CategoryRepository repository;
 
 	public CategoryFinder(CategoryRepository repository) {

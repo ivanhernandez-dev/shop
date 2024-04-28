@@ -6,6 +6,9 @@ import dev.ivanhernandez.inventory.category.application.CategoriesResponseMother
 import dev.ivanhernandez.inventory.category.application.CategoryResponse;
 import dev.ivanhernandez.inventory.category.domain.Category;
 import dev.ivanhernandez.inventory.category.domain.CategoryMother;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.util.Arrays;
@@ -16,12 +19,14 @@ import static org.junit.jupiter.api.Assertions.*;
 final class FindAllCategoriesQueryHandlerShould extends CategoriesModuleUnitTestCase {
 	FindAllCategoriesQueryHandler handler;
 
+	@BeforeEach
 	protected void setUp() {
 		super.setUp();
 
 		handler = new FindAllCategoriesQueryHandler(new AllCategoriesFinder(repository));
 	}
 
+	@Test
 	void find_all_categories() {
 		FindAllCategoriesQuery query = FindAllCategoriesQueryMother.random();
 
@@ -44,8 +49,11 @@ final class FindAllCategoriesQueryHandlerShould extends CategoriesModuleUnitTest
 		assertEquals(response, handler.handle(query));
 	}
 
+	@Test
 	void call_repository_search_all_method() {
 		FindAllCategoriesQuery query = FindAllCategoriesQueryMother.random();
+
+		Mockito.when(repository.searchAll()).thenReturn(List.of());
 
 		handler.handle(query);
 

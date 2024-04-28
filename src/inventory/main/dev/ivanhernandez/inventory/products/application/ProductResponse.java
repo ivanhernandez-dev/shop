@@ -1,8 +1,11 @@
 package dev.ivanhernandez.inventory.products.application;
 
 import dev.ivanhernandez.inventory.products.domain.Product;
+import dev.ivanhernandez.shared.domain.bus.query.Response;
 
-public final class ProductResponse {
+import java.util.Objects;
+
+public final class ProductResponse implements Response {
 	private final String id;
 	private final String name;
 	private final String description;
@@ -39,5 +42,18 @@ public final class ProductResponse {
 
 	public Double weight() {
 		return weight;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || this.getClass() != o.getClass()) return false;
+		ProductResponse that = (ProductResponse) o;
+		return Objects.equals(this.id, that.id) && Objects.equals(this.name, that.name) && Objects.equals(this.description, that.description) && Objects.equals(this.price, that.price) && Objects.equals(this.weight, that.weight);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.id, this.name, this.description, this.price, this.weight);
 	}
 }

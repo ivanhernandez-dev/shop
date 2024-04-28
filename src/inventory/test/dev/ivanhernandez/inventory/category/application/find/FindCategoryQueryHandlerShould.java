@@ -9,6 +9,8 @@ import dev.ivanhernandez.inventory.category.domain.CategoryNotExist;
 import dev.ivanhernandez.inventory.shared.domain.CategoryId;
 import dev.ivanhernandez.inventory.shared.domain.CategoryIdMother;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.util.Optional;
@@ -25,6 +27,7 @@ final class FindCategoryQueryHandlerShould extends CategoriesModuleUnitTestCase 
 		handler = new FindCategoryQueryHandler(new CategoryFinder(repository));
 	}
 
+	@Test
 	void find_an_existing_category() {
 		Category category = CategoryMother.random();
 		FindCategoryQuery query = new FindCategoryQuery(category.id().value());
@@ -35,6 +38,7 @@ final class FindCategoryQueryHandlerShould extends CategoriesModuleUnitTestCase 
 		assertEquals(response, handler.handle(query));
 	}
 
+	@Test
 	void throw_an_exception_when_category_does_not_exists() {
 		FindCategoryQuery query = new FindCategoryQuery(CategoryIdMother.random().value());
 
@@ -43,12 +47,15 @@ final class FindCategoryQueryHandlerShould extends CategoriesModuleUnitTestCase 
 		assertThrows(CategoryNotExist.class, () -> handler.handle(query));
 	}
 
+	@Test
 	void call_repository_search_method() {
-		CategoryId id = CategoryIdMother.random();
-		FindCategoryQuery query = new FindCategoryQuery(id.value());
+		Category category = CategoryMother.random();
+		FindCategoryQuery query = new FindCategoryQuery(category.id().value());
+
+		Mockito.when(repository.search(category.id())).thenReturn(Optional.of(category));
 
 		handler.handle(query);
 
-		Mockito.verify(repository, Mockito.atLeastOnce()).search(id);
+		Mockito.verify(repository, Mockito.atLeastOnce()).search(category.id());
 	}
 }
