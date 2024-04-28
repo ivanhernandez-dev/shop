@@ -16,8 +16,8 @@ public final class ProductCreator {
 		this.eventBus = eventBus;
 	}
 
-	public void create(CreateProductRequest request) {
-		Product product = Product.create(new ProductId(request.id()), new ProductName(request.name()), new ProductDescription(request.description()), new ProductPrice(request.price()), new ProductWeight(request.weight()), new ProductColor(request.color()), new ProductMaterial(request.material()), new CategoryId(request.categoryId()));
+	public void create(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductWeight weight, ProductColor color, ProductMaterial material, CategoryId categoryId) {
+		Product product = Product.create(id, name, description, price, weight, color, material, categoryId);
 
 		repository.save(product);
 

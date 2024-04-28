@@ -1,7 +1,13 @@
 package dev.ivanhernandez.apps.inventory.backend.controller.product;
 
+import dev.ivanhernandez.inventory.products.application.create.CreateProductCommand;
 import dev.ivanhernandez.inventory.products.application.create.CreateProductRequest;
 import dev.ivanhernandez.inventory.products.application.create.ProductCreator;
+import dev.ivanhernandez.shared.domain.DomainError;
+import dev.ivanhernandez.shared.domain.bus.command.CommandBus;
+import dev.ivanhernandez.shared.domain.bus.command.CommandHandlerExecutionError;
+import dev.ivanhernandez.shared.domain.bus.query.QueryBus;
+import dev.ivanhernandez.shared.infrastructure.spring.ApiController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,19 +15,34 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public final class ProductsPutController {
-	private ProductCreator creator;
+import java.util.HashMap;
 
-	public ProductsPutController(ProductCreator creator) {
-		this.creator = creator;
+@RestController
+public final class ProductsPutController extends ApiController {
+
+	public ProductsPutController(QueryBus queryBus, CommandBus commandBus) {
+		super(queryBus, commandBus);
 	}
 
-	@PutMapping("/products/{id}")
-	public ResponseEntity create(@PathVariable String id, @RequestBody Request request) {
-		this.creator.create(new CreateProductRequest(id, request.name(), request.description(), request.price(), request.weight(), request.color(), request.material(), request.categoryId()));
+ 	@PutMapping("/products/{id}")
+	public ResponseEntity create(@PathVariable String id, @RequestBody Request request) throws CommandHandlerExecutionError {
+		dispatch(new CreateProductCommand(
+			id,
+			request.name(),
+			request.description(),
+			request.price(),
+			request.weight(),
+			request.color(),
+			request.material(),
+			request.categoryId()
+		));
 
-		return new ResponseEntity(HttpStatus.CREATED);
+		return new ResponseEntity<>(HttpStatus.CREATED);
+	}
+
+	@Override
+	public HashMap<Class<? extends DomainError>, HttpStatus> errorMapping() {
+		return null;
 	}
 }
 

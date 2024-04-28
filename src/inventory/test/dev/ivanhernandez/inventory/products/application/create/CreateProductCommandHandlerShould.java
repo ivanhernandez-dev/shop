@@ -8,27 +8,28 @@ import dev.ivanhernandez.shared.domain.product.ProductCreatedDomainEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-final class ProductCreatorShould extends ProductsModuleUnitTestCase {
-	private ProductCreator creator;
+
+final class CreateProductCommandHandlerShould extends ProductsModuleUnitTestCase {
+	private CreateProductCommandHandler handler;
 
 	@BeforeEach
 	protected void setUp() {
 		super.setUp();
 
-		this.creator = new ProductCreator(this.repository, this.eventBus);
+		handler = new CreateProductCommandHandler(new ProductCreator(repository, eventBus));
 	}
-
 
 	@Test
-	void save_a_valid_product() {
-		CreateProductRequest request = CreateProductRequestMother.random();
+	void create_a_valid_product() {
+		CreateProductCommand command = CreateProductCommandMother.random();
 
-		Product product = ProductMother.fromRequest(request);
-		ProductCreatedDomainEvent event = ProductCreatedDomainEventMother.fromProduct(product);
+		Product product = ProductMother.fromRequest(command);
+		ProductCreatedDomainEvent domainEvent = ProductCreatedDomainEventMother.fromProduct(product);
 
-		this.creator.create(request);
+		handler.handle(command);
 
-		this.shouldHaveSaved(product);
-		this.shouldHavePublished(event);
+		shouldHaveSaved(product);
+		shouldHavePublished(domainEvent);
 	}
+
 }
