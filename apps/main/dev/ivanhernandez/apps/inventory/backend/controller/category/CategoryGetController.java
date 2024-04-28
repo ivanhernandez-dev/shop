@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 @RestController
 public final class CategoryGetController extends ApiController {
@@ -32,7 +33,7 @@ public final class CategoryGetController extends ApiController {
 		return ResponseEntity
 			.ok()
 			.body(
-				new HashMap<String, Serializable>() {
+				new LinkedHashMap<String, Serializable>() {
 					{
 						put("id", category.id());
 						put("name", category.name());

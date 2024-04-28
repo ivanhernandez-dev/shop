@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @RestController
@@ -28,7 +29,7 @@ public final class CategoriesGetController extends ApiController {
 			.categories()
 			.stream()
 			.map(response ->
-				new HashMap<String, String>() {
+				new LinkedHashMap<String, String>() {
 					{
 						put("id", response.id());
 						put("name", response.name());
