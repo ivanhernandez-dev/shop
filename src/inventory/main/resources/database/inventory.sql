@@ -73,7 +73,9 @@ CREATE TABLE IF NOT EXISTS stocks
     shelf_id   CHAR(36) NOT NULL,
     quantity   INT      NOT NULL,
     PRIMARY KEY (product_id, shelf_id),
-    FOREIGN KEY (product_id) REFERENCES products (id),
+    FOREIGN KEY (product_id) REFERENCES products (id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     FOREIGN KEY (shelf_id) REFERENCES shelves (id)
 )
     ENGINE = InnoDB
