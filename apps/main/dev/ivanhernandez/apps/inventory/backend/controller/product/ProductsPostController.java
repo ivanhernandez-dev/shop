@@ -1,8 +1,6 @@
 package dev.ivanhernandez.apps.inventory.backend.controller.product;
 
 import dev.ivanhernandez.inventory.products.application.create.CreateProductCommand;
-import dev.ivanhernandez.inventory.products.application.create.CreateProductRequest;
-import dev.ivanhernandez.inventory.products.application.create.ProductCreator;
 import dev.ivanhernandez.shared.domain.DomainError;
 import dev.ivanhernandez.shared.domain.bus.command.CommandBus;
 import dev.ivanhernandez.shared.domain.bus.command.CommandHandlerExecutionError;
@@ -10,21 +8,18 @@ import dev.ivanhernandez.shared.domain.bus.query.QueryBus;
 import dev.ivanhernandez.shared.infrastructure.spring.ApiController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
 @RestController
-public final class ProductsPutController extends ApiController {
+public final class ProductsPostController extends ApiController {
 
-	public ProductsPutController(QueryBus queryBus, CommandBus commandBus) {
+	public ProductsPostController(QueryBus queryBus, CommandBus commandBus) {
 		super(queryBus, commandBus);
 	}
 
- 	@PutMapping("/products/{id}")
+ 	@PostMapping("/products/{id}")
 	public ResponseEntity create(@PathVariable String id, @RequestBody Request request) throws CommandHandlerExecutionError {
 		dispatch(new CreateProductCommand(
 			id,
