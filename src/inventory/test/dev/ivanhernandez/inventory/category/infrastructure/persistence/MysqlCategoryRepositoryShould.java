@@ -9,10 +9,10 @@ import dev.ivanhernandez.inventory.shared.domain.CategoryIdMother;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 @Transactional
 class MysqlCategoryRepositoryShould extends CategoriesModuleInfrastructureTestCase {
@@ -62,5 +62,21 @@ class MysqlCategoryRepositoryShould extends CategoriesModuleInfrastructureTestCa
 		this.mySqlRepository.update(updatedCategory);
 
 		assertEquals(Optional.of(updatedCategory), this.mySqlRepository.search(category.id()));
+	}
+
+	@Test
+	void return_all_categories() {
+		Category category1 = CategoryMother.random();
+		Category category2 = CategoryMother.random();
+		Category category3 = CategoryMother.random();
+
+		this.mySqlRepository.save(category1);
+		this.mySqlRepository.save(category2);
+		this.mySqlRepository.save(category3);
+
+		List<Category> categories = List.of(category1, category2, category3);
+		List<Category> foundCategories = this.mySqlRepository.searchAll();
+
+		assertTrue(foundCategories.containsAll(categories));
 	}
 }

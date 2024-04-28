@@ -2,6 +2,7 @@ package dev.ivanhernandez.inventory.category.domain;
 
 import dev.ivanhernandez.inventory.shared.domain.CategoryId;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface CategoryRepository {
@@ -12,4 +13,6 @@ public interface CategoryRepository {
 	void update(Category category);
 
 	void delete(CategoryId id);
+
+	List<Category> searchAll();
 }

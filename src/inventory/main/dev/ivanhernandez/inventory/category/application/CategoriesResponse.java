@@ -4,10 +4,10 @@ import dev.ivanhernandez.shared.domain.bus.query.Response;
 
 import java.util.List;
 
-public final class CategoriesReponse implements Response {
+public final class CategoriesResponse implements Response {
 	private final List<CategoryResponse> categories;
 
-	public CategoriesReponse(List<CategoryResponse> categories) {
+	public CategoriesResponse(List<CategoryResponse> categories) {
 		this.categories = categories;
 	}
 

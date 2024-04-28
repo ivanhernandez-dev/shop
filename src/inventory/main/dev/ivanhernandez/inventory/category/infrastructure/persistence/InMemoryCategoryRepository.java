@@ -6,6 +6,7 @@ import dev.ivanhernandez.inventory.shared.domain.CategoryId;
 import dev.ivanhernandez.shared.domain.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -33,5 +34,10 @@ public final class InMemoryCategoryRepository implements CategoryRepository {
 	@Override
 	public void delete(CategoryId id) {
 		this.categories.remove(id.value());
+	}
+
+	@Override
+	public List<Category> searchAll() {
+		return List.copyOf(this.categories.values());
 	}
 }

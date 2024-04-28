@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Primary
@@ -34,5 +35,9 @@ public class MysqlCategoryRepository extends HibernateRepository<Category> imple
 
 	public void delete(CategoryId id) {
 		super.delete(id);
+	}
+
+	public List<Category> searchAll() {
+		return super.all();
 	}
 }
