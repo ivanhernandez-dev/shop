@@ -6,6 +6,7 @@ import dev.ivanhernandez.inventory.shared.domain.ProductId;
 import dev.ivanhernandez.shared.domain.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -33,5 +34,10 @@ public final class InMemoryProductRepository implements ProductRepository {
 	@Override
 	public void delete(ProductId id) {
 		this.products.remove(id.value());
+	}
+
+	@Override
+	public List<Product> searchAll() {
+		return List.copyOf(this.products.values());
 	}
 }

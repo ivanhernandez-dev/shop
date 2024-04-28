@@ -1,10 +1,10 @@
-package dev.ivanhernandez.inventory.category.application.find_all;
+package dev.ivanhernandez.inventory.products.application.find_all;
 
 import dev.ivanhernandez.shared.domain.bus.query.Query;
 
 import java.util.Objects;
 
-public final class FindAllCategoriesQuery implements Query {
+public final class FindAllProductsQuery implements Query {
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
@@ -15,6 +15,6 @@ public final class FindAllCategoriesQuery implements Query {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash("FindAllCategoriesQuery");
+		return Objects.hash("FindAllProductsQuery");
 	}
 }

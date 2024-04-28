@@ -2,6 +2,7 @@ package dev.ivanhernandez.inventory.products.domain;
 
 import dev.ivanhernandez.inventory.shared.domain.ProductId;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ProductRepository {
@@ -12,4 +13,6 @@ public interface ProductRepository {
 	void update(Product product);
 
 	void delete(ProductId id);
+
+	List<Product> searchAll();
 }

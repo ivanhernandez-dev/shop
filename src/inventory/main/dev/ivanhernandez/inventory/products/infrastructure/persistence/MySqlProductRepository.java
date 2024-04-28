@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Primary
@@ -38,5 +39,10 @@ public class MySqlProductRepository extends HibernateRepository<Product> impleme
 	@Override
 	public void delete(ProductId id) {
 		super.delete(id);
+	}
+
+	@Override
+	public List<Product> searchAll() {
+		return super.all();
 	}
 }

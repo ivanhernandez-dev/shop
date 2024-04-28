@@ -10,10 +10,10 @@ import dev.ivanhernandez.inventory.shared.domain.ProductId;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 @Transactional
 class MySqlProductRepositoryShould extends ProductsModuleInfrastructureTestCase {
@@ -77,5 +77,24 @@ class MySqlProductRepositoryShould extends ProductsModuleInfrastructureTestCase 
 		this.mySqlRepository.update(updatedProduct);
 
 		assertEquals(Optional.of(updatedProduct), this.mySqlRepository.search(product.id()));
+	}
+
+	@Test
+	void return_all_products() {
+		Category category = CategoryMother.random();
+		this.categoryRepository.save(category);
+
+		Product product1 = ProductMother.create(ProductIdMother.random(), ProductNameMother.random(), ProductPriceMother.random(), ProductDescriptionMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random(), category.id());
+		Product product2 = ProductMother.create(ProductIdMother.random(), ProductNameMother.random(), ProductPriceMother.random(), ProductDescriptionMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random(), category.id());
+		Product product3 = ProductMother.create(ProductIdMother.random(), ProductNameMother.random(), ProductPriceMother.random(), ProductDescriptionMother.random(), ProductWeightMother.random(), ProductColorMother.random(), ProductMaterialMother.random(), category.id());
+
+		this.mySqlRepository.save(product1);
+		this.mySqlRepository.save(product2);
+		this.mySqlRepository.save(product3);
+
+		List<Product> products = List.of(product1, product2, product3);
+		List<Product> foundProducts = this.mySqlRepository.searchAll();
+
+		assertTrue(foundProducts.containsAll(products));
 	}
 }
