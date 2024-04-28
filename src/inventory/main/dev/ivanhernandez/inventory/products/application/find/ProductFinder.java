@@ -8,7 +8,7 @@ import dev.ivanhernandez.inventory.shared.domain.ProductId;
 import dev.ivanhernandez.shared.domain.Component;
 
 @Component
-public final class ProductFinder {
+public class ProductFinder {
 	private final ProductRepository repository;
 
 	public ProductFinder(ProductRepository repository) {
