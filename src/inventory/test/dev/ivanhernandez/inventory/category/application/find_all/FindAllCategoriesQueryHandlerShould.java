@@ -22,7 +22,7 @@ final class FindAllCategoriesQueryHandlerShould extends CategoriesModuleUnitTest
 		handler = new FindAllCategoriesQueryHandler(new AllCategoriesFinder(repository));
 	}
 
-	void it_should_find_all_categories() {
+	void find_all_categories() {
 		FindAllCategoriesQuery query = FindAllCategoriesQueryMother.random();
 
 		Category category1 = CategoryMother.random();
@@ -44,7 +44,7 @@ final class FindAllCategoriesQueryHandlerShould extends CategoriesModuleUnitTest
 		assertEquals(response, handler.handle(query));
 	}
 
-	void it_should_call_repository_search_all_method() {
+	void call_repository_search_all_method() {
 		FindAllCategoriesQuery query = FindAllCategoriesQueryMother.random();
 
 		handler.handle(query);

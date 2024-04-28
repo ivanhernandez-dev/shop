@@ -23,7 +23,7 @@ final class IncrementCoursesCounterOnCourseCreatedShould extends CoursesCounterM
 	}
 
 	@Test
-	void it_should_initialize_a_new_counter() {
+	void initialize_a_new_counter() {
 		CourseCreatedDomainEvent event = CourseCreatedDomainEventMother.random();
 
 		CourseId courseId = CourseIdMother.create(event.aggregateId());
@@ -38,7 +38,7 @@ final class IncrementCoursesCounterOnCourseCreatedShould extends CoursesCounterM
 	}
 
 	@Test
-	void it_should_increment_an_existing_counter() {
+	void increment_an_existing_counter() {
 		CourseCreatedDomainEvent event = CourseCreatedDomainEventMother.random();
 
 		CourseId courseId = CourseIdMother.create(event.aggregateId());
@@ -53,7 +53,7 @@ final class IncrementCoursesCounterOnCourseCreatedShould extends CoursesCounterM
 	}
 
 	@Test
-	void it_should_not_increment_an_already_incremented_course() {
+	void not_increment_an_already_incremented_course() {
 		CourseCreatedDomainEvent event = CourseCreatedDomainEventMother.random();
 
 		CourseId courseId = CourseIdMother.create(event.aggregateId());

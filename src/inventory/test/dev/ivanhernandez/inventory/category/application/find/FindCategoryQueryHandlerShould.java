@@ -25,7 +25,7 @@ final class FindCategoryQueryHandlerShould extends CategoriesModuleUnitTestCase 
 		handler = new FindCategoryQueryHandler(new CategoryFinder(repository));
 	}
 
-	void it_should_find_an_existing_category() {
+	void find_an_existing_category() {
 		Category category = CategoryMother.random();
 		FindCategoryQuery query = new FindCategoryQuery(category.id().value());
 		CategoryResponse response = CategoryResponseMother.create(category.id().value(), category.name().value());
@@ -35,7 +35,7 @@ final class FindCategoryQueryHandlerShould extends CategoriesModuleUnitTestCase 
 		assertEquals(response, handler.handle(query));
 	}
 
-	void it_should_throw_an_exception_when_category_does_not_exists() {
+	void throw_an_exception_when_category_does_not_exists() {
 		FindCategoryQuery query = new FindCategoryQuery(CategoryIdMother.random().value());
 
 		Mockito.when(repository.search(Mockito.any())).thenReturn(Optional.empty());
@@ -43,7 +43,7 @@ final class FindCategoryQueryHandlerShould extends CategoriesModuleUnitTestCase 
 		assertThrows(CategoryNotExist.class, () -> handler.handle(query));
 	}
 
-	void it_should_call_repository_search_method() {
+	void call_repository_search_method() {
 		CategoryId id = CategoryIdMother.random();
 		FindCategoryQuery query = new FindCategoryQuery(id.value());
 

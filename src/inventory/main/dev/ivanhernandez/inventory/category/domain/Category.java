@@ -19,6 +19,12 @@ public final class Category extends AggregateRoot {
 		this.name = null;
 	}
 
+	public static Category create(CategoryId id, CategoryName name) {
+		Category category = new Category(id, name);
+		category.record(new CategoryCreatedDomainEvent(id.value(), name.value()));
+		return category;
+	}
+
 	public CategoryId id() {
 		return this.id;
 	}

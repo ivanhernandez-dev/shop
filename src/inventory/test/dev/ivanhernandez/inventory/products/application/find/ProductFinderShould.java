@@ -26,7 +26,7 @@ final class ProductFinderShould extends ProductsModuleUnitTestCase {
 	}
 
 	@Test
-	void it_should_find_an_existing_product() {
+	void find_an_existing_product() {
 		Product existingProduct = ProductMother.random();
 
 		when(this.repository.search(existingProduct.id())).thenReturn(Optional.of(existingProduct));
@@ -36,7 +36,7 @@ final class ProductFinderShould extends ProductsModuleUnitTestCase {
 	}
 
 	@Test
-	void it_should_throw_an_exception_when_the_product_does_not_exist() {
+	void throw_an_exception_when_the_product_does_not_exist() {
 		ProductId id = ProductIdMother.random();
 
 		assertThrows(ProductNotExist.class, () -> this.finder.find(id.value()));
@@ -44,7 +44,7 @@ final class ProductFinderShould extends ProductsModuleUnitTestCase {
 	}
 
 	@Test
-	void it_should_return_a_response_with_the_existing_product_data() {
+	void return_a_response_with_the_existing_product_data() {
 		Product existingProduct = ProductMother.random();
 
 		when(this.repository.search(existingProduct.id())).thenReturn(Optional.of(existingProduct));
