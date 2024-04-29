@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Primary
@@ -33,6 +34,11 @@ public class MySqlShelfRepository extends HibernateRepository<Shelf> implements 
 	@Override
 	public void update(Shelf shelf) {
 		super.update(shelf);
+	}
+
+	@Override
+	public List<Shelf> searchAll() {
+		return super.all();
 	}
 
 	@Override

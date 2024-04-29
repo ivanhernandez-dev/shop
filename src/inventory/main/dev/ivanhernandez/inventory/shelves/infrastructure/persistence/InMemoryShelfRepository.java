@@ -6,6 +6,7 @@ import dev.ivanhernandez.inventory.shelves.domain.ShelfRepository;
 import dev.ivanhernandez.shared.domain.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -28,6 +29,11 @@ public final class InMemoryShelfRepository implements ShelfRepository {
 		if (this.shelves.containsKey(shelf.id().value())) {
 			this.shelves.put(shelf.id().value(), shelf);
 		}
+	}
+
+	@Override
+	public List<Shelf> searchAll() {
+		return List.copyOf(this.shelves.values());
 	}
 
 	@Override
