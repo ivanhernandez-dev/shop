@@ -22,6 +22,13 @@ public final class Stock {
 		this.productId = null;
 	}
 
+	public static Stock create(ShelfId shelfId, StockQuantity quantity, ProductId productId) {
+		if (quantity.value() < 0) {
+			throw new IllegalArgumentException("The quantity must be greater than 0");
+		}
+		return new Stock(shelfId, quantity, productId);
+	}
+
 	public ShelfId shelfId() {
 		return shelfId;
 	}
