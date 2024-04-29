@@ -47,6 +47,10 @@ public final class Product extends AggregateRoot {
 		return product;
 	}
 
+	public static Product update(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductWeight weight, ProductColor color, ProductMaterial material, CategoryId categoryId) {
+		return new Product(id, name, description, price, weight, color, material, categoryId);
+	}
+
 	public ProductId id() {
 		return this.id;
 	}

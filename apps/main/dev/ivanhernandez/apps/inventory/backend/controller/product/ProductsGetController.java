@@ -34,6 +34,7 @@ public class ProductsGetController extends ApiController {
 						put("name", response.name());
 						put("description", response.description());
 						put("price", response.price());
+						put("weight", response.weight().toString());
 						put("stock", response.weight().toString());
 						put("color", response.color());
 						put("material", response.material());
