@@ -34,4 +34,14 @@ public final class InMemoryStockRepository implements StockRepository {
 	public void update(Stock stock) {
 		this.stocks.put(List.of(stock.productId().value(), stock.shelfId().value()), stock);
 	}
+
+	@Override
+	public List<Stock> searchByProductId(ProductId productId) {
+		return this.stocks.values().stream().filter(stock -> stock.productId().equals(productId)).toList();
+	}
+
+	@Override
+	public List<Stock> searchByShelfId(ShelfId shelfId) {
+		return this.stocks.values().stream().filter(stock -> stock.shelfId().equals(shelfId)).toList();
+	}
 }

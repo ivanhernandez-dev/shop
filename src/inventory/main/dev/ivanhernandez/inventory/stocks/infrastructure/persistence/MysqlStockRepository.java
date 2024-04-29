@@ -17,6 +17,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 
+import java.util.List;
 import java.util.Optional;
 
 @Primary
@@ -65,5 +66,27 @@ public class MysqlStockRepository extends HibernateRepository<Stock> implements 
 	@Override
 	public void update(Stock stock) {
 		super.update(stock);
+	}
+
+	@Override
+	public List<Stock> searchByProductId(ProductId productId) {
+		CriteriaBuilder builder = sessionFactory.getCriteriaBuilder();
+		CriteriaQuery<Stock> query = builder.createQuery(Stock.class);
+		Root<Stock> root = query.from(Stock.class);
+
+		query.select(root).where(builder.equal(root.get("productId"), productId));
+
+		return sessionFactory.getCurrentSession().createQuery(query).getResultList();
+	}
+
+	@Override
+	public List<Stock> searchByShelfId(ShelfId shelfId) {
+		CriteriaBuilder builder = sessionFactory.getCriteriaBuilder();
+		CriteriaQuery<Stock> query = builder.createQuery(Stock.class);
+		Root<Stock> root = query.from(Stock.class);
+
+		query.select(root).where(builder.equal(root.get("shelfId"), shelfId));
+
+		return sessionFactory.getCurrentSession().createQuery(query).getResultList();
 	}
 }

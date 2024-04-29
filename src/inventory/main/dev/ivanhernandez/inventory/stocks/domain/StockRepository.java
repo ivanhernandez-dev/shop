@@ -3,6 +3,7 @@ package dev.ivanhernandez.inventory.stocks.domain;
 import dev.ivanhernandez.inventory.shared.domain.ProductId;
 import dev.ivanhernandez.inventory.shared.domain.ShelfId;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface StockRepository {
@@ -13,4 +14,8 @@ public interface StockRepository {
 	void delete(ProductId productId, ShelfId shelfId);
 
 	void update(Stock stock);
+
+	List<Stock> searchByProductId(ProductId productId);
+
+	List<Stock> searchByShelfId(ShelfId shelfId);
 }
