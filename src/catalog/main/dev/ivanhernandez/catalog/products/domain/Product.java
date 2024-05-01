@@ -1,7 +1,7 @@
-package dev.ivanhernandez.inventory.products.domain;
+package dev.ivanhernandez.catalog.products.domain;
 
-import dev.ivanhernandez.inventory.shared.domain.CategoryId;
-import dev.ivanhernandez.inventory.shared.domain.ProductId;
+import dev.ivanhernandez.catalog.shared.domain.CategoryId;
+import dev.ivanhernandez.catalog.shared.domain.ProductId;
 import dev.ivanhernandez.shared.domain.AggregateRoot;
 import dev.ivanhernandez.shared.domain.product.ProductCreatedDomainEvent;
 import dev.ivanhernandez.shared.domain.product.ProductDeletedDomainEvent;
@@ -42,27 +42,15 @@ public final class Product extends AggregateRoot {
 	}
 
 	public static Product create(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductWeight weight, ProductColor color, ProductMaterial material, CategoryId categoryId) {
-		Product product = new Product(id, name, description, price, weight, color, material, categoryId);
-
-		product.record(new ProductCreatedDomainEvent(id.value(), name.value(), price.value(), description.value(), weight.value(), color.value(), material.value(), categoryId.value()));
-
-		return product;
+		return new Product(id, name, description, price, weight, color, material, categoryId);
 	}
 
 	public static Product update(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductWeight weight, ProductColor color, ProductMaterial material, CategoryId categoryId) {
-		Product product = new Product(id, name, description, price, weight, color, material, categoryId);
-
-		product.record(new ProductUpdatedDomainEvent(id.value(), name.value(), price.value(), description.value(), weight.value(), color.value(), material.value(), categoryId.value()));
-
-		return product;
+		return new Product(id, name, description, price, weight, color, material, categoryId);
 	}
 
 	public static Product delete(ProductId id) {
-		Product product = new Product();
-
-		product.record(new ProductDeletedDomainEvent(id.value()));
-
-		return product;
+		return new Product(id, null, null, null, null, null, null, null);
 	}
 
 	public ProductId id() {

@@ -24,7 +24,7 @@ final class ProductDeleteCommandHandlerShould extends ProductsModuleUnitTestCase
 		super.setUp();
 
 		finder = Mockito.mock(ProductFinder.class);
-		handler = new ProductDeleteCommandHandler(new ProductDeleter(repository, finder));
+		handler = new ProductDeleteCommandHandler(new ProductDeleter(repository, eventBus, finder));
 	}
 
 	@Test

@@ -1,11 +1,11 @@
-package dev.ivanhernandez.inventory.products.application.update;
+package dev.ivanhernandez.catalog.products.application.update;
 
-import dev.ivanhernandez.inventory.category.application.find.CategoryFinder;
-import dev.ivanhernandez.inventory.products.application.ProductResponse;
-import dev.ivanhernandez.inventory.products.application.find.ProductFinder;
-import dev.ivanhernandez.inventory.products.domain.*;
-import dev.ivanhernandez.inventory.shared.domain.CategoryId;
-import dev.ivanhernandez.inventory.shared.domain.ProductId;
+import dev.ivanhernandez.catalog.category.application.find.CategoryFinder;
+import dev.ivanhernandez.catalog.products.application.ProductResponse;
+import dev.ivanhernandez.catalog.products.application.find.ProductFinder;
+import dev.ivanhernandez.catalog.products.domain.*;
+import dev.ivanhernandez.catalog.shared.domain.CategoryId;
+import dev.ivanhernandez.catalog.shared.domain.ProductId;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.domain.bus.event.EventBus;
 
@@ -33,7 +33,5 @@ public final class ProductUpdater {
 		Product product = Product.update(id, name, description, price, weight, color, material, categoryId);
 
 		repository.update(product);
-
-		eventBus.publish(product.pullDomainEvents());
 	}
 }

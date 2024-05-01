@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
 
-public final class ProductCreatedDomainEvent extends DomainEvent {
+public final class ProductUpdatedDomainEvent extends DomainEvent {
 	private final String name;
 	private final String price;
 	private final String description;
@@ -15,7 +15,7 @@ public final class ProductCreatedDomainEvent extends DomainEvent {
 	private final String material;
 	private final String categoryId;
 
-	public ProductCreatedDomainEvent() {
+	public ProductUpdatedDomainEvent() {
 		super(null);
 
 		this.name = null;
@@ -27,7 +27,7 @@ public final class ProductCreatedDomainEvent extends DomainEvent {
 		this.categoryId = null;
 	}
 
-	public ProductCreatedDomainEvent(String aggregateId, String eventId, String occurredOn, String name, String price, String description, double weight, String color, String material, String categoryId) {
+	public ProductUpdatedDomainEvent(String aggregateId, String eventId, String occurredOn, String name, String price, String description, double weight, String color, String material, String categoryId) {
 		super(aggregateId, eventId, occurredOn);
 		this.name = name;
 		this.price = price;
@@ -38,7 +38,7 @@ public final class ProductCreatedDomainEvent extends DomainEvent {
 		this.categoryId = categoryId;
 	}
 
-	public ProductCreatedDomainEvent(String aggregateId, String name, String price, String description, double weight, String color, String material, String categoryId) {
+	public ProductUpdatedDomainEvent(String aggregateId, String name, String price, String description, double weight, String color, String material, String categoryId) {
 		super(aggregateId);
 		this.name = name;
 		this.price = price;
@@ -51,7 +51,7 @@ public final class ProductCreatedDomainEvent extends DomainEvent {
 
 	@Override
 	public String eventName() {
-		return "product.created";
+		return "product.updated";
 	}
 
 	@Override
@@ -68,8 +68,8 @@ public final class ProductCreatedDomainEvent extends DomainEvent {
 	}
 
 	@Override
-	public ProductCreatedDomainEvent fromPrimitives(String aggregateId, HashMap<String, Serializable> body, String eventId, String occurredOn) {
-		return new ProductCreatedDomainEvent(
+	public ProductUpdatedDomainEvent fromPrimitives(String aggregateId, HashMap<String, Serializable> body, String eventId, String occurredOn) {
+		return new ProductUpdatedDomainEvent(
 			aggregateId,
 			eventId,
 			occurredOn,
@@ -87,7 +87,7 @@ public final class ProductCreatedDomainEvent extends DomainEvent {
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || this.getClass() != o.getClass()) return false;
-		ProductCreatedDomainEvent that = (ProductCreatedDomainEvent) o;
+		ProductUpdatedDomainEvent that = (ProductUpdatedDomainEvent) o;
 		return Double.compare(this.weight, that.weight) == 0 && Objects.equals(this.name, that.name) && Objects.equals(this.price, that.price) && Objects.equals(this.description, that.description) && Objects.equals(this.color, that.color) && Objects.equals(this.material, that.material) && Objects.equals(this.categoryId, that.categoryId);
 	}
 
@@ -97,7 +97,7 @@ public final class ProductCreatedDomainEvent extends DomainEvent {
 	}
 
 	public String name() {
-		return name;
+		return this.name;
 	}
 
 	public String price() {
