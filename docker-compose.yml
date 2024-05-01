@@ -2,7 +2,7 @@ version: '3'
 
 services:
   shared_mysql:
-    container_name: ivanhernandez-java_ddd_example-mysql
+    container_name: ivanhernandez-ferreteria_hernandez-mysql
     image: mysql:8
     platform: linux/amd64
     ports:
@@ -18,7 +18,7 @@ services:
     command: [ "--default-authentication-plugin=mysql_native_password" ]
 
   shared_rabbitmq:
-    container_name: ivanhernandez-java_ddd_example-rabbitmq
+    container_name: ivanhernandez-ferreteria_hernandez-rabbitmq
     image: 'rabbitmq:3.7-management'
     platform: linux/amd64
     restart: unless-stopped
@@ -30,7 +30,7 @@ services:
       - RABBITMQ_DEFAULT_PASS=iV4nH3rn4Nd3Z
 
   inventory_backend_server_java:
-    container_name: ivanhernandez-java_ddd_example-inventory_backend_server
+    container_name: ivanhernandez-ferreteria_hernandez-inventory_backend_server
     build:
       context: .
       dockerfile: Dockerfile
@@ -46,7 +46,7 @@ services:
     command: [ "./gradlew", "bootRun", "--args", "inventory_backend server" ]
 
   catalog_backend_server_java:
-    container_name: ivanhernandez-java_ddd_example-catalog_backend_server
+    container_name: ivanhernandez-ferreteria_hernandez-catalog_backend_server
     build:
       context: .
       dockerfile: Dockerfile
@@ -62,7 +62,7 @@ services:
     command: [ "./gradlew", "bootRun", "--args", "catalog_backend server" ]
 
   test_server_java:
-    container_name: ivanhernandez-java_ddd_example-test_server
+    container_name: ivanhernandez-ferreteria_hernandez-test_server
     build:
       context: .
       dockerfile: Dockerfile

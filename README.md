@@ -6,7 +6,7 @@
 > ⚡ Start your Java projects as fast as possible
 
 [![CodelyTV](https://img.shields.io/badge/codely-tv-green.svg?style=flat-square)](https://codely.tv)
-[![CI pipeline status](https://github.com/CodelyTV/java-ddd-example/workflows/CI/badge.svg)](https://github.com/CodelyTV/java-ddd-example/actions)
+[![CI pipeline status](https://github.com/CodelyTV/ferreteria-hernandez/workflows/CI/badge.svg)](https://github.com/CodelyTV/ferreteria-hernandez/actions)
 
 ## ℹ️ Introduction
 
@@ -22,7 +22,7 @@ Spanish)
 1. Install Java 11: `brew cask install corretto`
 2. Set it as your default
    JVM: `export JAVA_HOME='/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home'`
-3. Clone this repository: `git clone https://github.com/CodelyTV/java-ddd-example`.
+3. Clone this repository: `git clone https://github.com/CodelyTV/ferreteria-hernandez`.
 4. Bring up the Docker environment: `make up`.
 5. Execute some [Gradle lifecycle tasks](https://docs.gradle.org/current/userguide/java_plugin.html#lifecycle_tasks) in
    order to check everything is OK:
@@ -43,7 +43,7 @@ Gradle ([releases](https://gradle.org/releases/)): `./gradlew wrapper --gradle-v
 * 📂 [Java Basic example](https://github.com/CodelyTV/java-basic-example)
 * ⚛ [Java OOP Examples](https://github.com/CodelyTV/java-oop-examples)
 * 🧱 [Java SOLID Examples](https://github.com/CodelyTV/java-solid-examples)
-* 🥦 [Java DDD Example](https://github.com/CodelyTV/java-ddd-example)
+* 🥦 [Java DDD Example](https://github.com/CodelyTV/ferreteria-hernandez)
 
 ### 🐘 PHP
 
