@@ -14,3 +14,6 @@ project(':mooc').projectDir = new File('src/mooc')
 
 include ':inventory'
 project(':inventory').projectDir = new File('src/inventory')
+
+include ':catalog'
+project(':catalog').projectDir = new File('src/catalog')

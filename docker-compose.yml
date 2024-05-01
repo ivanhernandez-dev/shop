@@ -12,7 +12,7 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     entrypoint:
       sh -c "
-      echo 'CREATE DATABASE IF NOT EXISTS mooc;CREATE DATABASE IF NOT EXISTS backoffice;CREATE DATABASE IF NOT EXISTS inventory;' > /docker-entrypoint-initdb.d/init.sql;
+      echo 'CREATE DATABASE IF NOT EXISTS mooc;CREATE DATABASE IF NOT EXISTS backoffice;CREATE DATABASE IF NOT EXISTS inventory; CREATE DATABASE IF NOT EXISTS catalog;' > /docker-entrypoint-initdb.d/init.sql
       /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
       "
     command: [ "--default-authentication-plugin=mysql_native_password" ]
@@ -98,7 +98,7 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - "8020:8020"
     volumes:
       - .:/app:delegated
       - inventory_backend_gradle_cache:/app/.gradle
@@ -107,6 +107,23 @@ services:
       - shared_rabbitmq
       - backoffice_elasticsearch
     command: [ "./gradlew", "bootRun", "--args", "inventory_backend server" ]
+
+  catalog_backend_server_java:
+    container_name: ivanhernandez-java_ddd_example-catalog_backend_server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8010:8010"
+    volumes:
+      - .:/app:delegated
+      - catalog_backend_gradle_cache:/app/.gradle
+    depends_on:
+      - shared_mysql
+      - shared_rabbitmq
+      - backoffice_elasticsearch
+    command: [ "./gradlew", "bootRun", "--args", "catalog_backend server" ]
 
   test_server_java:
     container_name: ivanhernandez-java_ddd_example-test_server
@@ -121,6 +138,8 @@ services:
       - shared_mysql
       - shared_rabbitmq
       - backoffice_elasticsearch
+      - inventory_backend_server_java
+      - catalog_backend_server_java
     tty: true
 
 volumes:
@@ -129,3 +148,4 @@ volumes:
   mooc_backend_gradle_cache:
   test_gradle_cache:
   inventory_backend_gradle_cache:
+  catalog_backend_gradle_cache:

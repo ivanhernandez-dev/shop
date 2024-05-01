@@ -2,6 +2,7 @@ package dev.ivanhernandez.apps;
 
 import dev.ivanhernandez.apps.backoffice.backend.BackofficeBackendApplication;
 import dev.ivanhernandez.apps.backoffice.frontend.BackofficeFrontendApplication;
+import dev.ivanhernandez.apps.catalog.backend.CatalogBackendApplication;
 import dev.ivanhernandez.apps.inventory.backend.InventoryBackendApplication;
 import dev.ivanhernandez.apps.mooc.backend.MoocBackendApplication;
 import dev.ivanhernandez.shared.infrastructure.cli.ConsoleCommand;
@@ -75,6 +76,7 @@ public class Starter {
 		applications.put("backoffice_backend", BackofficeBackendApplication.class);
 		applications.put("backoffice_frontend", BackofficeFrontendApplication.class);
 		applications.put("inventory_backend", InventoryBackendApplication.class);
+		applications.put("catalog_backend", CatalogBackendApplication.class);
 
 		return applications;
 	}
@@ -86,6 +88,7 @@ public class Starter {
 		commands.put("backoffice_backend", BackofficeBackendApplication.commands());
 		commands.put("backoffice_frontend", BackofficeFrontendApplication.commands());
 		commands.put("inventory_backend", InventoryBackendApplication.commands());
+		commands.put("catalog_backend", CatalogBackendApplication.commands());
 
 		return commands;
 	}

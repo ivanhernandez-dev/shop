@@ -166,6 +166,7 @@ dependencies {
     implementation project(":backoffice")
     implementation project(":mooc")
     implementation project(":inventory")
+    implementation project(":catalog")
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.5'
     testImplementation project(":shared").sourceSets.test.output
