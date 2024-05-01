@@ -12,7 +12,7 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     entrypoint:
       sh -c "
-      echo 'CREATE DATABASE IF NOT EXISTS mooc;CREATE DATABASE IF NOT EXISTS backoffice;CREATE DATABASE IF NOT EXISTS inventory; CREATE DATABASE IF NOT EXISTS catalog;' > /docker-entrypoint-initdb.d/init.sql;
+      echo 'CREATE DATABASE IF NOT EXISTS inventory; CREATE DATABASE IF NOT EXISTS catalog;' > /docker-entrypoint-initdb.d/init.sql;
       /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
       "
     command: [ "--default-authentication-plugin=mysql_native_password" ]
@@ -29,68 +29,6 @@ services:
       - RABBITMQ_DEFAULT_USER=ivanhernandez
       - RABBITMQ_DEFAULT_PASS=iV4nH3rn4Nd3Z
 
-  backoffice_elasticsearch:
-    container_name: ivanhernandez-java_ddd_example-elasticsearch
-    image: 'elasticsearch:6.8.4'
-    platform: linux/amd64
-    restart: unless-stopped
-    ports:
-      - "9300:9300"
-      - "9200:9200"
-    environment:
-      - discovery.type=single-node
-
-  backoffice_backend_server_java:
-    container_name: ivanhernandez-java_ddd_example-backoffice_backend_server
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    ports:
-      - "8040:8040"
-    volumes:
-      - .:/app:delegated
-      - backoffice_backend_gradle_cache:/app/.gradle
-    depends_on:
-      - shared_mysql
-      - shared_rabbitmq
-      - backoffice_elasticsearch
-    command: [ "./gradlew", "bootRun", "--args", "backoffice_backend server" ]
-
-  backoffice_frontend_server_java:
-    container_name: ivanhernandez-java_ddd_example-backoffice_frontend_server
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    ports:
-      - "8041:8041"
-    volumes:
-      - .:/app:delegated
-      - backoffice_frontend_gradle_cache:/app/.gradle
-    depends_on:
-      - shared_mysql
-      - shared_rabbitmq
-      - backoffice_elasticsearch
-    command: [ "./gradlew", "bootRun", "--args", "backoffice_frontend server" ]
-
-  mooc_backend_server_java:
-    container_name: ivanhernandez-java_ddd_example-mooc_backend_server
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    ports:
-      - "8030:8030"
-    volumes:
-      - .:/app:delegated
-      - mooc_backend_gradle_cache:/app/.gradle
-    depends_on:
-      - shared_mysql
-      - shared_rabbitmq
-      - backoffice_elasticsearch
-    command: [ "./gradlew", "bootRun", "--args", "mooc_backend server" ]
-
   inventory_backend_server_java:
     container_name: ivanhernandez-java_ddd_example-inventory_backend_server
     build:
@@ -105,7 +43,6 @@ services:
     depends_on:
       - shared_mysql
       - shared_rabbitmq
-      - backoffice_elasticsearch
     command: [ "./gradlew", "bootRun", "--args", "inventory_backend server" ]
 
   catalog_backend_server_java:
@@ -122,7 +59,6 @@ services:
     depends_on:
       - shared_mysql
       - shared_rabbitmq
-      - backoffice_elasticsearch
     command: [ "./gradlew", "bootRun", "--args", "catalog_backend server" ]
 
   test_server_java:
@@ -137,15 +73,11 @@ services:
     depends_on:
       - shared_mysql
       - shared_rabbitmq
-      - backoffice_elasticsearch
       - inventory_backend_server_java
       - catalog_backend_server_java
     tty: true
 
 volumes:
-  backoffice_backend_gradle_cache:
-  backoffice_frontend_gradle_cache:
-  mooc_backend_gradle_cache:
   test_gradle_cache:
   inventory_backend_gradle_cache:
   catalog_backend_gradle_cache:

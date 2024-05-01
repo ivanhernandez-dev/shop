@@ -1,10 +1,7 @@
 package dev.ivanhernandez.apps;
 
-import dev.ivanhernandez.apps.backoffice.backend.BackofficeBackendApplication;
-import dev.ivanhernandez.apps.backoffice.frontend.BackofficeFrontendApplication;
 import dev.ivanhernandez.apps.catalog.backend.CatalogBackendApplication;
 import dev.ivanhernandez.apps.inventory.backend.InventoryBackendApplication;
-import dev.ivanhernandez.apps.mooc.backend.MoocBackendApplication;
 import dev.ivanhernandez.shared.infrastructure.cli.ConsoleCommand;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
@@ -72,9 +69,6 @@ public class Starter {
 	private static HashMap<String, Class<?>> applications() {
 		HashMap<String, Class<?>> applications = new HashMap<>();
 
-		applications.put("mooc_backend", MoocBackendApplication.class);
-		applications.put("backoffice_backend", BackofficeBackendApplication.class);
-		applications.put("backoffice_frontend", BackofficeFrontendApplication.class);
 		applications.put("inventory_backend", InventoryBackendApplication.class);
 		applications.put("catalog_backend", CatalogBackendApplication.class);
 
@@ -84,9 +78,6 @@ public class Starter {
 	private static HashMap<String, HashMap<String, Class<?>>> commands() {
 		HashMap<String, HashMap<String, Class<?>>> commands = new HashMap<>();
 
-		commands.put("mooc_backend", MoocBackendApplication.commands());
-		commands.put("backoffice_backend", BackofficeBackendApplication.commands());
-		commands.put("backoffice_frontend", BackofficeFrontendApplication.commands());
 		commands.put("inventory_backend", InventoryBackendApplication.commands());
 		commands.put("catalog_backend", CatalogBackendApplication.commands());
 

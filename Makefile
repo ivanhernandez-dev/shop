@@ -23,10 +23,3 @@ run:
 
 ping-mysql:
 	@docker exec ivanhernandez-java_ddd_example-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
-
-# Start the app
-start-mooc_backend:
-	@./gradlew bootRun --args='mooc_backend server'
-
-start-backoffice_frontend:
-	@./gradlew bootRun --args='backoffice_frontend server'

@@ -12,7 +12,7 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     entrypoint:
       sh -c "
-      echo 'CREATE DATABASE IF NOT EXISTS mooc;CREATE DATABASE IF NOT EXISTS backoffice;' > /docker-entrypoint-initdb.d/init.sql;
+      echo 'CREATE DATABASE IF NOT EXISTS catalog;CREATE DATABASE IF NOT EXISTS inventory;' > /docker-entrypoint-initdb.d/init.sql;
       /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
       "
     command: [ "--default-authentication-plugin=mysql_native_password" ]
@@ -29,17 +29,6 @@ services:
       - RABBITMQ_DEFAULT_USER=ivanhernandez
       - RABBITMQ_DEFAULT_PASS=iV4nH3rn4Nd3Z
 
-  backoffice_elasticsearch:
-    container_name: ivanhernandez-java_ddd_example-elasticsearch
-    image: 'elasticsearch:6.8.4'
-    platform: linux/amd64
-    restart: unless-stopped
-    ports:
-      - "9300:9300"
-      - "9200:9200"
-    environment:
-      - discovery.type=single-node
-
   test_server_java:
     container_name: ivanhernandez-java_ddd_example-test_server
     build:
@@ -51,5 +40,4 @@ services:
     depends_on:
       - shared_mysql
       - shared_rabbitmq
-      - backoffice_elasticsearch
     tty: true

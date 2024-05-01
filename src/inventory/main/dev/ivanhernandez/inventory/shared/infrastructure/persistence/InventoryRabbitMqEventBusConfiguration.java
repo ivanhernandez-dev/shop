@@ -21,7 +21,7 @@ public class InventoryRabbitMqEventBusConfiguration {
 	}
 
 	@Bean
-	public RabbitMqEventBus moocRabbitMqEventBus() {
+	public RabbitMqEventBus inventoryRabbitMqEventBus() {
 		return new RabbitMqEventBus(publisher, failoverPublisher);
 	}
 }

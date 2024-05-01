@@ -163,8 +163,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:3.1.5'
 
     implementation project(":shared")
-    implementation project(":backoffice")
-    implementation project(":mooc")
     implementation project(":inventory")
     implementation project(":catalog")
 

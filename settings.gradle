@@ -6,12 +6,6 @@ project(':shared').projectDir = new File('src/shared')
 include ':analytics'
 project(':analytics').projectDir = new File('src/analytics')
 
-include ':backoffice'
-project(':backoffice').projectDir = new File('src/backoffice')
-
-include ':mooc'
-project(':mooc').projectDir = new File('src/mooc')
-
 include ':inventory'
 project(':inventory').projectDir = new File('src/inventory')
 

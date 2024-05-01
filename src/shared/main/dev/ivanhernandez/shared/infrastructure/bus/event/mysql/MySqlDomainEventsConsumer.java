@@ -24,7 +24,7 @@ public class MySqlDomainEventsConsumer {
 	private Boolean shouldStop = false;
 
 	public MySqlDomainEventsConsumer(
-		@Qualifier("mooc-session_factory") SessionFactory sessionFactory,
+		@Qualifier("inventory-session_factory") SessionFactory sessionFactory,
 		DomainEventsInformation domainEventsInformation,
 		EventBus bus
 	) {
