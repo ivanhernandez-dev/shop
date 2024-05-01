@@ -84,3 +84,19 @@ CREATE TABLE IF NOT EXISTS stocks
 
 INSERT IGNORE INTO stocks (product_id, shelf_id, quantity)
 VALUES ('a7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 'f7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a', 10);
+
+CREATE TABLE IF NOT EXISTS subscriptions
+(
+    email      VARCHAR(255) NOT NULL,
+    product_id CHAR(36)     NOT NULL,
+    PRIMARY KEY (email, product_id),
+    FOREIGN KEY (product_id) REFERENCES products (id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+)
+    ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+INSERT IGNORE INTO subscriptions (email, product_id)
+VALUES ('me@ivanhernandez.dev', 'a7b5d52f-5f3b-4b6e-9d3b-3f6a6b6f1f1a');

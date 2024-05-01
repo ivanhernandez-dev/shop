@@ -5,6 +5,7 @@ import dev.ivanhernandez.inventory.category.application.CategoryResponse;
 import dev.ivanhernandez.inventory.category.application.find.CategoryFinder;
 import dev.ivanhernandez.inventory.category.domain.*;
 import dev.ivanhernandez.inventory.shared.domain.CategoryIdMother;
+import dev.ivanhernandez.shared.domain.category.CategoryCreatedDomainEvent;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;

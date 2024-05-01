@@ -1,5 +1,7 @@
 package dev.ivanhernandez.apps.inventory.backend;
 
+import dev.ivanhernandez.apps.inventory.backend.command.ConsumeMySqlDomainEventsCommand;
+import dev.ivanhernandez.apps.inventory.backend.command.ConsumeRabbitMqDomainEventsCommand;
 import dev.ivanhernandez.shared.domain.Component;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
@@ -17,6 +19,8 @@ public class InventoryBackendApplication {
 	public static HashMap<String, Class<?>> commands() {
 		return new HashMap<String, Class<?>>() {
 			{
+				put("domain-events:mysql:consume", ConsumeMySqlDomainEventsCommand.class);
+				put("domain-events:rabbitmq:consume", ConsumeRabbitMqDomainEventsCommand.class);
 			}
 		};
 	}

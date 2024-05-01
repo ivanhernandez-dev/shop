@@ -1,8 +1,7 @@
-package dev.ivanhernandez.inventory.category.domain;
+package dev.ivanhernandez.catalog.category.domain;
 
-import dev.ivanhernandez.inventory.shared.domain.CategoryId;
+import dev.ivanhernandez.catalog.shared.domain.CategoryId;
 import dev.ivanhernandez.shared.domain.AggregateRoot;
-import dev.ivanhernandez.shared.domain.category.CategoryCreatedDomainEvent;
 
 import java.util.Objects;
 
@@ -21,9 +20,7 @@ public final class Category extends AggregateRoot {
 	}
 
 	public static Category create(CategoryId id, CategoryName name) {
-		Category category = new Category(id, name);
-		category.record(new CategoryCreatedDomainEvent(id.value(), name.value()));
-		return category;
+		return new Category(id, name);
 	}
 
 	public CategoryId id() {

@@ -1,20 +1,19 @@
-package dev.ivanhernandez.inventory.category.application.create;
+package dev.ivanhernandez.catalog.category.application.create;
 
-import dev.ivanhernandez.inventory.category.application.find.CategoryFinder;
-import dev.ivanhernandez.inventory.category.domain.*;
-import dev.ivanhernandez.inventory.shared.domain.CategoryId;
+import dev.ivanhernandez.catalog.category.domain.CategoryRepository;
+import dev.ivanhernandez.catalog.category.application.find.CategoryFinder;
+import dev.ivanhernandez.catalog.category.domain.*;
+import dev.ivanhernandez.catalog.shared.domain.CategoryId;
 import dev.ivanhernandez.shared.domain.Component;
 import dev.ivanhernandez.shared.domain.bus.event.EventBus;
 
 @Component
 public class CategoryCreator {
 	private final CategoryRepository repository;
-	private final EventBus eventBus;
 	private final CategoryFinder finder;
 
-	public CategoryCreator(CategoryRepository repository, EventBus eventBus, CategoryFinder finder) {
+	public CategoryCreator(CategoryRepository repository, CategoryFinder finder) {
 		this.repository = repository;
-		this.eventBus = eventBus;
 		this.finder = finder;
 	}
 
@@ -26,8 +25,6 @@ public class CategoryCreator {
 			Category category = Category.create(id, name);
 
 			repository.save(category);
-			eventBus.publish(category.pullDomainEvents());
-			System.out.println("Domain event published");
 		}
 	}
 }

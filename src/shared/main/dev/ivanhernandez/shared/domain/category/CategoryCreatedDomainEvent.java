@@ -1,4 +1,4 @@
-package dev.ivanhernandez.inventory.category.domain;
+package dev.ivanhernandez.shared.domain.category;
 
 import dev.ivanhernandez.shared.domain.bus.event.DomainEvent;
 
@@ -6,28 +6,29 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class CategoryCreatedDomainEvent extends DomainEvent {
-	private final String id;
+public final class CategoryCreatedDomainEvent extends DomainEvent {
 	private final String name;
 
 	public CategoryCreatedDomainEvent() {
 		super(null);
 
-		this.id = null;
 		this.name = null;
 	}
 
-	public CategoryCreatedDomainEvent(String id, String name) {
-		super(id);
+	public CategoryCreatedDomainEvent(String aggregateId, String name) {
+		super(aggregateId);
 
-		this.id = id;
 		this.name = name;
 	}
 
-	public CategoryCreatedDomainEvent(String id, String eventId, String occurredOn, String name) {
-		super(id, eventId, occurredOn);
+	public CategoryCreatedDomainEvent(
+		String aggregateId,
+		String eventId,
+		String occurredOn,
+		String name
+	) {
+		super(aggregateId, eventId, occurredOn);
 
-		this.id = id;
 		this.name = name;
 	}
 
@@ -39,14 +40,27 @@ public class CategoryCreatedDomainEvent extends DomainEvent {
 	@Override
 	public HashMap<String, Serializable> toPrimitives() {
 		return new HashMap<String, Serializable>() {{
-			put("id", id);
 			put("name", name);
 		}};
 	}
 
 	@Override
-	public DomainEvent fromPrimitives(String aggregateId, HashMap<String, Serializable> body, String eventId, String occurredOn) {
-		return new CategoryCreatedDomainEvent(aggregateId, eventId, occurredOn, (String) body.get("name"));
+	public CategoryCreatedDomainEvent fromPrimitives(
+		String aggregateId,
+		HashMap<String, Serializable> body,
+		String eventId,
+		String occurredOn
+	) {
+		return new CategoryCreatedDomainEvent(
+			aggregateId,
+			eventId,
+			occurredOn,
+			(String) body.get("name")
+		);
+	}
+
+	public String name() {
+		return name;
 	}
 
 	@Override
@@ -54,11 +68,11 @@ public class CategoryCreatedDomainEvent extends DomainEvent {
 		if (this == o) return true;
 		if (o == null || this.getClass() != o.getClass()) return false;
 		CategoryCreatedDomainEvent that = (CategoryCreatedDomainEvent) o;
-		return Objects.equals(this.id, that.id) && Objects.equals(this.name, that.name);
+		return Objects.equals(this.name, that.name);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(this.id, this.name);
+		return Objects.hashCode(this.name);
 	}
 }
