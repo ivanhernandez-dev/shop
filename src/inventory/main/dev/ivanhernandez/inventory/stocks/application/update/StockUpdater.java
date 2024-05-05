@@ -10,16 +10,19 @@ import dev.ivanhernandez.inventory.stocks.domain.StockNotExist;
 import dev.ivanhernandez.inventory.stocks.domain.StockQuantity;
 import dev.ivanhernandez.inventory.stocks.domain.StockRepository;
 import dev.ivanhernandez.shared.domain.Component;
+import dev.ivanhernandez.shared.domain.bus.event.EventBus;
 
 @Component
 public final class StockUpdater {
 	private final StockRepository repository;
+	private final EventBus eventBus;
 	private final StockFinder finder;
 	private final StockDeleter deleter;
 	private final StockCreator creator;
 
-	public StockUpdater(StockRepository repository, StockFinder finder, StockDeleter deleter, StockCreator creator) {
+	public StockUpdater(StockRepository repository, EventBus eventBus, StockFinder finder, StockDeleter deleter, StockCreator creator) {
 		this.repository = repository;
+		this.eventBus = eventBus;
 		this.finder = finder;
 		this.deleter = deleter;
 		this.creator = creator;
@@ -37,8 +40,9 @@ public final class StockUpdater {
 		if (stockExists && quantity.value() == 0) {
 			deleter.delete(shelfId, productId);
 		} else if (stockExists) {
-			Stock stock = new Stock(shelfId, quantity, productId);
+			Stock stock = Stock.update(shelfId, quantity, productId);
 			repository.update(stock);
+			eventBus.publish(stock.pullDomainEvents());
 		} else if (quantity.value() != 0) {
 			creator.create(shelfId, quantity, productId);
 		}

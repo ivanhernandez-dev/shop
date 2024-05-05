@@ -11,16 +11,19 @@ import dev.ivanhernandez.inventory.stocks.domain.StockAlreadyExist;
 import dev.ivanhernandez.inventory.stocks.domain.StockQuantity;
 import dev.ivanhernandez.inventory.stocks.domain.StockRepository;
 import dev.ivanhernandez.shared.domain.Component;
+import dev.ivanhernandez.shared.domain.bus.event.EventBus;
 
 @Component
 public final class StockCreator {
 	private final StockRepository repository;
+	private final EventBus eventBus;
 	private final StockFinder finder;
 	private final ShelfFinder shelfFinder;
 	private final ProductFinder productFinder;
 
-	public StockCreator(StockRepository repository, StockFinder finder, ShelfFinder shelfFinder, ProductFinder productFinder) {
+	public StockCreator(StockRepository repository, EventBus eventBus, StockFinder finder, ShelfFinder shelfFinder, ProductFinder productFinder) {
 		this.repository = repository;
+		this.eventBus = eventBus;
 		this.finder = finder;
 		this.shelfFinder = shelfFinder;
 		this.productFinder = productFinder;
@@ -36,6 +39,7 @@ public final class StockCreator {
 
 			Stock stock = Stock.create(shelfId, quantity, productId);
 			repository.save(stock);
+			eventBus.publish(stock.pullDomainEvents());
 		}
 	}
 }

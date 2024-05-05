@@ -1,15 +1,11 @@
-package dev.ivanhernandez.inventory.stocks.domain;
+package dev.ivanhernandez.catalog.stocks.domain;
 
-import dev.ivanhernandez.inventory.shared.domain.ProductId;
-import dev.ivanhernandez.inventory.shared.domain.ShelfId;
-import dev.ivanhernandez.shared.domain.AggregateRoot;
-import dev.ivanhernandez.shared.domain.stock.StockCreatedDomainEvent;
-import dev.ivanhernandez.shared.domain.stock.StockDeletedDomainEvent;
-import dev.ivanhernandez.shared.domain.stock.StockUpdatedDomainEvent;
+import dev.ivanhernandez.catalog.shared.domain.ProductId;
+import dev.ivanhernandez.catalog.shared.domain.ShelfId;
 
 import java.util.Objects;
 
-public final class Stock extends AggregateRoot {
+public final class Stock {
 	private final ShelfId shelfId;
 	private final StockQuantity quantity;
 	private final ProductId productId;
@@ -30,24 +26,7 @@ public final class Stock extends AggregateRoot {
 		if (quantity.value() < 0) {
 			throw new IllegalArgumentException("The quantity must be greater than 0");
 		}
-		Stock stock = new Stock(shelfId, quantity, productId);
-		stock.record(new StockCreatedDomainEvent(productId.value(), productId.value(), shelfId.value(), quantity.value()));
-		return stock;
-	}
-
-	public static Stock update(ShelfId shelfId, StockQuantity quantity, ProductId productId) {
-		if (quantity.value() < 0) {
-			throw new IllegalArgumentException("The quantity must be greater than 0");
-		}
-		Stock stock = new Stock(shelfId, quantity, productId);
-		stock.record(new StockUpdatedDomainEvent(productId.value(), productId.value(), shelfId.value(), quantity.value()));
-		return stock;
-	}
-
-	public static Stock delete(ShelfId shelfId, ProductId productId) {
-		Stock stock = new Stock(shelfId, null, productId);
-		stock.record(new StockDeletedDomainEvent(productId.value(), productId.value(), shelfId.value()));
-		return stock;
+		return new Stock(shelfId, quantity, productId);
 	}
 
 	public ShelfId shelfId() {

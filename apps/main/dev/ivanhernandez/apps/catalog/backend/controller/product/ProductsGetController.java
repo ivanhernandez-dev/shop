@@ -39,6 +39,7 @@ public class ProductsGetController extends ApiController {
 						put("color", response.color());
 						put("material", response.material());
 						put("category_id", response.categoryId());
+						put("is_there_stock", response.isThereStock().toString());
 					}
 				}
 			)
